@@ -1,0 +1,8 @@
+<button id="backButton" data-bind="enable: showBack, click: showBack() ? backClick : null">
+	<div data-bind="html: backImage"></div>
+	<span data-bind="text: settings.backText"></span>
+</button>
+<button id="nextButton" data-bind="enable: showNext, click: showNext() ? nextClick : null">
+	<div data-bind="html: nextImage"></div>
+	<span data-bind="text: settings.nextText"></span>
+</button>

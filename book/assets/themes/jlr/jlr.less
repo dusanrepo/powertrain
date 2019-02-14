@@ -1,0 +1,172 @@
+@import "rules.less";
+@import "mixins.less";
+
+body{
+	font-family: @mainFontFamily;
+	margin:0;
+}
+
+button {
+	cursor: pointer;
+	outline: 0;
+	border: 0;
+}
+
+a {
+	color: @secondaryColor;
+	font-weight: bold;
+}
+
+.inverted a {
+	color: @darkerShade;
+}
+
+input,
+textarea {
+	background-color:transparent;
+	border:0;
+	outline:0;
+	font-family: @mainFontFamily;
+	font-size: @contentview_FontSize;
+}
+
+.rollover {
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+}
+
+.animFadeIn {
+	-webkit-animation: keysFadeIn 0.5s ease-out forwards;
+    -moz-animation: keysFadeIn 0.5s ease-out forwards;
+    animation: keysFadeIn 0.5s ease-out forwards;
+}
+
+.animFadeOut {
+	-webkit-animation: keysFadeOut 0.5s ease-out forwards;
+    -moz-animation: keysFadeOut 0.5s ease-out forwards;
+    animation: keysFadeOut 0.5s ease-out forwards;
+}
+
+/* fonts */
+@font-face {
+	font-family: 'JLREmeric-SemiBold';
+  src: url('assets/fonts/JLREmeric-SemiBold.eot');
+  src: url('assets/fonts/JLREmeric-SemiBold.eot#iefix') format('embedded-opentype'),
+  url('assets/fonts/JLREmeric-SemiBold.woff2') format('woff2'),
+  url('assets/fonts/JLREmeric-SemiBold.woff') format('woff'),
+  url('assets/fonts/JLREmeric-SemiBold.ttf') format('truetype'),
+  url('assets/fonts/JLREmeric-SemiBold.svg#JLREmeric-SemiBold') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'JLREmeric-ExtraLight';
+  src: url('assets/fonts/JLREmeric-ExtraLight.eot');
+  src: url('assets/fonts/JLREmeric-ExtraLight.eot#iefix') format('embedded-opentype'),
+  url('assets/fonts/JLREmeric-ExtraLight.woff2') format('woff2'),
+  url('assets/fonts/JLREmeric-ExtraLight.woff') format('woff'),
+  url('assets/fonts/JLREmeric-ExtraLight.ttf') format('truetype'),
+  url('assets/fonts/JLREmeric-ExtraLight.svg#JLREmeric-ExtraLight') format('svg');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir-Heavy';
+  src: url('assets/fonts/AvenirLTW01-85Heavy.eot');
+  src: url('assets/fonts/AvenirLTW01-85Heavy.eot#iefix') format('embedded-opentype'),
+  url('assets/fonts/AvenirLTW01-85Heavy.woff2') format('woff2'),
+  url('assets/fonts/AvenirLTW01-85Heavy.woff') format('woff'),
+  url('assets/fonts/AvenirLTW01-85Heavy.ttf') format('truetype'),
+  url('assets/fonts/AvenirLTW01-85Heavy.svg#AvenirLTW01-85Heavy') format('svg');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir-Roman';
+  src: url('assets/fonts/AvenirLTW01-55Roman.eot');
+  src: url('assets/fonts/AvenirLTW01-55Roman.eot#iefix') format('embedded-opentype'),
+  url('assets/fonts/AvenirLTW01-55Roman.woff2') format('woff2'),
+  url('assets/fonts/AvenirLTW01-55Roman.woff') format('woff'),
+  url('assets/fonts/AvenirLTW01-55Roman.ttf') format('truetype'),
+  url('assets/fonts/AvenirLTW01-55Roman.svg#AvenirLTW01-55Roman') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Avenir-Black';
+  src: url('assets/fonts/AvenirLTProBlack.eot');
+  src: url('assets/fonts/AvenirLTProBlack.eot#iefix') format('embedded-opentype'),
+  url('assets/fonts/AvenirLTProBlack.woff2') format('woff2'),
+  url('assets/fonts/AvenirLTProBlack.woff') format('woff'),
+  url('assets/fonts/AvenirLTProBlack.ttf') format('truetype'),
+  url('assets/fonts/AvenirLTProBlack.svg#AvenirLTProBlack') format('svg');
+	font-weight: 900;
+	font-style: normal;
+}
+
+
+@-webkit-keyframes keysFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-moz-keyframes keysFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-o-keyframes keysFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes keysFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes keysFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+@-moz-keyframes keysFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+@-o-keyframes keysFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+@keyframes keysFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0;}
+}
+
+
+.contentview h1 {
+  color: @contentview_HeadingColor;
+  font-size: @contentview_Heading1FontSize;
+  font-weight: 300;
+  text-align: left;
+  font-family: @secondaryFontFamily;
+}
+
+h1 span{
+  font-size: @contentview_Heading1FontSize - 15;
+}
+
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    margin: 13px @contentview_MarginMobile;
+  }
+}

@@ -1,0 +1,272 @@
+.contentview .video-player {
+    position: relative;
+    margin: 0% @contentview_Margin;
+    // max-width: 720px;
+    // min-width: 375px;
+    height: auto;
+    // background: @primaryShade;
+    font-size: 0;
+
+    .video-wrapper {
+        position: relative;
+        background: @primaryShade;
+        margin: 0 auto;
+
+        .video-message {
+          position: relative;
+          background-color: #a60027;
+          color: @darkerShade;
+          font-weight: bold;
+          font-size: @contentview_FontSize;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+          z-index: 1;
+        }
+    }
+
+    &.encapsulated {
+        margin: 0;
+    }
+}
+
+.contentview .video-player.fullscreen {
+    background:@videoplayer_InactiveOverlayColour;
+    margin:0;
+    max-width:none;
+    min-width:none;
+    width:100%;
+
+    .video-wrapper {
+        top: 50%;
+        transform: translateY(-50%);
+  }
+}
+
+.contentview .video-player video {
+  width:100%;
+}
+
+@videoTransportTransparent: 0%;
+@videoTransportOpacity: 100%;
+@bigPlayButtonWidth: 140px;
+@bigPlayButtonHeight: 93px;
+
+.contentview .video-player .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .video-player .controls-overlay {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  -webkit-transition: all @videoplayer_InactiveOverlayFadeTime linear;
+  -moz-transition: all @videoplayer_InactiveOverlayFadeTime linear;
+  transition: all @videoplayer_InactiveOverlayFadeTime linear;
+}
+
+.contentview .video-player.inactive .controls-overlay {
+  background:@videoplayer_InactiveOverlayColour;
+}
+
+.contentview .video-player .controls-overlay .play-button {
+  text-align:center;
+  width:@bigPlayButtonWidth;
+  height:@bigPlayButtonHeight;
+  top: 50%;
+  left: 50%;
+  margin-left: -@bigPlayButtonWidth/2;
+  margin-top: -@bigPlayButtonHeight/2;
+  position: absolute;
+  /*border-radius: 4px;*/
+  background-color: @videoplayer_ControlsHoverColour !important;
+}
+
+.contentview .video-player .controls-overlay .play-button,
+.contentview .video-player .controls-overlay .transport > button,
+.contentview .video-player .controls-overlay .transport > div {
+  background: fade(@videoplayer_ControlsBaseColour, @videoTransportTransparent);
+}
+
+.contentview .video-player .controls-overlay .transport > button {
+  position:absolute;
+  top:0;
+  width: 50px;
+  height: 100%;
+  background-color: @videoplayer_ControlsBaseColour;
+}
+
+.contentview .video-player .controls-overlay .transport > button:hover {
+  background-color: @videoplayer_ControlsHoverColour;
+}
+
+
+.contentview .video-player .controls-overlay .transport > button:first-child,
+.contentview .video-player .controls-overlay .transport > button:nth-child(2) {
+  left:0;
+  width: 60px !important;
+  // border-radius: 4px 0 0 4px;
+}
+
+.contentview .video-player .controls-overlay .transport > button:last-child {
+  right:0;
+  // border-radius: 0 4px 4px 0;
+}
+
+.contentview .video-player .controls-overlay .transport > button svg {
+  height:100%;
+}
+
+
+.contentview .video-player .controls-overlay .transport > div {
+  position:relative;
+  // margin: 0 56px;
+  margin-left: 56px;
+  height:100%;
+}
+
+.contentview .video-player .controls-overlay .transport > div button {
+  position:absolute;
+  background: @videoplayer_ControlsBaseColour;
+  width: 50px;
+  height: 100%
+}
+
+.contentview .video-player .controls-overlay .transport > div button:hover {
+  background: @videoplayer_ControlsHoverColour;
+}
+
+.contentview .video-player .controls-overlay .transport > div > span {
+  position:absolute;
+  font-size:18px;
+  font-family: @secondaryFontFamily;
+}
+
+.contentview .video-player .controls-overlay .transport > div .time-end {
+  right: 120px;
+  top: 8px;
+  text-align:right;
+  color: @darkerShade;
+  pointer-events: none;
+
+  &.mobile {
+    right: 70px;
+  }
+}
+
+.contentview .video-player .controls-overlay .transport > div .time-current {
+  left: 20px;
+  top: 8px;
+  text-align:left;
+  color: @darkerShade;
+}
+
+.contentview .video-player .controls-overlay .transport > div .seeker {
+  position: absolute;
+  left: 4px;
+  right: 100px;
+  bottom: 0px;
+  height: 40px;
+  /* outline: 1px solid @primaryShade;
+  background: @darkerShade; */
+  background-color: @videoplayer_SeekerBaseColour;
+  cursor:pointer;
+
+  &.mobile {
+    right: 50px;
+  }
+}
+
+.contentview .video-player .progress {
+  height: 100%;
+  width:0%;
+  background:@videoplayer_SeekerProgressColour;
+}
+
+.contentview .video-player .controls-overlay .transport > div .vol-button {
+  right: 50px;
+  bottom:0;
+}
+
+.contentview .video-player .vol-container {
+  position: absolute;
+  margin-bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 0;
+  opacity: 0;
+  overflow-y:hidden;
+  width:50px;
+  bottom:100%;
+  right: 50px;
+  cursor: pointer;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  border-top: 5px solid rgba(0, 0, 0, 0);
+}
+
+.contentview .video-player .vol-container.open {
+  height: 100px;
+  opacity:1;
+}
+
+.contentview .video-player .vol-container .track {
+  background:@darkerShade;
+  position:absolute;
+  width:4px;
+  margin-left:-2px;
+  height:90%;
+  top:5%;
+  left:50%;
+}
+
+.contentview .video-player .vol-container .slider {
+  position:absolute;
+  background:@primaryShade;
+  border-radius: 50%;
+  border: 2px solid @darkerShade;
+  height:10px;
+  width:10px;
+  left:50%;
+  margin-left:-@contentview_Margin + 1%;
+}
+
+.contentview .video-player .controls-overlay .transport > div .cc-button {
+  right:40px;
+  top:8px;
+}
+
+.contentview .video-player .controls-overlay .transport {
+  position: absolute;
+  bottom: 0px;
+  height: 40px;
+  left: 0px;
+  right: 0px;
+}
+
+@videoQuery: (720px + (@contentview_Margin*2));
+
+@media only screen and (min-width: @videoQuery) {
+  .contentview .video-player {
+    // margin:0 auto;
+  }
+}
+
+@media only screen and (max-width: @videoQuery) {
+.contentview .video-player .controls-overlay .play-button {
+    width:20%;
+    height:24%;
+    margin-left:-10%;
+    margin-top:-12%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .contentview .video-player {
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}

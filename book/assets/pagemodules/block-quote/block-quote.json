@@ -1,0 +1,15 @@
+{
+  "name": "Block Quote",
+  "description": "Used to display text with quotations.",
+  "author": "A. Kent",
+  "version": "0.0.1",
+  "timestamp": "2017-11-27T00:00:00",
+  "options": {},
+  "converters": [
+  	"two-column-block",
+  	"three-column-block",
+  	"tab",
+  	"accordion",
+  	"custom-html-block"
+  ]
+}

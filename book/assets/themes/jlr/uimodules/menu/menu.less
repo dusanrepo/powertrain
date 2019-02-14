@@ -1,0 +1,445 @@
+@import url(./../../rules.less);
+
+/* blur effect, Chrome + Firefox only */
+.blurred {
+    filter: blur(4px);
+    filter: url("../../assets/img/blur.svg#gaussian_blur");
+    -webkit-filter: blur(4px);
+/*	-moz-transition:  -moz-filter 1s @menu_DropTransition; //blur animation is unstable/slow on some browsers
+    transition: -webkit-filter 1s @menu_DropTransition;*/
+}
+
+.menu {
+	position:fixed;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index: 3;
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.menu.open {
+	pointer-events: auto;
+}
+
+.menu-overlay {
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+	opacity: 0;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.menu-overlay.open {
+	opacity: 1;
+}
+
+.menu-wrapper {
+	position: fixed;
+	background: @mediumShade;
+	top: 0px;
+	bottom:0;
+	display: none;
+	width:@menu_DesktopWidth;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+	transform: translate3d(0,0,0);
+}
+
+.menu-wrapper.left{
+	left:0;
+	margin-left:-@menu_DesktopWidth;
+	display: block;
+}
+
+.menu-wrapper.right {
+	right:0;
+	margin-right:-@menu_DesktopWidth;
+	display: block;
+}
+
+.menu-wrapper.top-left {
+	left:0;
+}
+
+.menu-wrapper.top-right {
+	right:0;
+}
+
+.menu-wrapper.top-right, .menu-wrapper.top-left {
+	bottom:100%!important;
+	overflow:hidden;
+}
+
+.menu-wrapper.open {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.menu-wrapper.top-right.open, .menu-wrapper.top-left.open {
+	bottom:0!important;
+}
+
+.menu-head {
+	/*background:url(../../assets/img/s2l-block-green.png) 90% 50% no-repeat;)*/
+	height:120px;
+}
+
+.menu-head span {
+	display:block;
+	color: @primaryShade;
+  text-transform: uppercase;
+	font-family: @secondaryFontFamily;
+	font-size: 24px;
+	font-weight:300;
+	padding: 35px 0 0 50px;
+	margin-top: 40px;
+}
+
+.menu-wrapper ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+/*	overflow:hidden; */
+}
+
+.menu-list-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+  left: 50px;
+  top: 120px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-list > li div[disabled] {
+	opacity: 0.5;
+}
+
+.menu-list > li div[disabled]:hover {
+  text-decoration:none!important;
+  cursor:default!important;
+}
+
+.menu-list > li.open div {
+	border-color: @menu_ChapterBG;
+}
+
+.menu-list > li ul {
+	max-height:0;
+	overflow:hidden;
+	-webkit-transition: max-height @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  max-height @menu_DropDownTime @menu_DropTransition;
+    transition: max-height @menu_DropDownTime @menu_DropTransition;
+}
+
+.menu-list > li div {
+	cursor: pointer;
+	position:relative;
+}
+
+.menu-list > li > ul li div  {
+	-webkit-transition: all @menu_RolloverTime @menu_RolloverTransition;
+	-moz-transition:  all @menu_RolloverTime @menu_RolloverTransition;
+   transition: all @menu_RolloverTime @menu_RolloverTransition;
+}
+/*
+.menu-list > li > ul li div:hover, .menu-list > li > ul li div.current {
+	padding-left:20px;
+}
+*/
+.menu-list > li > ul li div .item-icon,
+.menu-list > li > ul li div .selected-item-icon,
+.menu-list > li > ul li div .selected-item-icon.hover
+{
+  position:absolute;
+  -webkit-transition: opacity @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  opacity @menu_RolloverTime @menu_RolloverTransition;
+   transition: opacity @menu_RolloverTime @menu_RolloverTransition;
+}
+
+
+.menu-list > li > ul li div.item-icon
+{
+  left:-10px;
+  top:5px;
+}
+
+.menu-list > li > ul li div.unviewed .item-icon.incomplete
+{
+  background: @primaryShade;
+  height: 100%;
+  width: 2px;
+  left: -17px;
+  top: 0;
+  opacity: 1;
+}
+
+.menu-list > li > ul li div.viewed .item-icon
+{
+  left:-12px;
+  top:9px;
+}
+
+.menu-list > li > ul li div.viewed .item-icon.complete
+{
+  background: darken(@mediumShade, 30%);
+  height: 100%;
+  width: 2px;
+  left: -17px;
+  top: 0;
+  opacity: 0.5;
+}
+
+.menu-list > li > ul li div .selected-item-icon {
+  left:-18px;
+  top:4px;
+  opacity: 0;
+}
+
+.menu-list > li > ul li div.current.unviewed .item-icon,
+.menu-list > li > ul li div.current.viewed .item-icon
+{
+  opacity: 0;
+}
+
+.menu-list > li > ul li div .selected-item-icon,
+.menu-list > li > ul li div .selected-item-icon svg {
+  width:25px;
+  height:25px;
+}
+
+.menu-list > li > ul li div.current .selected-item-icon
+{
+  opacity: 1;
+}
+
+
+.menu-list > li > ul li div .selected-item-icon.hover
+{
+  background: @secondaryColor;
+  height: 100%;
+  width: 2px;
+  left: -17px;
+  top: 0;
+}
+
+.menu-list > li > ul li div.current .item-icon
+{
+  opacity: 0;
+}
+
+.menu-list > li > ul li div.viewed .item-icon svg {
+  width:15px;
+  height:15px;
+}
+
+
+
+.menu-list > li > ul li div .item-icon svg  {
+/*	-webkit-transition: all @menu_RolloverTime @menu_RolloverTransition;
+	-moz-transition:  all @menu_RolloverTime @menu_RolloverTransition;
+  transition: all @menu_RolloverTime @menu_RolloverTransition;*/
+}
+
+.menu-list > li > ul li div svg .ripple-circle {
+	stroke: @primaryShade;
+}
+
+/*
+.menu-list > li > ul li div.current span:nth-child(2) svg{
+	opacity: 1;
+}
+*/
+
+.menu-list > li > div {
+	background: @menu_ChapterBG;
+	font-size:17px;
+	color:@menu_ChapterTextColour;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding:10px 10px 10px 25px;
+	border-bottom: 0px solid @menu_ChapterBorderColour;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+    transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.menu-list > li > div > span:nth-child(2) {
+	position:absolute;
+	right:3px;
+	top:5px;
+	opacity: 0;
+	-webkit-transition: opacity @menu_DropDownTime @menu_DropTransition;
+	-moz-transition: opacity @menu_DropDownTime @menu_DropTransition;
+    transition: opacity @menu_DropDownTime @menu_DropTransition;
+}
+
+.menu-list > li.open > div.current > span:nth-child(2) {
+/* opacity: 0;*/
+}
+
+
+.menu-list > li > div > span:nth-child(2) svg .ripple-circle {
+	stroke:#ccc;
+  -webkit-transition: stroke @menu_DropDownTime @menu_DropTransition;
+  -moz-transition: stroke @menu_DropDownTime @menu_DropTransition;
+    transition: stroke @menu_DropDownTime @menu_DropTransition;
+}
+
+.menu-list > li > div:hover > span:nth-child(2) svg .ripple-circle {
+  stroke:#fff;
+}
+
+.menu-list > li > div.current > span:nth-child(2) {
+	/*opacity: 1;*/
+}
+
+.menu-list > li > div:hover {
+	background: @menu_ChapterBG;
+	border-color: @menu_ChapterBG - #111 !important;
+}
+
+.menu-list > li.open > div, .menu-list > li > div:hover  {
+	/*color: @mediumShade;*/
+	text-decoration: underline;
+}
+
+.menu-list > li > ul {
+	background: @menu_SectionBG;
+}
+
+.menu-list > li > ul  li  {
+	padding-left:23px;
+}
+
+.menu-list > li > ul > li:first-child {
+	padding-top: 0px;
+}
+
+.menu-list > li > ul > li:last-child {
+	padding-bottom: 0px;
+}
+
+.menu-list > li > ul > li div {
+	text-transform: uppercase;
+	background: @menu_ChapterBG;
+	font-size:17px;
+	color:@menu_ChapterTextColour;
+	font-weight: 300;
+	padding:10px 0 10px 8px;
+}
+
+.menu-list > li > ul > li div.current,
+.menu-list > li > ul > li div.current.viewed,
+.menu-list > li > ul > li div:hover
+{
+	text-decoration: underline;
+}
+
+.menu-list .complete {
+  position:absolute;
+  width:25px;
+  height:25px;
+  right: 5px;
+}
+
+.menu-list .complete svg {
+    width:25px;
+  height:25px;
+}
+
+.menu-list > li > ul > li .cls-3 {
+  fill: #fff;
+}
+
+.menu-list > li > div .item-icon.complete, .menu-list > li > div .item-icon.incomplete {
+  height: 100%;
+  width: 2px;
+  left: 0px;
+  top: 0;
+}
+
+.menu-list > li > div .item-icon.complete {
+  background: darken(@mediumShade, 30%);
+  opacity: 0.5;
+}
+
+.menu-list > li > div .item-icon.incomplete {
+  background: @primaryShade;
+  opacity: 1;
+}
+
+.menu-list > li > div .selected-item-icon.hover {
+  background: @secondaryColor;
+  height: 100%;
+  width: 2px;
+  left: 0px;
+  top: 0;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: opacity @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  opacity @menu_RolloverTime @menu_RolloverTransition;
+   transition: opacity @menu_RolloverTime @menu_RolloverTransition;
+}
+
+.menu-list > li > div.current .selected-item-icon.hover {
+  background: @secondaryColor;
+  opacity: 1;
+}
+
+.menu-list > li .complete .cls-3 {
+  fill: #ccc;
+}
+
+.menu-wrapper > .close-button {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  top: 50%;
+  margin-top: -20px;
+}
+
+.menu-wrapper > .close-button .cls-5 {
+  fill: none;
+  stroke: #000;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  stroke @menu_RolloverTime @menu_RolloverTransition;
+   transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+.menu-wrapper > .close-button:hover .cls-5 {
+  stroke: lighten(@primaryShade, 20%);
+}
+
+@media only screen and (max-width: 480px) {
+	.menu-wrapper {
+		height: 0;
+		width:100%!important;
+	}
+
+	.menu-wrapper.open {
+		height: 100%;
+	}
+
+	.menu-wrapper.top {
+		top:0;
+		bottom:initial!important;
+	}
+
+	.menu-wrapper.bottom {
+		top:initial!important;
+		bottom:0;
+	}
+}

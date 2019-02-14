@@ -1,0 +1,259 @@
+@import '../../mixins.less';
+
+.contentview .question-multi-response {
+    margin: 30px @contentview_Margin 15px;
+    background: @mediumShade;
+
+    &.encapsulated {
+        margin: 30px 15px 15px;
+    }
+}
+
+.contentview .question-multi-response ul {
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.contentview .question-multi-response li {
+  position: relative;
+  list-style: none;
+  padding: 15px 0;
+}
+
+.contentview .question-multi-response li > div {
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
+.contentview .question-multi-response .unanswered input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.contentview .question-multi-response input[type="checkbox"] {
+  opacity: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 100;
+  width: 100%!important;
+}
+
+.contentview .question-multi-response label {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;
+  vertical-align: top;
+  color: @primaryShade;
+  -webkit-transition: color @rolloverTime/3 linear;
+  -moz-transition: color @rolloverTime/3 linear;
+  transition: color @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .question-multi-response input[type="checkbox"]:checked + label {
+  color: @primaryShade;
+}
+
+.contentview .question-multi-response input[type="checkbox"],
+.contentview .question-multi-response label::before {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+}
+
+.contentview .question-multi-response .wrapper.unanswered:not(.touch) li div:hover label::before {
+  border-color: lighten(@primaryShade, 40%);
+}
+
+.contentview .question-multi-response .wrapper.unanswered:not(.touch) li div:hover label {
+  color: lighten(@primaryShade, 40%);
+}
+
+.contentview .question-multi-response label::before {
+  content: '';
+  border: 1px solid @primaryShade;
+  background: white;
+  border-radius: 20%;
+  top: 50%;
+  left: 0;
+  margin-top: -15px;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .question-multi-response input[type="checkbox"]:checked + label::before {
+  border-color: @primaryShade;
+  background: @darkerShade;
+}
+
+.contentview .question-multi-response .check-fill {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  left: 0;
+  width: 27px;
+  height: 27px;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-align: center;
+  .transform(scale(0));
+}
+
+.contentview .question-multi-response .check-fill svg{
+  margin-top: ~"calc(50% + 1px)";
+  .transform(translate3d(0, -50%, 0));
+}
+
+.contentview .question-multi-response input[type="checkbox"] + label + span.selected,
+.contentview .question-multi-response input[type="checkbox"]:checked + label + span {
+  opacity: 1;
+  .transform(scale(1));
+}
+
+/*
+.contentview .question-multi-response li.correct input[type="checkbox"]:checked + label + span {
+  background: #2fd02f;
+}
+
+.contentview .question-multi-response li.incorrect input[type="checkbox"]:checked + label + span {
+  background: #ff6565;
+}
+
+.contentview .question-multi-response li.correct input[type="checkbox"]:checked + label::before {
+   border-color: #2fd02f;
+}
+
+.contentview .question-multi-response li.incorrect input[type="checkbox"]:checked + label::before {
+   border-color: #ff6565;
+}
+
+.contentview .question-multi-response li.correct input[type="checkbox"]:checked + label {
+   color: #2fd02f;
+}
+
+.contentview .question-multi-response li.incorrect input[type="checkbox"]:checked + label {
+   color: #ff6565;
+}
+*/
+
+.contentview .question-multi-response .wrapper {
+  margin: 0;
+  /*  background:@lightShade;*/
+  color: @primaryShade;
+  padding: 20px 15px;
+  border-left: 35px solid #8c8c8c;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  // overflow-y: hidden;
+  .transition(border-left 0.5s);
+}
+
+.contentview .question-multi-response .wrapper.correct {
+  border-left: 35px solid @question_correctColor;
+}
+
+.contentview .question-multi-response .wrapper.incorrect {
+  border-left: 35px solid @question_incorrectColor;
+}
+
+.contentview .question-multi-response .feedback {
+  position: relative;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+}
+
+.contentview .question-multi-response .feedback.correct {
+  color: @primaryShade;
+}
+
+.contentview .question-multi-response .feedback.incorrect {
+  color: @primaryShade;
+}
+
+.contentview .question-multi-response button {
+  color: @primaryShade;
+  background: @darkerShade;
+  border: 1px solid @primaryShade;
+  font: inherit;
+  font-size: @contentview_FontSize*1.1;
+  margin-top: 20px;
+  padding: 10px 40px;
+  opacity: 1;
+  -webkit-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  -moz-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  transform: translate3d(0,0,0);
+  //.transition(background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.5s, padding 0.5s, margin 0.5s);
+  text-transform: uppercase;
+}
+
+.contentview .question-multi-response .wrapper:not(.touch) button:hover {
+  background: @primaryShade;
+  color: @darkerShade;
+}
+
+.invisible {
+  opacity: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+.contentview .question-multi-response .result {
+  opacity: 1;
+  width: initial!important;
+  position: absolute;
+  left: -29px;
+  top: 10px;
+}
+
+.contentview .question-multi-response svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contentview .question-multi-response .fail .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .question-multi-response .pass .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .question-multi-response span.instruction {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.5;
+}
+@media only screen and (max-width: 480px) {
+  .contentview .question-multi-response {
+    margin: 10px 0;
+  }
+
+  .contentview .question-multi-response .wrapper {
+    border-radius: 0;
+    padding: 20px @contentview_MarginMobile;
+  }
+
+  .contentview .question-multi-response button {
+    width: 100%;
+  }
+}

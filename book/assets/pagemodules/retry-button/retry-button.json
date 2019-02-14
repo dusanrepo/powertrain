@@ -1,0 +1,15 @@
+{
+  "name": "Retry Button",
+  "description": "Standalone Retry button for assessed questions.",
+  "author": "M. Perry",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {},
+  "converters": [
+  	"two-column-block",
+  	"three-column-block",
+  	"tab",
+  	"accordion",
+  	"custom-html-block"
+  ]
+}

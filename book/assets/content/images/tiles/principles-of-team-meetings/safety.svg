@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#1E1E1E;}
+	.st2{fill:#FFFFFF;}
+</style>
+<g id="Color" class="st0">
+	<rect x="0" class="st1" width="160" height="160"/>
+</g>
+<g id="circle">
+	<path class="st2" d="M80,2c43,0,78,35,78,78s-35,78-78,78S2,123,2,80S37,2,80,2 M80,0C35.8,0,0,35.8,0,80s35.8,80,80,80
+		s80-35.8,80-80S124.2,0,80,0L80,0z"/>
+</g>
+<g id="Safety">
+	<path class="st2" d="M88,27v33v2h2h33v26H90h-2v2v33H62V90v-2h-2H27V62h33h2v-2V27H88 M90,25H60v35H25v30h35v35h30V90h35V60H90V25
+		L90,25z"/>
+	<path class="st2" d="M89.2,27l8.8,8.8V60v2h2h24.2l8.8,8.8V98h-33h-2v2v33H70.8l-8.8-8.8V100v-2h-2H35.8L27,89.2V62h33h2v-2V27
+		H89.2 M90,25H60v35H25v30l10,10h25v25l10,10h30v-35h35V70l-10-10h-25V35L90,25L90,25z"/>
+</g>
+</svg>

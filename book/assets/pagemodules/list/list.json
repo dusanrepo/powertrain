@@ -1,0 +1,11 @@
+{
+	"name": "List",
+	"description": "Display ordered and unordered lists",
+	"author": "S. Langstone",
+	"version": "1.0.0",
+	"timestamp": "2017-11-27T00:00:00",
+	"options": {
+		"type": ["disk", "circle", "square", "lower-alpha", "upper-alpha", "decimal", "lower-roman", "upper-roman"]
+	},
+	"converters": []
+}

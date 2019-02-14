@@ -1,0 +1,29 @@
+.contentview .column-block > div {
+    margin: 0 @contentview_Margin;
+    padding: @contentPadding 0;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    column-gap: 2em;
+    column-width: 200px;
+    -webkit-column-width: 200px;
+    text-align: justify;
+
+    &.encapsulated {
+        margin: 0;
+    }
+}
+
+.contentview .column-block > div > p:first-child {
+  margin-top:0;
+}
+
+.contentview .column-block.inverted {
+  color:@primaryShade;
+}
+
+@media only screen and (max-width: 480px) {
+  .contentview .column-block > div {
+      margin: 0 @contentview_MarginMobile;
+      text-align: left;
+    }
+}

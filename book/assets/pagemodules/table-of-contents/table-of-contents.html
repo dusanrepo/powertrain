@@ -1,0 +1,32 @@
+<section class="toc-wrapper">
+	<div class="toc-list-wrapper">
+		<ul class="toc-list" data-bind="foreach: structure">
+			<li data-bind="css: status">
+				<div data-bind="click: lockedStatus ? lockedStatus === true ? null : toggleSelection : toggleSelection, css: { link: pageIndex > -1 }, attr: {disabled: lockedStatus, 'data-pageindex': pageIndex }">
+					<span data-bind="text: title"></span>
+					<span data-bind="html: $component.hoverIcon"></span>
+				</div>
+				<!-- ko if: $data.hasOwnProperty("section")-->
+	            <ul>
+					<!-- ko template: { name: 'sectionListTemplate', foreach: section } -->
+		        	<!-- /ko -->
+	            </ul>
+	        	<!-- /ko -->
+			</li>
+		</ul>	
+	</div>
+</section>
+<script id="sectionListTemplate" type="text/html">
+	<li data-bind="css: status">
+		<div class="sublink" data-bind="click: lockedStatus === true ? null : toggleSelection, css: { link: pageIndex > -1 }, attr: {disabled: lockedStatus, 'data-pageindex': pageIndex }">
+			<span data-bind="text: title"></span>
+			<span data-bind="html: $component.hoverIcon"></span>
+		</div>
+		<!-- ko if: $data.hasOwnProperty("section")-->
+        <ul>
+			<!-- ko template: { name: 'sectionListTemplate', foreach: section } -->
+	        <!-- /ko -->
+        </ul>
+        <!-- /ko -->
+	</li>
+</script>

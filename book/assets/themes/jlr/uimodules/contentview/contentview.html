@@ -1,0 +1,6 @@
+<div data-bind="foreach: backPageBuffer, css: { 'back-buffer': isBack(), 'front-buffer': !isBack(), 'swipe-enabled' : false }">
+	<div data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parent.settings[name], mBook: mBookInstance, elem: $element } }"></div>
+</div>
+<div data-bind="foreach: frontPageBuffer, css: { 'back-buffer': !isBack(), 'front-buffer': isBack(), 'swipe-enabled' : false }">
+	<div data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parent.settings[name], mBook: mBookInstance, elem: $element } }"></div>
+</div>

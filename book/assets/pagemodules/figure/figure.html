@@ -1,0 +1,14 @@
+<div class="figureWrapper">
+    <a data-bind="attr: { href: imgSrc }">
+	    <img data-bind="attr: { src: imgSrc }, event: { load: imageLoaded }" />
+        <!-- ko if: caption -->
+        <div class="caption" data-bind="html: caption"></div>
+        <!-- /ko -->
+	    <div class="overlay" data-bind="visible: enlargable">
+        <div class='icon-wrapper'>
+  		    <span class="icon" data-bind="html: iconImage"></span>
+  		    <span class="prompt" data-bind="text: prompt"></span>
+        </div>
+	    </div>
+    </a>
+</div>

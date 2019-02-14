@@ -1,0 +1,141 @@
+.contentview {
+
+    .tiles {
+        margin-bottom: @contentview_Spacing /2;
+        margin-top: @contentview_Spacing /2;
+
+        &:nth-child(2) {
+            .tiles-container {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+        }
+
+        .tiles-container {
+            padding: @contentview_Spacing @contentview_Margin;
+            position: relative;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: center;
+            -webkit-justify-content: center;
+            flex-flow: row wrap;
+            -webkit-flex-flow: row wrap;
+
+            &.encapsulated {
+                padding: @contentview_Spacing;
+            }
+
+            .tile {
+                position: relative;
+                display: flex;
+                display: -webkit-flex;
+                flex-grow: 1;
+                -webkit-flex-grow: 1;
+                flex-shrink: 0;
+                -webkit-flex-shrink: 0;
+                flex-basis: 20%;
+                -webkit-flex-basis: 20%;
+                flex-flow: column nowrap;
+                -webkit-flex-flow: column nowrap;
+                justify-content: flex-start;
+                -webkit-justify-content: flex-start;
+                align-items:flex-start;
+                -webkit-align-items:flex-start;
+                align-content: flex-start;
+                -webkit-align-content: flex-start;
+
+                padding: @contentview_Spacing;
+                padding-bottom: 0;
+                margin: @contentview_Spacing;
+                box-sizing: border-box;
+                position: relative;
+                background-repeat: no-repeat !important;
+                background-size: cover !important;
+                background-position-x: center !important;
+
+                > div {
+                    display: block;
+                    position: relative;
+
+                    flex: 0 0 0;
+                    -webkit-flex: 0 0 0;
+                }
+
+                .title {
+                    width: 100%;
+                    padding-bottom: @contentview_Spacing;
+
+                    h3 {
+                        font-family: @fourthFontFamily;
+                        font-size: @contentview_Heading2FontSize;
+                        font-weight: bold;
+                        color: @darkerShade;
+                        padding: 0;
+                        text-align: center;
+                    }
+                }
+
+                .body {
+                    width: 100%;
+                    padding-bottom: @contentview_Spacing;
+
+                    flex: 1 1 0;
+                    -webkit-flex: 1 1 0;
+
+                    > div {
+                        font-size: @contentview_FontSize;
+                        font-weight: 300;
+                        color: @darkerShade;
+                    }
+                }
+
+                .icon {
+                    width: 100%;
+                    padding-bottom: @contentview_Spacing;
+
+                    > div {
+                        display: block;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        svg {
+                            max-width: 75%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* iPad Air & Pro Landscape */
+    @media only screen and (max-height : 1024px) and (max-width : 1366px) and (orientation: landscape) {
+
+        .tiles-container {
+            padding-left: @contentview_Margin*0.4 !important;
+            padding-right: @contentview_Margin*0.4 !important;
+        }
+    }
+    /* iPad Air & Pro Portrait */
+    @media only screen and (max-height : 1366px) and (max-width : 1024px) and (orientation: portrait) {
+
+        .tiles-container {
+            padding-left: @contentview_Margin !important;
+            padding-right: @contentview_Margin !important;
+        }
+    }
+    /* iPad 1 & 2 Landscape */
+    @media only screen and (max-height : 768px) and (max-width : 1024px) and (orientation: landscape) {
+        .tiles-container {
+            padding-left: @contentview_Margin*0.8 !important;
+            padding-right: @contentview_Margin*0.8 !important;
+        }
+    }
+    /* iPad 1 & 2 Portrait */
+    @media only screen and (max-height : 1024px) and (max-width : 768px) and (orientation: portrait) {
+
+        .tiles-container {
+            padding-left: @contentview_Margin*0.6 !important;
+            padding-right: @contentview_Margin*0.6 !important;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "S2L Modern Next and Back buttons",
+  "description": "Buttons that provide back and next page navigation",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "navigationButtons",
+  "styles": ["s2lmodern_nextbackbuttons"],
+  "html": "s2lmodern_nextbackbuttons",
+  "options": {
+	"position": ["top", "bottom"],
+	"hideOnMobile": ["false","true"]
+  },
+  "toolbox": [
+	{
+		"name": "Button",
+		"prefix": "btn-",
+		"options": {
+			"icon": "",
+			"alignment": ["left", "right"],
+			"triggerObjectID": "",
+			"triggerObjectName": ""
+		}
+	}
+  ]
+}

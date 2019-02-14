@@ -1,0 +1,161 @@
+@import url(./../../rules.less);
+@import url(./../../mixins.less);
+@import url(./../../perfect-scrollbar.less);
+@import url(accordion.less);
+@import url(audio-player.less);
+@import url(column-block.less);
+@import url(custom-html-block.less);
+@import url(figure.less);
+@import url(panorama.less);
+@import url(pdf-link.less);
+@import url(page-link.less);
+@import url(gallery.less);
+@import url(html-block.less);
+@import url(page-cover.less);
+@import url(page-heading.less);
+@import url(sub-heading.less);
+@import url(question-multi.less);
+@import url(results.less);
+@import url(table.less);
+@import url(table-of-contents.less);
+@import url(tabs.less);
+@import url(video-player.less);
+@import url(view-block.less);
+@import url(retry-button.less);
+@import url(block-quote.less);
+@import url(note-camera.less);
+@import url(note-checkbox.less);
+@import url(notes-list.less);
+@import url(note.less);
+@import url(banner.less);
+@import url(bannervideo.less);
+@import url(tiles.less);
+@import url(question-multi-response.less);
+@import url(list.less);
+@import url(columns.less);
+
+.contentview {
+  position: absolute;
+	top: 0;
+	bottom:0;
+	left:0;
+	right:0;
+	font-size:@contentview_FontSize;
+	font-weight:normal;
+	color:@primaryShade;
+	overflow:hidden;
+
+> div > div:last-child {
+		&:not(.ps-scrollbar-y-rail .ps-scrollbar-x-rail){
+			margin-bottom: 20px;
+ 	 }
+
+ }
+
+}
+
+/* front and back page buffers */
+.contentview > div {
+  position:absolute;
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;
+  height:100%;
+  width:100%;
+  background: @contentview_BG;
+  -webkit-box-shadow: 0px 4px 17px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 17px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 17px 0px rgba(0,0,0,0.75);
+}
+
+.contentview .front-buffer {
+  z-index: 0;
+}
+
+.contentview .back-buffer {
+  z-index: -1;
+  pointer-events: none;
+}
+
+/*
+.contentview .left {
+	float: left;
+}
+
+.contentview .right {
+	float: right;
+}
+*/
+
+/* editor */
+.contentview > div > div.select-editable {
+  outline: 1px dashed #000;
+  box-shadow: 0 0 0 1px #fff;
+  animation: 0.5s animateBorderOne ease infinite;
+}
+@keyframes animateBorderOne {
+  to {
+    outline-color: #fff;
+    box-shadow: 0 0 0 1px #000;
+  }
+}
+
+@media only screen and (min-width: 1281px) {
+/*	.contentview > div {
+		padding: 0 10%;
+}*/
+}
+
+@media only screen and (max-width: 480px) {
+
+	.contentview {
+		font-size:(@contentview_FontSize + @contentview_FontSize*0.2);
+		background-size: 90%;
+		background-position: 10px 50px;
+	}
+
+	.contentview h2 {
+		font-size:(@contentview_Heading3FontSize + @contentview_Heading3FontSize*0.2);
+	}
+
+	.contentview h4 {
+		font-size:(@contentview_Heading4FontSize + @contentview_Heading4FontSize*0.2);
+	}
+}
+
+
+@keyframes fade-in {
+    from	{ opacity: 0; }
+    to		{ opacity: 1; }
+}
+
+mark {
+	background: @contentview_SearchHighlightBGColour;
+	color:@contentview_SearchHighlightColor;
+	-webkit-animation: pulsate @contentview_SearchHighlightPulseRate linear infinite;
+    -moz-animation: pulsate @contentview_SearchHighlightPulseRate linear infinite;
+    animation: pulsate @contentview_SearchHighlightPulseRate linear infinite;
+}
+
+@-webkit-keyframes pulsate {
+    0% { background: @contentview_SearchHighlightBGColour2 }
+    50% { background: @contentview_SearchHighlightBGColour }
+    100% { background: @contentview_SearchHighlightBGColour2 }
+}
+
+@-moz-keyframes pulsate {
+    0% { background: @contentview_SearchHighlightBGColour2 }
+    0% { background: @contentview_SearchHighlightBGColour }
+    100% { background: @contentview_SearchHighlightBGColour2 }
+}
+
+@keyframes pulsate {
+	0% { background: @contentview_SearchHighlightBGColour2 }
+    50% { background: @contentview_SearchHighlightBGColour }
+    100% { background: @contentview_SearchHighlightBGColour2 }
+}
+
+@media only screen and (max-width: 41.250em) {
+    #container {
+        width: 100%;
+    }
+}

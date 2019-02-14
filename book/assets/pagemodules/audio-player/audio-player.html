@@ -1,0 +1,23 @@
+<div class="audioWrapper" data-bind="style: { 'max-width': maxWidth() + 'px' }">
+    <audio>
+	    <source data-bind="attr: { src: audioSource() + '.mp3' }" type="audio/mpeg">
+	    <source data-bind="attr: { src: audioSource() + '.ogg' }" type="audio/ogg">
+    </audio>
+    <div class="transport" >
+	    <button class="play" data-bind="click: play, html: playIcon"></button>
+	    <button class="pause" data-bind="click: pause, html: pauseIcon"></button>
+	    <button class="stop" data-bind="click: stop, html: stopIcon"></button>
+	    <div class="midsection">
+		    <div class="seeker" data-bind="event: { mousedown: seekClick.bind($data), mousemove: seekMove.bind($data), mouseup: seekLift.bind($data) }">
+			    <div class="progress" data-bind="style: { width: positionPercent }"></div>
+		    </div>
+		    <span class="time-current" data-bind="text: position"></span>
+		    <span class="time-end" data-bind="text: totalTime"></span>
+		    <button class="vol-button" data-bind="html: volumeIcon, click: volToggle"></button>
+		    <div class="vol-container" data-bind="css: { open: volControlVisible } , event: { mousedown: volClick.bind($data), mousemove: volMove.bind($data), mouseup: volLift.bind($data), mouseleave: volLift.bind($data) }">
+			    <span class="track"></span>
+			    <span class="slider" data-bind="style: { bottom: volumePercent }"></span>
+		    </div>
+	    </div>
+    </div>
+</div>

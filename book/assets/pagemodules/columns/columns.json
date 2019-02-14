@@ -1,0 +1,9 @@
+{
+  "name": "Columns",
+  "description": "The most basic element for displaying HTML content.",
+  "author": "Stephen Langstone",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {},
+  "converters": []
+}

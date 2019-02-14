@@ -1,0 +1,9 @@
+{
+  "name": "Custom HTML Block",
+  "description": "A HTML Block widget without restrictions",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {},
+  "converters": []
+}

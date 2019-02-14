@@ -1,0 +1,17 @@
+{
+  "name": "Task Info",
+  "description": "Task Info feature for BAE",
+  "author": "M. Perry",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "taskinfo",
+  "options": {
+    "position": ["top-left", "top-right"],
+	"positionMobile": ["left", "right", "top", "bottom"],
+	"createText": "",
+	"emptyCurrent": "",
+	"emptyAll": "",
+	"editImage": "",
+	"deleteImage": ""
+  }
+}

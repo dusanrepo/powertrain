@@ -1,0 +1,199 @@
+.contentview .tabs {
+    .tabWrapper {
+        margin: 0 @contentview_Margin;
+        height: 60px;
+        position: relative;
+
+        &.encapsulated {
+            margin: 0;
+        }
+
+        .tabWindow {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+
+            > ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                white-space: nowrap;
+                position: absolute;
+
+                li {
+                    color: @primaryShade;
+                    font-size: @contentview_Heading2FontSize;
+                    font-family: @secondaryFontFamily !important;
+                    display: block;
+                    margin-right: 5px;
+                    padding: 7px 12px 9px;
+                    display: inline-block;
+                    cursor: pointer;
+                    background-color: @darkerShade;
+                    border: 1px solid @buttonOutlineColor;
+                    text-transform: uppercase;
+                    height: 22px;
+                    -webkit-transition: all @rolloverTime;
+                    -moz-transition: all @rolloverTime;
+                    transition: all @rolloverTime;
+
+                    &:not(.touch):hover {
+                        background-color: @primaryShade !important;
+                        // border-color: @primaryShade;
+                        color: @darkerShade;
+                        -webkit-transition: all @rolloverTime;
+                        -moz-transition: all @rolloverTime;
+                        transition: all @rolloverTime;
+                    }
+
+                    .arrow {
+                        width: 0;
+                        height: 0;
+                        border-left: 0 solid transparent;
+                        border-right: 0 solid transparent;
+                        border-top: 0px solid @primaryShade !important;
+                        margin: 8px auto 0;
+                        -webkit-transition: all @rolloverTime;
+                        -moz-transition: all @rolloverTime;
+                        transition: all @rolloverTime;
+                    }
+
+                    &.current {
+                        background-color: @primaryShade !important;
+                        color: @darkerShade;
+                        -webkit-transition: all @rolloverTime;
+                        -moz-transition: all @rolloverTime;
+                        transition: all @rolloverTime;
+
+                        .arrow {
+                            display: block;
+                            border-left: 20px solid transparent;
+                            border-right: 20px solid transparent;
+                            border-top: 20px solid @primaryShade !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        > button {
+            background: @darkerShade;
+            border: 1px solid @primaryShade;
+            position: absolute;
+            height: 40px;
+            width: 30px;
+            top: 0px;
+            -webkit-transition: all @rolloverTime;
+            -moz-transition: all @rolloverTime;
+            transition: all @rolloverTime;
+
+            svg {
+              vertical-align: middle;
+              height: 26px;
+              width: auto;
+
+              .arrow-fill {
+                stroke: @primaryShade;
+                fill: none;
+                -webkit-transition: all @rolloverTime;
+                -moz-transition: all @rolloverTime;
+                transition: all @rolloverTime;
+              }
+            }
+
+            &.leftButton {
+              left: -40px;
+            }
+
+            &.rightButton {
+              right: -40px;
+            }
+
+            &:not(.touch):hover {
+              background: @primaryShade;
+
+              .arrow-fill {
+                stroke: @darkerShade;
+              }
+            }
+        }
+    }
+
+    .wrapper {
+        clear: both;
+        overflow: hidden;
+
+        > .container {
+            // Temporary fix - other elements have own margins - AK 21-11-2017
+            // padding: @contentview_Margin/2 @contentview_Margin;
+            background-color: @primaryShade;
+            display: inline-block;
+            width: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            pointer-events: none;
+            padding: 20px 0;
+
+            &.current {
+                pointer-events: auto;
+            }
+        }
+    }
+
+    .bottom-margin {
+        height: 25px;
+        background-color: @darkerShade;
+    }
+}
+
+/* iPad 1 & 2 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .contentview .tabs > ul > li {
+        width: 10vw;
+
+        .arrow {
+            margin-top: 10px;
+        }
+    }
+
+    .contentview .tabs .container {
+        .note textarea {
+            width: 70%;
+        }
+
+        .note > div > span {
+            width: 30%;
+        }
+    }
+}
+
+/* iPad Air 1 & 2 */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .contentview .tabs > ul > li {
+        width: 10vw;
+
+        .arrow {
+            margin-top: 10px;
+        }
+    }
+
+    .contentview .tabs .container {
+        .note textarea {
+            width: 70%;
+        }
+
+        .note > div > span {
+            width: 30%;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contentview .tabs {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

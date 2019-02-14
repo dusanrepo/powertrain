@@ -1,0 +1,60 @@
+@import "../../rules.less";
+
+.contentview .block-quote {
+  margin: 20px 20%;
+
+  blockquote {
+    margin: 0;
+    quotes: "“" "”" "‘" "’";
+    text-align: center;
+    color: @contentview_BlockQuoteColor;
+    font-size: 22px;
+    font-family: @secondaryFontFamily;
+
+    p {
+      margin: 0 10%;
+    }
+
+    &:before,
+    &:after {
+      display: block;
+      position: relative;
+      color: @darkShade;
+      line-height: 0;
+      font-size: @contentview_Heading1FontSize*3;
+      font-family: @fourthFontFamily;
+    }
+
+    &:before {
+      content: open-quote;
+      text-align: left;
+      top: 15px;
+    }
+
+    &:after {
+      content: close-quote;
+      text-align: right;
+      bottom: -15px;
+    }
+
+  }
+
+  cite {
+    font-size: @contentview_Heading2FontSize;
+    font-family: @fourthFontFamily;
+    color: @darkShade;
+    font-style: normal;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  &.inverted blockquote p,
+  // &.inverted blockquote:before,
+  // &.inverted blockquote:after,
+  &.inverted cite, {
+    color: @darkerShade;
+  }
+
+}

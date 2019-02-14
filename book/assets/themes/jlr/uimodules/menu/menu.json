@@ -1,0 +1,16 @@
+{
+  "name": "S2L Modern Menu",
+  "description": "Classic drop-down menu with modern styling",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "menu",
+  "styles": ["s2lmodern_menu"],
+  "html": "s2lmodern_menu",
+  "options": {
+    "position": ["left", "right", "top-left", "top-right"],
+	"positionMobile": ["left", "right", "top", "bottom"],
+	"menuTransition": ["slideOver", "reveal", "push", "classic", "rotatePush", "3dRotate", "scaleDown", "scaleDownRotate", "door", "fallDown"],
+	"overlayBlur": [true , false]
+  }
+}

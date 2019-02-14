@@ -1,0 +1,79 @@
+<style>
+body {
+  margin: 0;
+  background: #000;
+}
+
+.stopfade {
+   opacity: .5;
+}
+
+@font-face {
+    font-family: 'JLREmeric-SemiBold';
+    src: url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.eot');
+    src: url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.eot#iefix') format('embedded-opentype'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.woff2') format('woff2'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.woff') format('woff'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.ttf') format('truetype'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.svg#JLREmeric-SemiBold') format('svg');
+    font-weight: 700;
+    font-style: normal
+}
+
+#day1 {
+  font-family: "JLREmeric-SemiBold",sans-serif;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+}
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background;
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+.hero {
+		height:75%;
+		position:relative;
+		overflow:hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background-image: url('http://localhost:8080/powertrain3/powertrain3/book/assets/content/images/banner/jag_sun.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+@media screen and (max-width: 500px) {
+  div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(http://localhost:8080/powertrain3/powertrain3/book/assets/content/images/banner/jag_sun.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+</style>
+
+<div class="hero">
+	<div id="day1">
+	   <h1>Day 1</h1>
+	    <p>INTRODUCTION TO THE POWERTRAIN WAY
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta dictum turpis, eu mollis justo gravida ac. Proin non eros blandit, rutrum est a, cursus quam. Nam ultricies, velit ac suscipit vehicula, turpis eros sollicitudin lacus, at convallis mauris magna non justo. Etiam et suscipit elit. Morbi eu ornare nulla, sit amet ornare est. Sed vehicula ipsum a mattis dapibus. Etiam volutpat vel enim at auctor.</p>
+	</div>
+</div>

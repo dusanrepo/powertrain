@@ -1,0 +1,13 @@
+<!-- ko ifnot: isFooter -->
+<div class="normal">
+  <span data-bind="css: { touch: touchSupport }, text: label, click: pageRef"></span>
+</div>
+<!-- /ko -->
+<!-- ko if: isFooter -->
+<div class="footer">
+  <h3 data-bind="text: title"></h3>
+  <div></div>
+  <p data-bind="html: body"></p>
+  <button data-bind="css: { touch: touchSupport }, text: label, click: pageRef"></button>
+</div>
+<!-- /ko -->

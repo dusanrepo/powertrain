@@ -1,0 +1,76 @@
+@import '../../mixins';
+
+.contentview {
+  .bannervideo {
+    height: 45%;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    > div {
+
+      height: 100%;
+
+      .header-container {
+        position: relative;
+        top: 50%;
+        .transform(translateY(-50%));
+        margin-left: 15%;
+        margin-right: 15%;
+        text-align: left;
+        z-index: 1;
+
+        span {
+          width: 3px;
+          background: @contentview_HeadingColor;
+          display: inline-block;
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+
+        }
+
+        h1 {
+
+          margin: 0px;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-size: 40px;
+          line-height: 1.15;
+          font-family: @fourthFontFamily;
+          margin-left: 15px;
+		     // z-index: 1 !important;
+          .transform(translate3d(0, 0, 0));
+
+        }
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1100px){
+  .contentview .bannervideo img.background {
+      min-width: 100%;
+      max-width: 160%;
+  }
+}
+@media (orientation: landscape) and (max-width: 900px){
+  .contentview .bannervideo img.background {
+      min-width: 100%;
+      max-width: 180%;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1101px){
+  .contentview .bannervideo img.background {
+      min-width: 100%;
+      max-width: 130%;
+  }
+}
+
+@media (orientation: portrait) {
+  .contentview .bannervideo img.background {
+    max-height: 100%;
+  }
+}

@@ -1,0 +1,489 @@
+@import url(./../../rules.less);
+
+.taskreport {
+  position:fixed;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.taskreport .taskreport-overlay{ 
+	height: 100%;
+	width: 100%;
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+	opacity: 0;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.taskreport.open .taskreport-overlay{ 
+	opacity: 1;
+}
+
+.taskreport h1 {
+  color: #000;
+  margin: 75px 50px 10px 50px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.taskreport .taskreport-wrapper{
+  position: fixed;
+  background: @lightShade;
+  -webkit-transition: all @glossary_DropDownTime @notes_DropTransition;
+  -moz-transition: all @glossary_DropDownTime @notes_DropTransition;
+  transition: all @glossary_DropDownTime @notes_DropTransition;
+}
+
+.taskreport .taskreport-wrapper.top-left,
+.taskreport .taskreport-wrapper.top-right {
+  top: @nav_Height;
+  width: @glossary_DesktopWidth;
+  height: 100%;
+}
+
+.taskreport .taskreport-wrapper.top-left {
+  left:-@glossary_DesktopWidth;
+}
+
+.taskreport .taskreport-wrapper.top-right {
+  right:-@glossary_DesktopWidth;
+}
+
+.taskreport .taskreport-wrapper.top {
+  top: -100%;
+  height: 100%;
+  left: 0px;
+  right: 0px;
+}
+
+.taskreport.open .taskreport-wrapper.top {
+	top: 0px;
+}
+
+.taskreport .taskreport-wrapper.top .close {
+	bottom: 10px;
+	left: 50%;
+	right: auto;
+	top: auto;
+	margin-left: -20px;
+}
+
+.taskreport .taskreport-wrapper.top .close:hover {
+	opacity: 1;
+}
+
+.taskreport .taskreport-wrapper.top .close .cls-5 {
+  fill: none;
+  stroke: #000;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  stroke @menu_RolloverTime @menu_RolloverTransition;
+   transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+
+.taskreport .taskreport-wrapper.top .close:hover .cls-5 {
+  stroke: @secondaryColor;
+}
+
+.taskreport .taskreport-wrapper.top .taskreport-content{
+	bottom: 60px;
+}
+
+.taskreport.open  .taskreport-wrapper.top-left{
+  left:0;
+}
+.taskreport.open .taskreport-wrapper.top-right {
+  right:0;
+}
+
+.taskreport.open {
+  margin-right: 0;
+  margin-left: 0;
+  pointer-events: auto;
+}
+
+.taskreport .head {
+  position:relative;
+}
+
+.taskreport .close {
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0;
+  background:transparent;
+}
+
+.taskreport .close:hover {
+  opacity:0.6;
+}
+
+.taskreport .close .cls-3 {
+  fill:@primaryShade;
+}
+.taskreport .taskreport-content h2{
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0px;
+  text-decoration: underline;
+}
+
+.taskreport .taskreport-content {
+  overflow: auto;
+  position: absolute;
+  bottom:0;
+  top:117px;
+  margin: 0px @contentview_Margin;;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  left: 0px;
+  right: 0px;
+  align-content: flex-start;
+}
+
+.taskreport .taskreport-content > section {
+  margin-bottom: 25px;
+ /* flex-grow: 1;*/
+  position: relative;
+  width: 500px;
+}
+
+
+.taskreport .taskreport-content > section:nth-child(1) {
+  width: 400px;
+}
+
+.taskreport .taskreport-content > section:nth-child(2) {
+  width: 400px;
+}
+
+.taskreport .taskreport-content section div {
+  display: block;
+  margin: 10px 0px;
+}
+
+
+.taskreport .taskreport-content div.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .taskreport .taskreport-content div.checkbox input[type="checkbox"]:not(:checked) + label span:first-child svg{
+     margin:1px 4px!important; 
+    }
+    .taskreport .taskreport-content div.checkbox input[type="checkbox"]:checked + label span:first-child svg{
+      margin:1px 4px!important; 
+    }
+}
+
+.taskreport .taskreport-content div.checkbox input[type="checkbox"]:not(:checked) + label span:first-child svg{
+  transform: scale(0);
+   margin: 4px;
+  -webkit-transition: all @menu_DropDownTime;
+  -moz-transition: all @menu_DropDownTime;
+   transition: all @menu_DropDownTime;
+ 
+}
+
+.taskreport .taskreport-content div.checkbox input[type="checkbox"]:checked + label span:first-child svg{
+  transform: scale(1);
+    margin: 4px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+   transition: all 0.3s;
+}
+
+.taskreport .taskreport-content div.checkbox label  {
+  height: 35px;
+  display: block;
+  position: relative;
+}
+
+.taskreport .taskreport-content div.checkbox label span:first-child {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  margin-right: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+.taskreport .taskreport-content div.checkbox label span:last-child {
+  padding-bottom: 10px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  padding-top: 10px;
+  cursor: pointer;
+  
+}
+	
+.taskreport .taskreport-content input, .taskreport .taskreport-content textarea{
+	background: white;
+	resize: none;
+}
+
+.taskreport .taskreport-content .part-input{
+	height: 25px;
+}
+
+.taskreport .taskreport-content .part-input span{
+	width: 70px;
+	display: inline-block;
+}
+
+.taskreport .taskreport-content .part-input label{
+	width: 100px;
+	display: inline-block;
+}
+
+.taskreport .taskreport-content .part-input select{
+	width: 160px;
+	display: inline-block;
+	height: 100%;
+}
+
+.taskreport .taskreport-content .fault {
+	margin-bottom: 25px;
+}
+
+.taskreport .taskreport-content .fileupload {
+  margin-right: 10px;
+  text-align: right;
+  font-style: italic;
+  color: #585858;
+  margin-top: -5px;
+}
+
+.taskreport .taskreport-content .fileupload svg{
+  width: 20px !important;
+  padding-bottom: 2px;
+  margin-left: 3px;
+}
+
+.taskreport .taskreport-content .fileupload svg *{
+  fill: #2aab2a !important;
+}
+
+.taskreport .taskreport-content div.fault:nth-child(4) {
+	margin-bottom: 0px;
+}
+
+.taskreport .taskreport-content #faults .addfault *{
+	vertical-align: middle;
+}
+
+.taskreport .taskreport-content button {
+	background: @secondaryColor;
+}
+
+.taskreport .taskreport-content button:hover {
+	background: #ff7c45;
+}
+
+.taskreport .taskreport-content button[disabled] {
+	opacity: 0.5;
+	cursor: default;
+	pointer-events: none;
+}
+
+.taskreport .taskreport-content button[disabled]:hover {
+	background: @secondaryColor;
+	opacity: 0.5;	
+}
+
+.taskreport .taskreport-content #faults .addfault button {
+	height: 25px;
+	width: 25px; 
+	margin-right: 5px;
+}
+
+.taskreport .taskreport-content #faults .addfault button svg{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.taskreport .taskreport-content #faults .fault span:nth-child(2) button {
+	height: 100%;
+	width: 35px; 
+	margin-right: 7px;
+}
+
+
+.taskreport .taskreport-content .part-input input, .taskreport .taskreport-content .fault > span input, .taskreport .taskreport-content .fault > span textarea{
+	padding: 0px 5px;
+	width: 129px;
+	height: 100%;
+	display: inline-block;
+}
+
+.taskreport .taskreport-content .fault > span:nth-child(2) textarea{
+	width: 360px;
+	height: 50px;
+	padding: 5px;
+	margin: 0px 7px 0px 5px;
+}
+
+.taskreport .taskreport-content .fault > span:nth-child(2) {
+	height: 60px;
+	font-size: 0px;
+}
+
+.taskreport .taskreport-content .fault > span:nth-child(2) *{
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+.taskreport .taskreport-content .fault > span{
+	display: block;
+	height: 25px;
+	margin: 10px 0px;
+}
+
+.taskreport .taskreport-content .fault > span input{
+   font-size: 14px;
+}
+
+.taskreport .taskreport-content .fault > span > span:first-child label{
+	margin-right: 7px;
+}
+
+.taskreport .taskreport-content .fault > span > span:nth-child(2) input{
+	width: 123px;
+}
+
+.taskreport .taskreport-content .fault > span > button.remove{
+    height: 25px;
+    width: 25px;
+    margin: 0px;
+    padding: 2px;
+    float: right;
+    margin-right: 14px;
+    background: none;
+}
+
+.taskreport .taskreport-content .fault > span > button.remove svg{
+    height: 21px;
+    width: 21px;
+	-webkit-transition: all @rolloverTime/2 linear;
+    -moz-transition: all @rolloverTime/2 linear;
+    transition: all @rolloverTime/2 linear;
+}
+
+.taskreport .taskreport-content .fault > span > button.remove:hover svg{
+   fill: @secondaryColor;
+
+}
+
+.taskreport .taskreport-content #submit{
+	height: 40px;
+	width: 130px;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 15px;
+	margin-right: 10px;
+	float: right;
+}
+
+.taskreport .description {
+  font-weight:300;
+  font-size:15px;
+}
+
+.taskreport button {
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+}
+
+
+@media only screen and (max-height: 801px), screen and (max-width: 1023px){
+
+  .taskreport .taskreport-wrapper.top{
+	height: 100%;
+	top: -100%;
+  }
+
+}
+
+@media only screen and (max-width: 1023px) {
+
+ 
+  .taskreport .taskreport-content { 
+	flex-wrap: nowrap;
+  }
+  .taskreport .taskreport-content .fileupload {
+    margin-right: 17px!important;
+    padding-top: 20px!important;
+  }
+ }
+  
+
+
+@media only screen and (max-width: 901px) {
+
+	  .taskreport .taskreport-content > section {
+	  margin-bottom: 25px;
+	 /* flex-grow: 1;*/
+	  position: relative;
+	  width: 430px;
+	}
+
+
+	.taskreport .taskreport-content > section:nth-child(1) {
+	  width: 330px;
+	}
+
+	.taskreport .taskreport-content > section:nth-child(2) {
+	  width: 420px;
+	}
+  
+	.taskreport .taskreport-content .fault > span:first-child{
+		height: 70px;
+	}
+	.taskreport .taskreport-content .fault > span:first-child > span{
+		height: 25px;
+		padding: 5px 0px;
+		display: block;
+	}
+
+	.taskreport .taskreport-content #submit{
+		margin-top: 30px;
+	}
+	
+	.taskreport .taskreport-content .fault > span:nth-child(2) textarea {
+		margin: 5px 7px 0px 0px
+	}
+	
+	.taskreport .taskreport-content #faults .fault span:nth-child(2) button{
+		margin-top: 5px;
+        float: right;
+		margin-right: 18px;
+	}
+	
+	.taskreport .taskreport-content .fault > span > button.remove{
+		 
+	    position: relative;
+	    top: -70px;
+		right: 9px;
+		
+	}
+	
+	.taskreport .taskreport-content .fileupload {
+    margin-right: 17px!important;
+    padding-top: 20px!important;
+  }
+
+
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Help Desk",
+  "description": "Help desk feature for BAE",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "helpdesk",
+  "options": {
+    "position": ["top-left", "top-right"],
+	"positionMobile": ["left", "right", "top", "bottom"],
+	"createText": "",
+	"emptyCurrent": "",
+	"emptyAll": "",
+	"editImage": "",
+	"deleteImage": ""
+  }
+}

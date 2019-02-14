@@ -1,0 +1,13 @@
+<div class="glossary-overlay"></div>
+<div class="glossary-wrapper">
+	<h1>Glossary</h1>
+	<button class="close" data-bind="click: closeGlossary, html: closeImage"></button>
+	<div class="glossary-list-wrapper">
+		<ul class="gloss-list" data-bind="foreach: glossaryItems">
+			<li>
+				<div class="name" data-bind="text: n"></div>
+				<div class="description" data-bind="text: d"></div>
+			</li>
+		</ul>
+	</div>
+</div>

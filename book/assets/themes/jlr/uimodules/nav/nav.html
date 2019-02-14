@@ -1,0 +1,8 @@
+<div class="main-wrapper">
+	<section class="nav-logo" data-bind="foreach: imageLogos">
+		<div data-bind="html: logoHTML"></div>
+	</section>
+	<section class="nav-buttons" data-bind="foreach: buttons">
+		<button data-bind="click: $parent.buttonClick.bind($data, triggerTargetID(), triggerName(), triggerAll(), functionCall()), html: iconHTML, disable: isDisabled"></button>
+	</section>
+</div>

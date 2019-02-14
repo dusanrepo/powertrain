@@ -1,0 +1,57 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['user_id']) === false) {
+        header('Location: https://babcocklearningsolutions.com/jlr/powertrain/index.php');
+        exit("You must log in to access this resource");
+    }
+?><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+		<link rel="icon" type="image/png" href="../favicon.png" />
+		<title></title>
+	</head>
+	<body>
+		<div data-bind="foreach: $root.uiViewModel.modules">
+			<div data-bind="attr: { id : id }, css: className, component: { name: name, params: { id: id, config: config, settings: settings, mBook: mBookInstance, elem: $element } }"></div>
+		</div>
+
+		<script src="assets/core/js/vendor/soundmanager2.js" ></script>
+		<script>
+			soundManager.setup({
+				preferFlash: false,
+				useHighPerformance: true,
+				debugMode: false, // disable debug mode
+				onready: function() {
+				/*	soundManager.createSound({
+						id: 'ui-tap',
+						url: 'assets/themes/s2lmodern/assets/audio/drip.wav',
+						volume: 100,
+						multiShot: true,
+						autoLoad: true
+					});
+					soundManager.createSound({
+						id: 'ui-swipe',
+						url: 'assets/themes/s2lmodern/assets/audio/drip.wav',
+						volume: 100,
+						multiShot: true,
+						autoLoad: true
+					});*/
+				}
+			});
+		</script>
+		<script data-main="assets/core/js/main.js" type="text/javascript" src="assets/core/js/vendor/requirejs/require.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128772688-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-128772688-1');
+    </script>
+
+	</body>
+</html>

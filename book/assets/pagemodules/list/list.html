@@ -1,0 +1,10 @@
+<ul data-bind="template: { name: template, foreach: items }, style: { 'list-style-type': type }"></ul>
+<script type="text/html" id="string">
+    <li data-bind="html: $data"></li>
+</script>
+<script type="text/html" id="array">
+    <li>
+        <span data-bind="html: title"></span>
+        <ul data-bind="template: { name: $parents.filter(function(e) { return e.root === true; })[0].template, foreach: items }, style: { 'list-style-type': type }"></ul>
+    </li>
+</script>

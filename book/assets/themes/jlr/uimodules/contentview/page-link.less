@@ -1,0 +1,65 @@
+.contentview .page-link {
+
+    .normal {
+      margin: 0 @contentview_Margin;
+
+      span {
+        color: @secondaryColor;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .footer {
+      background-color: @backgroundShade;
+      padding: @contentview_Spacing 0;
+      margin-top: @contentview_MarginTop*1.5;
+      width: 100%;
+
+        h3 {
+          color:@darkerShade;
+          font-size: 24px;
+          font-family: @secondaryFontFamily;
+          text-transform: uppercase;
+          text-align: center;
+          padding: 0 0 15px 0;
+
+          + div {
+              height: 1px;
+              width: 15px;
+              background: @darkerShade;
+              margin: 0px auto;
+          }
+        }
+
+        p {
+          color:@darkerShade;
+          text-align: center;
+          margin-top: @contentview_Spacing;
+          margin-bottom: @contentview_Spacing;
+        }
+
+        button {
+          color: @darkerShade;
+          background-color: @backgroundShade;
+          border: 1px solid @darkerShade;
+          font: inherit;
+          font-size: @contentview_FontSize*1.1;
+          text-transform: uppercase;
+          padding: 10px 40px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          -webkit-transition: all @rolloverTime;
+          -moz-transition: all @rolloverTime;
+          transition: all @rolloverTime;
+          transform: translate3d(0,0,0);
+
+          &:not(.touch):hover {
+            color: @backgroundShade;
+            background-color: @darkerShade !important;
+            }
+        }
+    }
+}

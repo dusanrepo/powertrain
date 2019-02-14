@@ -1,0 +1,21 @@
+﻿.contentview .list {
+    margin: 0 @contentview_Margin;
+
+    &.encapsulated {
+        margin: 0;
+    }
+
+    > ul {
+        line-height: 1.5em;
+        margin: 0;
+        padding: 15px 40px;
+
+        > li {
+            color: @primaryShade;
+        }
+    }
+
+    &.inverted > ul > li {
+        color: @darkerShade;
+    }
+}

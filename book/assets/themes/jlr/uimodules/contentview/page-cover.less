@@ -1,0 +1,56 @@
+.contentview .page-cover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
+}
+.contentview .page-cover .stopfade {
+   opacity: .5;
+}
+.contentview .page-cover #day1 {
+  font-family: "JLREmeric-SemiBold",sans-serif;
+  color: white;
+  padding: 2rem;
+  width: 45%;
+  float: right;
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+.contentview .page-cover h1 {
+  font-size: 72px;
+  text-transform: uppercase;
+  line-height: 80px;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+  margin-right: 65px;
+  overflow: hidden;
+  padding: 0 0 0 30px;
+  border-left: 2px solid #fff;
+}
+
+.contentview .page-cover a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background;
+}
+.contentview .page-cover a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) {
+ .contentview .page-cover div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background-image: url() #000 no-repeat center center fixed; }
+  .contentview .page-cover #bgvid { display: none; }
+}

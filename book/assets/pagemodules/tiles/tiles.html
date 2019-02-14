@@ -1,0 +1,19 @@
+<div class='tiles-container' data-bind="style: { background: bgColor }">
+    <!-- ko foreach: tiles -->
+    <div class='tile' data-bind='style: { background: background, textAlign: $parent.textAlign, minWidth: $parent.minWidth, maxWidth: $parent.maxWidth }'>
+        <!-- ko if: title -->
+        <div class="title">
+            <h3 data-bind='text: title, style: { color: $parent.color }'></h3>
+        </div>
+        <!-- /ko -->
+        <div class="body" data-bind="foreach: body.modules">
+            <div class="inverted encapsulated" data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element }, style: { color: $parent.color } }"></div>
+        </div>
+        <!-- ko if: icon -->
+        <div class='icon' data-bind='style: { order: iconOrder, flexGrow: iconGrow }'>
+            <div data-bind='html: icon, style: { maxWidth: iconWidth }'></div>
+        </div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>

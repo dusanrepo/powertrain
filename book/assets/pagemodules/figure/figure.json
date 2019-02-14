@@ -1,0 +1,15 @@
+{
+  "name": "Figure",
+  "description": "An interactive thumbnail capable of image enlargement and zooming",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {
+  	"float": ["none", "left", "right", "double-left", "double-right", "centre"],
+  	"enlargable": [false, true],
+  	"zoomable": [false, true]
+  },
+  "converters": [
+  	"gallery"
+  ]
+}

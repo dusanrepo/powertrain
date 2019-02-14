@@ -1,0 +1,255 @@
+@import url(./../../rules.less);
+@import url(./../../mixins.less);
+
+.frontcover {
+	position: fixed;
+	width: 100%;
+	height:100%;
+	background-color: @lightShade;
+	z-index:100;
+	display:table;
+	cursor:pointer;
+}
+
+#centerdiv {
+  display: inline-block;
+}
+
+.frontcover .wrapper {
+  display:table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: @mediumShade;
+}
+
+.frontcover .wrapper .logo .show {
+  position: initial;
+  text-align: left;
+
+}
+
+.frontcover .wrapper .play-button {
+  z-index: 1;
+  position: absolute;
+  background: none;
+  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.frontcover .wrapper .play-button svg {
+  height: 20%;
+  width: 20%;
+  opacity: 0.7;
+}
+
+.frontcover .wrapper .play-button svg * {
+  fill: #ffffff;
+  stroke: #ffffff;
+}
+
+.frontcover .title {
+  font-size: 52px;
+  color: @darkerShade;
+  left: 0px;
+  .transform(translateX(-15%));
+	font-family: @fourthFontFamily;
+	text-transform: uppercase;
+  line-height: 1;
+}
+
+.frontcover .subtitle {
+  margin-top: 3px;
+  font-size: 33px;
+  left: 1px !important;
+  color: @darkerShade;
+  left: 0px;
+  .transform(translateX(-15%));
+	font-family: @fourthFontFamily;
+	text-transform: uppercase;
+  line-height: 1;
+}
+
+.frontcover .instruction {
+  margin-top: 18px;
+  left: 2px !important;
+  font-size: 24px;
+  font-weight:300;
+  color: @darkerShade;
+  left:0;
+	font-family: @secondaryFontFamily;
+	text-transform: uppercase;
+  line-height: 1;
+
+	&::before {
+		background-image: url('../../assets/img/cover-arrow.png');
+		background-size: 8px 16px;
+		background-repeat: no-repeat;
+		height: 20px;
+		width: 10px;
+		display: inline-block;
+		content: "";
+		vertical-align: middle;
+		margin-right: 3px;
+	}
+}
+
+.frontcover .instruction,
+.frontcover .title,
+.frontcover .subtitle {
+  display: block;
+  text-align: left;
+}
+
+.frontcover .logo,
+.frontcover .instruction,
+.frontcover .title,
+.frontcover .subtitle {
+  position:relative;
+  opacity:0;
+  .transition(all 1.8s cubic-bezier(.53,.51,.43,.94));
+}
+
+.frontcover .show {
+  opacity: 1;
+  left: 0;
+  .transform(translateX(0%));
+}
+
+.frontcover .logo {
+  position: absolute;
+}
+
+.frontcover .logo.top-right {
+  text-align: right;
+  right: 15px;
+  top: 20px;
+}
+
+.frontcover .logo.top-left {
+  text-align: left;
+  left: 15px;
+  top: 20px;
+}
+
+.frontcover .logo.bottom-right {
+  text-align: right;
+  right: 15px;
+  bottom: 20px;
+}
+
+.frontcover .logo.bottom-left {
+  text-align: left;
+  left: 15px;
+  bottom: 20px;
+}
+
+.frontcover .logo.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	-ms-transform: translateY(-50%) translateX(-50%);
+	width: 100%;
+}
+
+.frontcover .video-container {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.frontcover .video-container video {
+	margin-left: 50%;
+	.transform(translateX(-50%));
+  height: 100%;
+}
+
+.frontcover .video-container .mesh{
+  height: 100%;
+  width: 100%;
+  background-repeat: repeat;
+  //opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.9;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .frontcover .video-container video {
+  		width: 100%;
+      height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/10) {
+  .frontcover .video-container video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+
+/* Landscape orientation for iPad */
+/*
+@media only screen
+and (max-width : 1024px)  {
+	#centerdiv {
+		margin-left: @contentview_MarginMobile*2;
+		margin-right: @contentview_MarginMobile*2;
+	}
+  .frontcover .video-container .mesh {
+    opacity: 0.8;
+  }
+	.frontcover .title {
+	font-size: 6vw;
+  }
+  .frontcover .subtitle {
+	font-size: 4vw;
+  }
+  .frontcover .instruction {
+		font-size: 2.2vw;
+  }
+}
+*/
+
+/* Portrait orientation for iPad
+@media only screen
+and (max-width: 768px) {
+	#centerdiv {
+	  margin-left: @contentview_MarginMobile;
+		margin-right: @contentview_MarginMobile;
+	}
+  .frontcover .video-container .mesh {
+    opacity: 0.8;
+  }
+	.frontcover .instruction {
+		font-size: 2.8vw;
+  }
+}
+*/
+/* Mobile screen (based on iPhone 4+)
+@media only screen
+and (max-width: 640px) {
+  .frontcover .instruction {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+		frontcover {
+			overflow-y: scroll;
+			height: 1000px;
+			display: block
+		}
+}
+*/

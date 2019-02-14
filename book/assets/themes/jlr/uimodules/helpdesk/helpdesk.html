@@ -1,0 +1,15 @@
+<div class="helpdesk-overlay"></div>
+<div class="helpdesk-wrapper">
+	<h1>Help Desk</h1>
+	<button class="close" data-bind="click: closeTaskinfo, html: closeImage"></button>
+	<div class="helpdesk-content">	
+		<div class="messages">
+			<ul data-bind="foreach: messageList">
+				<li data-bind="css: id" ><span data-bind="text: name + ': '"></span><div data-bind="text: msg"></div></li>
+			</ul>
+		</div>
+		<div class="status" data-bind="text:status"></div>
+		<div><textarea placeholder="Enter your message here."></textarea></div>
+		<button data-bind="click: sendMessage">Send</button>
+	</div>
+</div>

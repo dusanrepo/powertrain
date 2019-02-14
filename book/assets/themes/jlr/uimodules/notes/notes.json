@@ -1,0 +1,17 @@
+{
+  "name": "S2L Modern Notes",
+  "description": "Interface with the notes feature",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "notes",
+  "options": {
+    "position": ["top-left", "top-right"],
+	"positionMobile": ["left", "right", "top", "bottom"],
+	"createText": "",
+	"emptyCurrent": "",
+	"emptyAll": "",
+	"editImage": "",
+	"deleteImage": ""
+  }
+}

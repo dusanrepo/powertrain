@@ -1,0 +1,31 @@
+<div class="head">
+	<button class="close" data-bind="click: closeNotes, html: closeImage"></button>
+</div>
+<ul class="display-controls">
+	<li>
+		<input name="notes-display-radio" type="radio" value="all" data-bind="checked: viewMode" />
+		<label>All</label>
+		<span class="check-fill"></span>
+	</li>
+	<li>
+		<input name="notes-display-radio" type="radio" value="current" data-bind="checked: viewMode" />
+		<label>Current Page</label>
+		<span class="check-fill"></span>
+	</li>
+</ul>
+<div class="note-list-wrapper">
+	<ul class="note-list" data-bind="foreach: noteItems">
+		<li data-bind="visible: $parent.isNoteVisible(pIndex);">
+			<div class="content" data-bind="text: content"></div>
+			<div class="buttons">
+				<button class="edit-button" data-bind="html: $parent.editImage"></button>
+				<button class="delete-button" data-bind="html: $parent.deleteImage"></button>
+			</div>
+		</li>
+	</ul>
+	<div class="empty-notes" data-bind="visible: emptyTextVisible, text: emptyText"></div>
+</div>
+<div class="create-wrapper">
+	<input class="note-input" type="text" data-bind="value: noteToCreate, attr: { placeholder: settings.inputPrompt }" />
+	<button class="create-button" data-bind="click: createNote, text: createText"></button>
+</div>

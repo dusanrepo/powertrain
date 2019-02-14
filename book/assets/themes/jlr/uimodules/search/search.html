@@ -1,0 +1,22 @@
+<section class="search-bar">
+	<div><input id="search-query" type="text" data-bind="attr : { placeholder: placeholder }" /></div>
+	<button id="btn-search-submit" class="fadeTransition" data-bind="click: searchBook, html: searchIcon"></button>
+	<span class="loading fadeTransition" data-bind="html: loadingIcon"></span>
+</section>
+<div class="search-overlay" data-bind="css: { open: searchResults().length > 0 || showEmpty() == true  || searching() == true}, click: closeSearch.bind($data, true)"></div>
+<div class="search-results-wrapper">
+<section class="search-results">
+	<ul id="search-result-list" data-bind="foreach: searchResults">
+		<li data-bind="click: gotoPage">
+			<span data-bind="text: sLocation"></span>
+			<span data-bind="text: sLastLocation"></span>
+			<span class="hits" data-bind="text: occurances"></span>
+			<!--<div data-bind="html: $parent.hoverIconHTML"></div>-->
+		</li>
+	</ul>
+	<div class="empty-search" data-bind="visible: showEmpty">No results were found.</div>	
+</section>
+<!-- ko if: closeButton -->
+	<button class="close" data-bind="click: closeSearch.bind($data, true), html: closeButton"></button>
+<!-- /ko -->
+</div>

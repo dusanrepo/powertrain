@@ -1,0 +1,13 @@
+{
+  "name": "Video Player",
+  "description": "Media element for playing video files or streaming video content",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {
+  	"fullscreen": [false, true],
+  	"autoplay": [false, true],
+  	"controls": [false, true],
+    "message": [false, true]
+  }
+}

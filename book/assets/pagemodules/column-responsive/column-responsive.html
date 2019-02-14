@@ -1,0 +1,5 @@
+<!-- ko foreach: columns -->
+<div class="container" data-bind="foreach: modules, style: { width: $parent.columnWidth() + 'px' }">
+	<div class="encapsulated" data-bind="css: name, css2: { inverted: $parents[1].isInverted }, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element } }"></div>
+</div>
+<!-- /ko -->

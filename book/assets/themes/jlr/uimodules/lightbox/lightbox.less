@@ -1,0 +1,298 @@
+@import url(./../../rules.less);
+
+.lightbox {
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:@lightbox_ModalColour;
+  z-index:99992;
+}
+
+.lightbox.popup {
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+}
+
+.lightbox .wrapper {
+  position:absolute;
+  overflow:hidden;
+  left:50%;
+  top:50%;
+  cursor:move;
+}
+
+.lightbox.popup .wrapper {
+  position:fixed;
+  overflow:hidden;
+  cursor:default;
+  left: 200px;
+  top: 70px;
+  right: 200px;
+  bottom: 70px;
+  background: @lightShade;
+  overflow: auto;
+}
+
+.lightbox.popup.small .wrapper {
+	width: 600px;
+    height: 180px;
+    left: 50%;
+    margin-left: -300px;
+    top: 50%;
+    margin-top: -90px;
+}
+
+
+.lightbox.popup.small .wrapper .complete{
+	padding: 10px 50px;
+}
+
+.lightbox.popup .close svg *{
+	fill: black;
+	-webkit-transition: all @nav_RolloverTime;
+	-moz-transition: all @nav_RolloverTime;
+    transition: all @nav_RolloverTime;
+}
+
+.lightbox.popup.small .close {
+	position: absolute;
+    right: 50%;
+    margin-right: -300px;
+    top: 50%;
+    margin-top: -90px;
+}
+
+.lightbox.popup .wrapper h2{
+	font-size: 30px;
+	font-weight: normal;
+}
+
+.lightbox .wrapper img {
+  position:absolute;
+}
+
+.lightbox .wrapper div.complete,
+.lightbox .wrapper div.disclaimer {
+  padding: 10px 100px;
+  color: black;
+  text-align: center;
+
+}
+
+.lightbox .wrapper div.disclaimer p:last-child{
+  margin-bottom: 0px;
+}
+
+.lightbox .wrapper div.disclaimer ul  {
+  padding: 0px 0px 0px 200px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.lightbox .wrapper div.disclaimer ul li{
+  padding: 5px 0px;
+}
+
+.lightbox .wrapper div.disclaimer span {
+ display: block;
+ margin: 5px;
+}
+
+.lightbox .wrapper div.disclaimer img {
+ height: 300px;
+ position: static;
+ margin: 20px 10px 5px;
+}
+
+
+.lightbox .figcap {
+  color:@darkerShade;
+  padding-left: 0px !important;
+}
+
+.lightbox .close {
+  position:fixed;
+  right:0;
+  top:0;
+  padding:15px;
+  cursor:pointer;
+  border: 1px solid black;
+}
+
+.lightbox .close:hover {
+	-webkit-transition: all @nav_RolloverTime;
+	-moz-transition: all @nav_RolloverTime;
+    transition: all @nav_RolloverTime;
+ // background: @darkerShade;
+}
+
+.lightbox.popup .close {
+  right: 200px;
+  top: 70px;
+}
+
+.lightbox .close:hover svg *{
+	-webkit-transition: all @nav_RolloverTime;
+	-moz-transition: all @nav_RolloverTime;
+    transition: all @nav_RolloverTime;
+  fill: darken(@darkerShade, 40%);
+}
+
+.lightbox .close svg *{
+  fill: @darkerShade;
+}
+
+.lightbox .cls-3 {
+  fill:@primaryShade;
+}
+
+.lightbox .info-controls {
+  position: fixed;
+  display:table;
+  width: 100%;
+  margin-top: 5px;
+  // bottom: 12px;
+}
+
+.lightbox .zoom {
+  position:relative;
+  top: 5px;
+  width: 132px;
+  // right: 15px;
+}
+
+.lightbox .zoom .zoomIcon svg{
+	height: 20px;
+
+}
+
+.lightbox .zoom .zoomIcon .cls-3 {
+	fill: @nav_ButtonIconFillColour;
+	stroke: @nav_ButtonIconStrokeColour;
+	-webkit-transition: all @nav_RolloverTime;
+	-moz-transition: all @nav_RolloverTime;
+    transition: all @nav_RolloverTime;
+}
+
+.lightbox .info-controls > div {
+  display:table-cell;
+}
+
+.lightbox .slider-wrapper {
+  display:inline-block;
+  height:20px;
+  width:100px;
+  float:right;
+  position:relative;
+  cursor:pointer;
+}
+
+.lightbox .track {
+  position:absolute;
+  top:45%;
+  bottom:45%;
+  width:100%;
+  left:0;
+  right:0;
+  background:@lightShade;
+}
+
+.lightbox .slider {
+  position:absolute;
+  top:3px;
+  height:11px;
+  width:11px;
+  margin-left:-4px;
+  background:@secondaryColor;
+  border-radius: 50%;
+  border: 2px solid @darkerShade;
+}
+
+@media only screen and (max-width: 1420px) {
+
+  .lightbox.popup .wrapper{
+	left: 120px;
+	right: 120px;
+  }
+
+  .lightbox .wrapper div.disclaimer ul  {
+	 padding-left: 150px
+   }
+
+  .lightbox.popup .close {
+	right: 120px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+
+  .lightbox.popup .wrapper{
+	left: 50px;
+	right: 50px;
+  }
+
+  .lightbox.popup .close {
+	right: 50px;
+  }
+
+   .lightbox .wrapper div.disclaimer ul  {
+	 padding-left: 100px
+   }
+}
+
+@media only screen and (max-width: 1150px) {
+
+  .lightbox.popup .wrapper{
+	left: 30px;
+	right: 30px;
+  }
+
+  .lightbox.popup .close {
+	right: 30px;
+  }
+
+  .lightbox .wrapper div.disclaimer ul  {
+	 padding-left: 100px
+  }
+
+}
+
+@media only screen and (max-height: 800px) {
+
+  .lightbox.popup .wrapper{
+	top: 30px;
+	bottom: 30px;
+  }
+
+  .lightbox.popup .close {
+	top: 30px;
+  }
+
+
+}
+
+@media only screen and (max-height: 720px) {
+
+  .lightbox.popup .wrapper{
+	top: 10px;
+	bottom: 10px;
+  }
+
+  .lightbox.popup .close {
+	top: 10px;
+  }
+
+
+}
+
+@media only screen and (max-width: 850px) {
+
+	.lightbox .wrapper div.disclaimer img{
+		height: 250px;
+	}
+
+	.lightbox .wrapper div.disclaimer ul  {
+	 padding-left: 50px
+   }
+}

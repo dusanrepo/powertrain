@@ -1,0 +1,11 @@
+RewriteEngine on
+RewriteBase /powertrain3/book/
+#RewriteCond %{HTTPS} !on
+#RewriteRule .* https://babcocklearningsolutions.com/jlr/powertrain3/mbookservice [L]
+
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [QSA,NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /powertrain3/book/index.php?url=$1 [L]

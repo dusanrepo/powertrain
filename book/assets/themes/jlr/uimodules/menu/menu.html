@@ -1,0 +1,45 @@
+<div class="menu-overlay"></div>
+<section class="menu-wrapper" >
+	<div class="menu-head">
+		<a href="index.php">
+			<span class="" data-bind="text: menuTitle"></span>
+		</a>
+	</div>
+	<div class="menu-list-wrapper">
+		<ul class="menu-list" data-bind="foreach: structure">
+			<li data-bind="css: status">
+				<div data-bind="click: lockedStatus === true ? null : toggleSelection, attr: { 'data-pageindex': pageIndex, 'disabled': lockedStatus }">
+					<span data-bind="text: title"></span>
+					<span class="item-icon" data-bind="html: currentIcon, css: currentClass"></span>
+					<span class="selected-item-icon" data-bind="html: hoverIcon, css: hoverClass"></span>
+					<!--span data-bind="html: currentIcon"></span-->
+					<!--span class="complete" data-bind="html: $component.completeIcon"></span-->
+				</div>
+				<!-- ko if: $data.hasOwnProperty("section")-->
+	            <ul data-bind="slideVisible: lockedStatus === true ? null : $parent.selectedSection() == $data">
+					<!-- ko template: { name: 'sectionListTemplate', foreach: section } -->
+		        	<!-- /ko -->
+	            </ul>
+	        	<!-- /ko -->
+			</li>
+		</ul>
+	</div>
+	<!-- ko if: closeButton -->
+	<div class="close-button" data-bind="html: closeButton, click: closeMenu"></div>
+	<!-- /ko -->
+</section>
+<script id="sectionListTemplate" type="text/html">
+	<li data-bind="css: status" style="padding-left: 49px;">
+		<div data-bind="click: lockedStatus === true ? null : toggleSelection, attr: { 'data-pageindex': pageIndex, 'disabled': lockedStatus }, css: viewStatus">
+			<span data-bind="text: title"></span>
+			<span class="item-icon" data-bind="html: currentIcon, css: currentClass"></span>
+			<span class="selected-item-icon" data-bind="html: hoverIcon, css: hoverClass"></span>
+		</div>
+		<!-- ko if: $data.hasOwnProperty("section")-->
+        <ul data-bind="slideVisible: $parent.selectedSection() == $data">
+			<!-- ko template: { name: 'sectionListTemplate', foreach: section } -->
+	        <!-- /ko -->
+        </ul>
+        <!-- /ko -->
+	</li>
+</script>

@@ -1,0 +1,292 @@
+@import url(./../../rules.less);
+
+.s2lmodern_notes {
+  position:fixed;
+  width:@notes_DesktopWidth;
+  background: @lightShade;
+  z-index: 2;
+  -webkit-transition: all @notes_DropDownTime @notes_DropTransition;
+  -moz-transition: all @notes_DropDownTime @notes_DropTransition;
+  transition: all @notes_DropDownTime @notes_DropTransition;
+  transform: translate3d(0,0,0);
+}
+
+.s2lmodern_notes ::-webkit-input-placeholder {
+  color: @darkShade;
+}
+.s2lmodern_notes :-ms-input-placeholder {
+  color: @darkShade;
+}
+.s2lmodern_notes ::-moz-placeholder {
+  color: @darkShade;
+  opacity: 1;
+}
+.s2lmodern_notes :-moz-placeholder {
+  color: @darkShade;
+  opacity: 1;
+}
+
+.s2lmodern_notes.top-left,
+.s2lmodern_notes.top-right {
+  top: @nav_Height;
+}
+
+.s2lmodern_notes.top-left {
+  left:-@notes_DesktopWidth;
+}
+
+.s2lmodern_notes.top-right {
+  right:-@notes_DesktopWidth;
+}
+.s2lmodern_notes.top-left.open {
+  left:0;
+}
+.s2lmodern_notes.top-right.open {
+  right:0;
+}
+
+.s2lmodern_notes.open {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.s2lmodern_notes .head {
+  position:relative;
+}
+
+.s2lmodern_notes .close {
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0;
+  background:transparent;
+}
+
+.s2lmodern_notes .close:hover {
+  opacity:0.6;
+}
+
+.s2lmodern_notes .close .cls-3 {
+  fill:@primaryShade;
+}
+
+.s2lmodern_notes .display-controls {
+  margin:10px 10px 0;
+  padding:0;
+}
+
+.s2lmodern_notes .display-controls li {
+  position:relative;
+  display:inline-block;
+  list-style:none;
+  margin:0 10px 0 0;
+  padding:10px 0;
+}
+
+.s2lmodern_notes .display-controls input {
+  opacity: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 100;
+  width: 100%!important;
+}
+
+.s2lmodern_notes .display-controls label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  vertical-align: top;
+  color:@darkerShade;
+  -webkit-transition: color @rolloverTime/3 linear;
+  -moz-transition: color @rolloverTime/3 linear;
+  transition: color @rolloverTime/3 linear;
+  cursor:pointer;
+}
+
+.s2lmodern_notes .display-controls input[type="radio"]:checked + label {
+  color:@primaryShade;
+}
+
+.s2lmodern_notes .display-controls li:hover label::before {
+  border-color:@primaryShade;
+}
+
+.s2lmodern_notes .display-controls li:hover label {
+  color:@primaryShade;
+}
+
+.s2lmodern_notes .display-controls label::before {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  cursor:pointer;
+  content: '';
+  border: 1px solid @darkerShade;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  margin-top: -13px;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.s2lmodern_notes .display-controls input[type="radio"]:checked + label::before {
+  border-color:@primaryShade;
+}
+
+.s2lmodern_notes .display-controls .check-fill {
+  opacity:0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 13px;
+  top:50%;
+  border-radius:50%;
+  pointer-events: none;
+  background:@primaryShade;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.s2lmodern_notes .display-controls input[type="radio"]:checked + label + span {
+  width:15px;
+  height:15px;
+  margin: -9px -9px;
+  background:@primaryShade;
+  opacity:1;
+}
+
+.s2lmodern_notes .display-controls input[type="radio"],
+.s2lmodern_notes .display-controls label::before {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  cursor:pointer;
+}
+
+.s2lmodern_notes .note-list-wrapper {
+  overflow-y: hidden;
+  max-height:310px;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.s2lmodern_notes .note-list {
+  margin:0;
+  padding:0 0 0 25px;
+  font-size: 14px;
+  color: @primaryShade;
+}
+
+.s2lmodern_notes .note-list li {
+  margin: 10px;
+}
+
+.s2lmodern_notes .note-list .content {
+
+}
+
+.s2lmodern_notes .note-list .buttons {
+  display:none;
+}
+
+.s2lmodern_notes .note-list .edit-button {
+
+}
+
+.s2lmodern_notes .note-list .delete-button {
+
+}
+
+.s2lmodern_notes .empty-notes {
+  font-style:italic;
+  color: @primaryShade;
+  margin: 0 10px;
+}
+
+.s2lmodern_notes .create-wrapper {
+  bottom:0;
+  width:100%;
+  height:60px;
+}
+
+.s2lmodern_notes .create-wrapper,
+.s2lmodern_notes .create-wrapper > button,
+.s2lmodern_notes .create-wrapper > input {
+  position:absolute;
+}
+
+.s2lmodern_notes .note-input {
+  color:@darkShade;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 0 5px;
+  margin: 0;
+  height: 36px;
+  right: 0px;
+  width: 70%;
+  bottom: 1px;
+  background:@primaryShade;
+}
+
+.s2lmodern_notes .create-button {
+  color:@primaryShade;
+  background:@darkShade;
+  height:37px;
+  width:30%;
+  bottom:0;
+}
+
+.s2lmodern_notes .create-button:hover {
+  background:@primaryShade;
+  color:@mediumShade;
+}
+
+.s2lmodern_notes button {
+  font: inherit;
+  font-weight:300;
+  font-size: 16px;
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+}
+
+.s2lmodern_notes .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+   background-color: transparent;
+}
+
+.s2lmodern_notes .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+   background-color: @darkShade;
+}
+
+.s2lmodern_notes .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+   background-color: @darkShade;
+}
+
+.s2lmodern_notes .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
+  background-color: transparent;
+}
+
+.s2lmodern_notes .ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+  background-color: @darkShade;
+}
+
+.s2lmodern_notes .ps-container:hover > .ps-scrollbar-y-rail:hover {
+  background-color: transparent;
+}
+
+.s2lmodern_notes .ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
+  background-color: @darkShade;
+}
+
+@media only screen and (max-width: 480px) {
+
+}

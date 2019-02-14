@@ -1,0 +1,68 @@
+<div class="taskreport-overlay"></div>
+<div class="taskreport-wrapper">
+	<h1>Task Report - Oil Filter Change</h1>
+	<div class="taskreport-content">
+		<section id="checklist">
+			<h2>Checklist</h2>
+			<!-- ko foreach: checkboxes -->
+			<div class="checkbox">
+				<input type="checkbox" data-bind="attr:{id: id}, checked: checked"/>
+				<label data-bind="attr:{for: id}">
+					<span data-bind="html: checkbox"></span>
+					<span data-bind="text: text"></span>
+				</label>
+			</div>
+			<!-- /ko -->			
+		</section>
+		<section id="parts-used">
+			<h2>Parts Used</h2>
+			<div class="part-input">
+				<span>Oil filter</span>
+				<label>Serial/Part no:</label>
+				<input type="text"></input>
+			</div>
+			<div class="part-input">
+				<span>Oil</span>
+				<label>Type used:</label>
+				<select>
+					<option selected disabled hidden>Select..</option>
+					<option>OX-90</option>
+					<option>OMD-55</option>
+				</select>
+			</div>
+		</section>		
+		<section id="faults">
+			<h2>Faults Found</h2>
+			<!-- ko foreach: faults -->
+			<div class="fault">
+				<span>
+					<span>
+						<label>Part name:</label>
+						<input type="text" />
+					</span>
+					<span>
+						<label>Serial/Part no:</label>
+						<input type="text" />
+					</span>
+					<button class="remove" data-bind="html: $parent.removeIcon, click: $parent.removeFault, enable: $parent.faults().length > 1"></button>
+				</span>				
+				<span>
+					<label>Description:</label>
+					<textarea></textarea>
+					<button data-bind="html: cameraIcon, click: $parent.uploadFile"></button>
+					<input data-bind="event: { change: $parent.uploaded }, attr: { id : 'upload' + $index() }" type="file" style="display: none"/>
+				</span>	
+				<div class="fileupload" data-bind="html: filename"></div>		
+			</div>
+			<!-- /ko -->
+			<div class="addfault" data-bind="visible: faults().length < 3">
+				<button data-bind="click: addFault, html: addIcon"></button>
+				<span>Add another fault</span>
+			</div>
+			<button id="submit" data-bind="enable: enableSubmit, click: submitTaskComplete">Submit</button>
+		</section>
+	</div>
+	<button class="close" data-bind="click: closeTaskreport, html: closeImage"></button>
+</div>
+
+<p><span>Sufficient il level (dipstick)</span></p>

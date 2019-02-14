@@ -1,0 +1,52 @@
+<div class="video-wrapper" data-bind="style: { 'max-width': maxWidth() != undefined ? maxWidth() + 'px' : '' }">
+	<!-- ko if: showMsg -->
+	<div class="video-message">Please refrain from playing this video in the classroom.</div>
+	<!-- /ko -->
+	<video preload="metadata" data-bind="attr: { poster: videoPoster }">
+		<source data-bind="attr: { src: videoSource() + '.mp4' }" type="video/mp4">
+		<source data-bind="attr: { src: videoSource() + '.ogv' }" type="video/ogg">
+	</video>
+	<div class="controls-overlay" data-bind="visible: controls, event: { mousemove: transportActive, mouseleave: transportInactive }">
+		<button class="play-button" data-bind="click: play, html: playBigIcon"></button>
+		<div class="transport" data-bind="fadeVisible: transportVisible">
+			<button data-bind="click: play, html: playIcon"></button>
+			<button data-bind="click: pause, html: pauseIcon"></button>
+			<div>
+				<div
+					class="seeker"
+					data-bind=
+						"event: {
+							mousedown: seekClick.bind($data),
+							mousemove: seekMove.bind($data),
+							mouseup: seekLift.bind($data) },
+							css: { mobile: hideVolControls }"
+				>
+					<div class="progress" data-bind="style: { width: positionPercent }"></div>
+				</div>
+				<span class="time-current" data-bind="text: position"></span>
+				<span class="time-end" data-bind="text: totalTime, css: { mobile: hideVolControls }"></span>
+				<!-- ko ifnot: hideVolControls -->
+				<button class="vol-button" data-bind="html: volumeIcon, click: volToggle"></button>
+				<div
+					class="vol-container"
+					data-bind=
+						"css: { open: volControlVisible },
+						event: {
+							mousedown: volClick.bind($data),
+							mousemove: volMove.bind($data),
+							mouseup: volLift.bind($data),
+							mouseleave: volLift.bind($data),
+							touchstart:  volClick.bind($data),
+							touchmove: volMove.bind($data),
+							touchend: volLift.bind($data)
+					  }"
+				>
+					<span class="track"></span>
+					<span class="slider" data-bind="style: { bottom: volumePercent }"></span>
+				</div>
+			  <!-- /ko -->
+			</div>
+			<button data-bind="click: toggleFullscreen, html: fullscreenIcon"></button>
+        </div>
+    </div>
+</div>

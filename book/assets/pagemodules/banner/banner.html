@@ -1,0 +1,12 @@
+<div >
+  <div class='header-container'>
+    <span class="line" data-bind="style: {backgroundColor: fontColor}"></span>
+    <!-- ko if: type == "text" -->
+    <h1 data-bind="html: text, style: {color: fontColor}"></h1>
+    <!-- /ko -->
+    <!-- ko if: type == "icon" -->
+    <img data-bind="attr: { src: icon }" />
+    <!-- /ko -->
+  </div>
+  <img data-bind="attr: { src: background }" class="background"/>
+</div>

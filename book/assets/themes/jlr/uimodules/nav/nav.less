@@ -1,0 +1,164 @@
+@import url(./../../rules.less);
+
+.nav {
+	position: fixed;
+	width: 100%;
+	background-color: rgba(30, 30, 30, 0.8); /*@primaryShade;*/
+	// opacity: 0.8;
+	z-index: 4;
+	-webkit-transition: background-color @nav_RolloverTime; /*, opacity @nav_RolloverTime;*/
+	-moz-transition: background-color @nav_RolloverTime; /*, opacity @nav_RolloverTime;*/
+	transition: background-color @nav_RolloverTime; /*, opacity @nav_RolloverTime;*/
+}
+
+.nav.active {
+	background-color: @mediumShade;
+	// opacity: 1;
+}
+
+.nav.top {
+	top: 0;
+}
+
+.nav .left {
+	float: left;
+}
+
+.nav .right {
+	float: right;
+}
+
+.nav .main-wrapper {
+	width: 100%;
+	position: relative;
+	height: @nav_Height;
+	padding-left: @nav_LeftMargin;
+	padding-right: @nav_RightMargin;
+	box-sizing: border-box;
+}
+
+.nav .nav-logo {
+	display: table;
+	height: 100%;
+	overflow: hidden;
+	float: right;
+}
+
+.nav .nav-logo > div {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.nav .nav-logo img {
+	margin-left: @nav_LogoMarginHorizontal;
+	margin-top: @nav_LogoMarginVertical;
+}
+
+.nav .nav-buttons {
+	//position: absolute;
+	left: 0;
+	top: 0;
+	height: @nav_Height;
+	width: 100%;
+}
+
+.nav-buttons button {
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0;
+	width: @nav_ButtonWidth;
+	height: @nav_ButtonHeight;
+	background-color: @nav_ButtonBGColour;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.nav-buttons button[disabled] {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.nav-buttons button.current {
+	border-bottom: 4px solid @secondaryColor;
+	padding-top: 4px;
+}
+
+.nav-buttons button {
+	-webkit-transition: background-color @nav_RolloverTime, border-color @nav_RolloverTime;
+	-moz-transition: background-color @nav_RolloverTime, border-color @nav_RolloverTime;
+	transition: background-color @nav_RolloverTime, border-color @nav_RolloverTime;
+}
+
+.nav-buttons button .cls-3 {
+	fill: @nav_ButtonIconFillColour;
+	stroke: @nav_ButtonIconStrokeColour;
+	/*-webkit-transition: all @nav_RolloverTime;
+	//-moz-transition: all @nav_RolloverTime;
+	transition: all @nav_RolloverTime;*/
+}
+
+.nav-buttons button:hover {
+	background-color: @nav_ButtonBGColourHover;
+}
+
+.nav.active .nav-buttons button:hover {
+	background-color: darken(@mediumShade, 15%);
+}
+
+.nav-buttons button:hover .cls-3 {
+	fill: @nav_ButtonIconFillColourHover;
+	stroke: @nav_ButtonIconStrokeColourHover;
+}
+
+.nav-buttons button .cls-4 {
+	fill: @nav_ButtonIconStrokeColour;
+	stroke: @nav_ButtonIconFillColour;
+	-webkit-transition: all @nav_RolloverTime;
+	-moz-transition: all @nav_RolloverTime;
+	transition: all @nav_RolloverTime;
+}
+
+.nav-buttons button:hover .cls-4 {
+	stroke: @nav_ButtonIconFillColourHover;
+	fill: @nav_ButtonIconStrokeColourHover;
+}
+
+.nav.active .nav-buttons button .cls-3 {
+	fill: @nav_ButtonIconFillColour;
+	stroke: @primaryShade;
+}
+
+.nav.active .nav-buttons button .cls-4 {
+	fill: @primaryShade;
+	stroke: @nav_ButtonIconFillColour;
+}
+@media only screen and (max-width: 480px) {
+	.nav-logo {
+		width: 46px!important;
+	}
+
+	.search-bar > div {
+		left: 10px;
+		right: 52px;
+		bottom: 3px;
+	}
+
+	.search-bar input {
+		font-size: 25px;
+	}
+
+	#btn-search-submit {
+		right: 0;
+	}
+
+	.search-results ul li {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
+	.search-results ul li:hover svg {
+		display: none;
+	}
+}

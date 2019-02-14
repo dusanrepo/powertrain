@@ -1,0 +1,16 @@
+<table data-bind="mobileTable: windowWidth() < settings.minWidth(), style: { 'max-width': maxWidth() + 'px' }">
+    <thead>
+        <tr data-bind="foreach: head">
+            <th data-bind="html: $data.content, attr: { rowspan: $data.rowspan, colspan: $data.colspan }"></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: body">
+        <tr data-bind="foreach: $data">
+            <td data-bind="attr: { 'data-label': $parents[1].head[$index()], rowspan: $data.rowspan, colspan: $data.colspan }">
+                <div class="container" data-bind="foreach: content.modules">
+                    <div class="encapsulated" data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element } }"></div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

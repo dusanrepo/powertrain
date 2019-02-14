@@ -1,0 +1,183 @@
+.contentview .figure {
+    position: relative;
+    margin-bottom: @contentPadding;
+    margin-top: @contentPadding;
+    padding: 0;
+
+    &.right {
+        margin-left: @contentview_Spacing;
+        margin-right: @contentview_Margin;
+    }
+
+    &.left {
+        margin-right: @contentview_Spacing;
+        margin-left: @contentview_Margin;
+    }
+
+    &.double-right, &.double-left {
+        border: 0;
+        width: 45%;
+        display: inline-block;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &.double-right {
+        margin-right: @contentview_Margin;
+        float: right;
+        text-align: right;
+    }
+
+    &.double-left {
+        margin-left: @contentview_Margin;
+        float: left;
+    }
+
+    &.centre {
+        display: block;
+        margin: 15px auto;
+        text-align: center;
+    }
+
+    &.backlight {
+        padding: 0 @contentview_Margin;
+    }
+
+    &.inverted {
+        border-color: @primaryShade;
+
+        .figureWrapper span {
+            color: @darkShade;
+        }
+    }
+
+    .figureWrapper {
+        font-size: 0;
+
+        .caption {
+            position: absolute;
+            display: block;
+
+            bottom: 0;
+            left: 0;
+
+            text-align: center;
+            width: 100%;
+            padding: 15px 0;
+            background-color: rgba(30, 30, 30, 0.5);
+            color: white;
+            font-size: 24px;
+        }
+
+        a {
+            cursor: default;
+            display: inline-block;
+            position: relative;
+        }
+
+        img {
+            border: 0;
+        }
+
+        span {
+            color: @primaryShade;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            display: flex;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            background: rgba(0,0,0,0.9);
+            -webkit-transition: opacity @rolloverTime;
+            -moz-transition: opacity @rolloverTime;
+            transition: opacity @rolloverTime;
+            transform: translate3d(0,0,0);
+
+            &:hover {
+                opacity: 1.0;
+            }
+
+            .icon-wrapper {
+                align-self: center;
+                flex-basis: 100%;
+
+                .icon {
+                    position: relative;
+                    text-align: center;
+
+                    svg {
+                        width: 125px;
+                        height: 125px;
+
+                        .cls-3 {
+                            fill: @lightShade;
+                        }
+                    }
+                }
+
+                .prompt {
+                    font-size: @contentview_Heading2FontSize;
+                    color: @darkerShade;
+                    position: relative;
+                    text-align: center;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+  .contentview .figure.double-right,
+  .contentview .figure.double-left {
+    width: 42%;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+.contentview .figure {
+    float:none!important;
+    border-left:0!important;
+    border-right:0!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    height:initial;
+    width:100%;
+    padding: 8px 0;
+    background: @lightShade;
+  }
+
+  .contentview .figure.inverted {
+    background: @primaryShade;
+  }
+
+  .contentview .figure.double-right,
+  .contentview .figure.double-left {
+    width:100%;
+  }
+
+  .contentview .figure img {
+    width:100%;
+    height:auto;
+  }
+
+  .contentview .figure span {
+    color: @primaryShade;
+    margin: 0 @contentview_MarginMobile;
+    font-size: @contentview_FontSize;
+  }
+
+  .contentview .figure.inverted span {
+    color: @lightShade;
+  }
+}

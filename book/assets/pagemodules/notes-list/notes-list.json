@@ -1,0 +1,11 @@
+{
+  "name": "Recorded List",
+  "description": "Items can be added to a list, list is saved in db",
+  "author": "M. Perry",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {
+    "position": ["left", "right", "full"]
+  },
+  "converters": []
+}

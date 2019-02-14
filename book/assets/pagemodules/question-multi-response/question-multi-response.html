@@ -1,0 +1,31 @@
+<div class="wrapper" data-bind="css: { unanswered: complete() == false, correct: correct() &&  complete() , incorrect: !correct() &&  complete(), touch: touchSupport }">
+	<div data-bind="html: questionBody"></div>
+	<ul data-bind="foreach: answers, css: { disabled: complete() == true }">
+		<li data-bind="css: { correct: $parent.complete() && $parent.chosenAnswers().indexOf($index) > -1 && $parent.correctAnswers().indexOf($index) > -1, incorrect: $parent.complete() && $parent.chosenAnswers().indexOf($index) > -1 && $parent.correctAnswers().indexOf($index) === -1}">
+			<div>
+				<input
+					data-bind=
+						"disable: $parent.complete,
+						checked: $parent.chosenAnswers, value: $index(),
+						attr: { id: 'q' + $parent.id + 'rd' + $index(), name: 'r' + $parent.id },
+						event: { change: handleChange }"
+					type="checkbox"
+				/>
+				<label
+					data-bind=
+						"text: text,
+						attr: { for: 'rd' + $index() }"
+				 ></label>
+				<span
+					class="check-fill"
+					data-bind="css: { selected: selected() }, html: $parent.checkHtml"
+				>
+				</span>
+			</div>
+		</li>
+	</ul>
+	<div class="result" data-bind="questionMultiFadeVisible: complete, css: result, html: currentIcon"></div>
+	<button data-bind="disable: chosenAnswers() == null, css: {invisible: complete}, click: submit">Submit</button>
+	<!--<div class="instruction" data-bind="css: {invisible: complete}">Select an answer and press 'Submit'</div>-->
+	<div class="feedback" data-bind="css: {invisible: !complete}, html: feedback, css: feedbackClass"></div>
+</div>

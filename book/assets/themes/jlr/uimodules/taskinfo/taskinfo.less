@@ -1,0 +1,263 @@
+@import url(./../../rules.less);
+
+.taskinfo {
+  position:fixed;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.taskinfo .taskinfo-overlay{ 
+	height: 100%;
+	width: 100%;
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+	opacity: 0;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.taskinfo.open .taskinfo-overlay{ 
+	opacity: 1;
+}
+
+.taskinfo h1 {
+  color: #000;
+  margin: 75px 50px 10px 50px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.taskinfo .taskinfo-wrapper{
+  position: fixed;
+  background: @lightShade;
+  -webkit-transition: all @glossary_DropDownTime @notes_DropTransition;
+  -moz-transition: all @glossary_DropDownTime @notes_DropTransition;
+  transition: all @glossary_DropDownTime @notes_DropTransition;
+}
+
+.taskinfo .taskinfo-wrapper.top-left,
+.taskinfo .taskinfo-wrapper.top-right {
+  top: @nav_Height;
+  width: @glossary_DesktopWidth;
+  height: 100%;
+}
+
+.taskinfo .taskinfo-wrapper.top-left {
+  left:-@glossary_DesktopWidth;
+}
+
+.taskinfo .taskinfo-wrapper.top-right {
+  right:-@glossary_DesktopWidth;
+}
+
+.taskinfo .taskinfo-wrapper.top {
+  top: -100%;
+  height: 100%;
+  left: 0px;
+  right: 0px;
+}
+
+.taskinfo.open .taskinfo-wrapper.top {
+	top: 0px;
+}
+
+.taskinfo .taskinfo-wrapper.top .close {
+	bottom: 10px;
+	left: 50%;
+	right: auto;
+	top: auto;
+	margin-left: -20px;
+}
+
+.taskinfo .taskinfo-wrapper.top .close:hover {
+	opacity: 1;
+}
+
+.taskinfo .taskinfo-wrapper.top .close .cls-5 {
+  fill: none;
+  stroke: #000;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  stroke @menu_RolloverTime @menu_RolloverTransition;
+   transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+
+.taskinfo .taskinfo-wrapper.top .close:hover .cls-5 {
+  stroke: @secondaryColor;
+}
+
+.taskinfo .taskinfo-wrapper.top .taskinfo-content{
+	bottom: 60px;
+}
+
+.taskinfo.open  .taskinfo-wrapper.top-left{
+  left:0;
+}
+.taskinfo.open .taskinfo-wrapper.top-right {
+  right:0;
+}
+
+.taskinfo.open {
+  margin-right: 0;
+  margin-left: 0;
+  pointer-events: auto;
+}
+
+.taskinfo .head {
+  position:relative;
+}
+
+.taskinfo .close {
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0;
+  background:transparent;
+}
+
+.taskinfo .close:hover {
+  opacity:0.6;
+}
+
+.taskinfo .close .cls-3 {
+  fill:@primaryShade;
+}
+
+
+.taskinfo .taskinfo-content {
+  overflow: auto;
+  position: absolute;
+  bottom:0;
+  top: 117px;
+  margin: 0px @contentview_Margin;;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  left: 0px;
+  right: 0px;
+}
+
+.taskinfo .taskinfo-content section{
+	margin-bottom: 25px;
+	width: 450px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.taskinfo .taskinfo-content section:first-child{
+	padding-left: 0px;
+}
+
+.taskinfo .taskinfo-content section:last-child{
+	padding-right: 0px;
+}
+
+.taskinfo .taskinfo-content h2{
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+}
+
+
+.taskinfo .taskinfo-content ul { 
+	margin: 0px 0px 0px;
+	padding-left: 20px;
+	color: #000;
+	line-height: 1.5;
+}
+
+.taskinfo .taskinfo-content ol { 
+	padding: 5px 0px 0px 20px;
+	color: #000;
+}
+
+.taskinfo .taskinfo-content li { 
+	padding: 5px 0px;
+}
+
+.taskinfo .taskinfo-content li:first-child { 
+	padding-top: 0px;
+}
+
+.taskinfo .taskinfo-content li:last-child { 
+	padding: 5px 0px 0px;
+}
+
+.taskinfo .taskinfo-content li span { 
+	font-weight: bold;
+}
+
+.taskinfo .taskinfo-content p{
+  display: inline-block;
+  line-height: 1.5;
+  margin: 0px 40px 0px 0px;
+}
+
+.taskinfo .taskinfo-content p span{
+  font-weight: bold;
+  margin: 0px;
+}
+
+.taskinfo .name {
+  font-weight:bold;
+  font-size:16px;
+}
+
+.taskinfo .description {
+  font-weight:300;
+  font-size:15px;
+}
+
+.taskinfo button {
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+}
+
+
+@media only screen and (max-width: 1023px) {
+
+ 
+  .taskinfo .taskinfo-content { 
+	flex-wrap: nowrap;
+  }
+  
+}
+
+@media only screen and (max-height: 801px), screen and (max-width: 1023px){
+
+ 
+  .taskinfo .taskinfo-wrapper.top{
+	height: 100%;
+	top: -100%;
+  }
+  
+}
+
+
+
+@media only screen and (min-width: 1025px) and (max-height: 779px) {
+
+	.taskinfo .taskinfo-content section{
+		width: 350px;
+	}
+	
+	.taskinfo .taskinfo-content p{
+	  margin: 0px 0px 10px 0px;
+	  display: block;
+	}
+	
+	.taskinfo .taskinfo-content p:last-child{
+	  margin: 0px;
+	}
+}

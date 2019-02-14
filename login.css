@@ -1,0 +1,242 @@
+.bg-overlay {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.submit-wrapper {
+    margin-top: 34px;
+}
+
+.signin-forgot {
+    font-size: 15px;
+    margin: 35px 20px 20px;
+    color: #fff;
+    font-family: 'Avenir-Roman', sans-serif;
+    display: inline-block;
+}
+
+.signin-forgot.disabled {
+    cursor: default;
+}
+
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.login-logo {
+    position: relative;
+    margin-bottom: 50px;
+    max-width: 450px;
+}
+
+#loginForm input {
+    color: #fff;
+    font-family: 'Avenir-Roman', sans-serif;
+    width: 100%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin-bottom: 27px
+}
+
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .5)
+}
+
+::-moz-placeholder {
+    color: rgba(255, 255, 255, .5)
+}
+
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, .5)
+}
+
+:-moz-placeholder {
+    color: rgba(255, 255, 255, .5)
+}
+
+.welcome-text {
+    text-transform: uppercase;
+    margin: 23px 0 37px;
+    line-height: 100%
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important
+}
+
+.button {
+    text-transform: uppercase;
+    background: 0 0;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 7px 25px;
+    width: 100%;
+    transition: all .5s
+}
+
+.button:hover {
+    background-color: #fff;
+    color: #1e1e1e
+}
+
+@font-face {
+    font-family: 'JLREmeric-SemiBold';
+    src: url(font/JLREmeric-SemiBold.eot);
+    src: url(font/JLREmeric-SemiBold.eot#iefix) format('embedded-opentype'), url(font/JLREmeric-SemiBold.woff2) format('woff2'), url(font/JLREmeric-SemiBold.woff) format('woff'), url(font/JLREmeric-SemiBold.ttf) format('truetype'), url(font/JLREmeric-SemiBold.svg#JLREmeric-SemiBold) format('svg');
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'JLREmeric-ExtraLight';
+    src: url(font/JLREmeric-ExtraLight.eot);
+    src: url(font/JLREmeric-ExtraLight.eot#iefix) format('embedded-opentype'), url(font/JLREmeric-ExtraLight.woff2) format('woff2'), url(font/JLREmeric-ExtraLight.woff) format('woff'), url(font/JLREmeric-ExtraLight.ttf) format('truetype'), url(font/JLREmeric-ExtraLight.svg#JLREmeric-ExtraLight) format('svg');
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Avenir-Heavy';
+    src: url(font/AvenirLTW01-85Heavy.eot);
+    src: url(font/AvenirLTW01-85Heavy.eot#iefix) format('embedded-opentype'), url(font/AvenirLTW01-85Heavy.woff2) format('woff2'), url(font/AvenirLTW01-85Heavy.woff) format('woff'), url(font/AvenirLTW01-85Heavy.ttf) format('truetype'), url(font/AvenirLTW01-85Heavy.svg#AvenirLTW01-85Heavy) format('svg');
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url(font/AvenirLTW01-55Roman.eot);
+    src: url(font/AvenirLTW01-55Roman.eot#iefix) format('embedded-opentype'), url(font/AvenirLTW01-55Roman.woff2) format('woff2'), url(font/AvenirLTW01-55Roman.woff) format('woff'), url(font/AvenirLTW01-55Roman.ttf) format('truetype'), url(font/AvenirLTW01-55Roman.svg#AvenirLTW01-55Roman) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Avenir-Black';
+    src: url(font/AvenirLTProBlack.eot);
+    src: url(font/AvenirLTProBlack.eot#iefix) format('embedded-opentype'), url(font/AvenirLTProBlack.woff2) format('woff2'), url(font/AvenirLTProBlack.woff) format('woff'), url(font/AvenirLTProBlack.ttf) format('truetype'), url(font/AvenirLTProBlack.svg#AvenirLTProBlack) format('svg');
+    font-weight: 900;
+    font-style: normal
+}
+
+@media screen and (max-width:768px) {
+    .login-wrapper {
+        max-width: 80vw
+    }
+}
+
+@media screen and (max-width:640px) {
+    .login-logo {
+        max-width: 50vw
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .signin-forgot, .signin-submit {
+        margin: 20px 0
+    }
+    .login-wrapper {
+        max-width: 320px
+    }
+}
+
+::-moz-list-bullet {
+    display: none
+}
+
+a, body {
+    color: #fff
+}
+
+body, h1 {
+    font-family: 'JLREmeric-ExtraLight', sans-serif;
+    font-weight: 400;
+    margin: 0
+}
+
+body {
+    min-height: 100vh;
+
+    text-shadow: none;
+    padding: 0;
+
+    background: url("images/bg.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    cursor: pointer
+}
+
+input, textarea {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    border-radius: 0
+}
+
+h1 {
+    font-size: 38px
+}
+
+input[type=password], input[type=text] {
+    font-family: 'Avenir-Roman', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid #fff
+}
+
+a {
+    text-decoration: none
+}
+
+::-webkit-input-placeholder {
+    color: #c4c4c4
+}
+
+:-moz-placeholder, ::-moz-placeholder {
+    color: #c4c4c4
+}
+
+:-ms-input-placeholder {
+    color: #c4c4c4
+}
+
+.transition-all {
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    transition: all .6s;
+    transform: translate3d(0, 0, 0)
+}
+
+.button {
+    display: block;
+    text-align: center;
+    background: 0 0;
+    font-size: 18px;
+    color: #fff;
+    font-family: 'JLREmeric-ExtraLight', sans-serif;
+    padding: 7px 30px;
+    float: left
+}
+
+.button.disabled {
+    opacity: .5;
+    cursor: default
+}

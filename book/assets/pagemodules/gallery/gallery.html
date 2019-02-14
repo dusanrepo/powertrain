@@ -1,0 +1,33 @@
+<div class="large-image-wrapper">
+	<a class="large-image" data-bind="attr: { href: bigImageSource }, click: largeClick">
+		<img data-bind="attr: { src: bigImageSource }, event: { load: imageLoaded }" />
+        <div class="caption" data-bind="text: selected().caption, visible: selected().caption != ''"></div>
+		<div class="overlay" data-bind="visible: selected().expandable ">
+			<div class="icon-wrapper">
+				<span class="icon" data-bind="html: enlargeIcon"></span>
+				<span class="prompt" data-bind="text: prompt"></span>
+			</div>
+		</div>
+	</a>
+</div>
+<div class="galleryContent" data-bind="foreach: images, contentSwitcher: selected">
+    <!-- ko if: $data.content != undefined -->
+    <div class="container" data-bind="foreach: content.modules">
+	    <div class="inverted" data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element } }"></div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: $data.content == undefined -->
+    <div class="container"></div>
+    <!-- /ko -->
+</div>
+<div class="reel-wrapper">
+	<div class="reel-window">
+		<ul class="reel" data-bind="foreach: images, style: { left: scrollPos, width: reelWidth }, css: { small: smallReel },">
+			<li class="item" data-bind="click: $parent.thumbClick.bind($data)">
+				<img data-bind="attr: { src: $parent.imageSource($data.image)}, event: { load: $data.loaded }" />
+			</li>
+		</ul>
+	</div>
+	<button class="left-button" data-bind="css: { touch: touchSupport }, visible: showLeft, html: leftIcon, event: { mousedown: scrollLeft, mouseup: scrollQuit, mouseleave: scrollQuit, touchstart: scrollLeft, touchend: scrollQuit }"></button>
+	<button class="right-button" data-bind="css: { touch: touchSupport }, visible: showRight, html: rightIcon, event: { mousedown: scrollRight, mouseup: scrollQuit, mouseleave: scrollQuit, touchstart: scrollRight, touchend: scrollQuit }"></button>
+</div>

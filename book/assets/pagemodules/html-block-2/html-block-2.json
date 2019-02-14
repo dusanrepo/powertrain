@@ -1,0 +1,15 @@
+{
+  "name": "HTML Block 2",
+  "description": "The most basic element for displaying HTML content.",
+  "author": "D. Patel",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {},
+  "converters": [
+  	"two-column-block",
+  	"three-column-block",
+  	"tab",
+  	"accordion",
+  	"custom-html-block"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "S2L Modern Navigation bar",
+  "description": "White navigation bar with green secondary colours",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "frontCover",
+  "styles": ["s2lmodern_nav"],
+  "html": "s2lmodern_nav",
+  "options": {
+	"position": ["top", "bottom"],
+	"searchEmptyText": "",
+	"searchIcon": "",
+	"searchLoadingIcon": ""
+  }
+}

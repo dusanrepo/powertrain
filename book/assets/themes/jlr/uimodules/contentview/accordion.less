@@ -1,0 +1,175 @@
+.contentview .accordion {
+    margin: 0px 0px 10px 0px;
+
+    .link {
+        margin-left: @contentview_Margin;
+        margin-right: @contentview_Margin;
+        position: relative;
+        overflow: hidden;
+        color: @primaryShade;
+        font-size: @contentview_Heading2FontSize*1.05;
+        background: @darkerShade;
+        border: 1px solid @buttonOutlineColor;
+        padding: 10px 0;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        -webkit-transition: all @rolloverTime;
+        -moz-transition: all @rolloverTime;
+        transition: all @rolloverTime;
+        transform: translate3d(0,0,0);
+
+        span {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            -ms-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+            -webkit-transition: all @rolloverTime;
+            -moz-transition: all @rolloverTime;
+            transition: all @rolloverTime;
+
+            .cls-3 {
+                fill: @primaryShade;
+            }
+        }
+
+        &.hover:hover {
+            background: @primaryShade;
+            color: @darkerShade;
+            outline: 0px solid @darkerShade;
+
+            span {
+                right: 15px;
+
+                .cls-3 {
+                    fill: @darkerShade;
+                }
+            }
+
+            > div {
+                margin-left: 20px;
+            }
+        }
+
+        > div {
+            margin-left: 10px;
+            font-family: JLREmeric-ExtraLight !important;
+            text-transform: uppercase;
+            -webkit-transition: margin @rolloverTime;
+            -moz-transition: margin @rolloverTime;
+            transition: margin @rolloverTime;
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    &.inverted .link {
+        color: @darkerShade;
+        background: @primaryShade;
+
+        span .cls-3 {
+            fill: @darkerShade;
+        }
+
+        &.hover:hover {
+            background: @darkerShade;
+            color: @primaryShade;
+            outline: 1px solid @primaryShade;
+
+            span .cls-3 {
+                fill: @primaryShade;
+            }
+        }
+    }
+
+    &.open {
+        .link {
+            background: @primaryShade;
+            color: @darkerShade;
+            outline: 0px solid @darkerShade;
+
+            span {
+                top: 10px;
+                -ms-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                right: 15px;
+
+                .cls-3 {
+                    fill: @darkerShade;
+                }
+            }
+
+            > div {
+                margin-left: 20px;
+            }
+        }
+
+        &.inverted {
+            .link {
+                background: @darkerShade;
+                color: @primaryShade;
+                outline: 1px solid @primaryShade;
+
+                span .cls-3 {
+                    fill: @primaryShade;
+                }
+            }
+
+            > container {
+                border-bottom: 0px solid @darkerShade;
+            }
+        }
+
+        > .container {
+            margin-top: 10px;
+            border-bottom: 0px solid @darkerShade;
+            opacity: 1;
+        }
+    }
+
+    > .container {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        background: @primaryShade;
+        -webkit-transition: all @rolloverTime @accordion_Transition;
+        -moz-transition: all @rolloverTime @accordion_Transition;
+        transition: all @rolloverTime @accordion_Transition;
+        transform: translate3d(0,0,0);
+
+        > div {
+            overflow: initial;
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1024px) {
+  .contentview .accordion.open .link > div {
+    margin-left: 10px!important;
+  }
+
+  .contentview .accordion .link span {
+    right: 15px!important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+.contentview .accordion {
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .contentview .accordion.open .link > div {
+    margin-left: 10px!important;
+  }
+
+  .contentview .accordion .link span {
+    right: 15px!important;
+  }
+}

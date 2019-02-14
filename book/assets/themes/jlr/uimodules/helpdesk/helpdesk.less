@@ -1,0 +1,319 @@
+@import url(./../../rules.less);
+
+.helpdesk {
+  position:fixed;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.helpdesk .helpdesk-overlay{ 
+	height: 100%;
+	width: 100%;
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+	opacity: 0;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.helpdesk.open .helpdesk-overlay{ 
+	opacity: 1;
+}
+
+.helpdesk h1 {
+  color: #000;
+  margin: 75px 50px 10px 50px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.helpdesk .helpdesk-wrapper{
+  position: fixed;
+  background: @lightShade;
+  -webkit-transition: all @glossary_DropDownTime @notes_DropTransition;
+  -moz-transition: all @glossary_DropDownTime @notes_DropTransition;
+  transition: all @glossary_DropDownTime @notes_DropTransition;
+}
+
+.helpdesk .helpdesk-wrapper.top-left,
+.helpdesk .helpdesk-wrapper.top-right {
+  top: @nav_Height;
+  width: @glossary_DesktopWidth;
+  height: 100%;
+}
+
+.helpdesk .helpdesk-wrapper.top-left {
+  left:-@glossary_DesktopWidth;
+}
+
+.helpdesk .helpdesk-wrapper.top-right {
+  right:-@glossary_DesktopWidth;
+}
+
+.helpdesk .helpdesk-wrapper.top {
+  top: -100%;
+  height: 100%;
+  left: 0px;
+  right: 0px;
+}
+
+.helpdesk.open .helpdesk-wrapper.top {
+	top: 0px;
+}
+
+.helpdesk .helpdesk-wrapper.top .close {
+	bottom: 10px;
+	left: 50%;
+	right: auto;
+	top: auto;
+	margin-left: -20px;
+}
+
+.helpdesk .helpdesk-wrapper.top .close:hover {
+	opacity: 1;
+}
+
+.helpdesk .helpdesk-wrapper.top .close .cls-5 {
+  fill: none;
+  stroke: #000;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  stroke @menu_RolloverTime @menu_RolloverTransition;
+   transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+
+.helpdesk .helpdesk-wrapper.top .close:hover .cls-5 {
+  stroke: @secondaryColor;
+}
+
+.helpdesk .helpdesk-wrapper.top .helpdesk-content{
+	bottom: 60px;
+}
+
+.helpdesk.open  .helpdesk-wrapper.top-left{
+  left:0;
+}
+.helpdesk.open .helpdesk-wrapper.top-right {
+  right:0;
+}
+
+.helpdesk.open {
+  margin-right: 0;
+  margin-left: 0;
+  pointer-events: auto;
+}
+
+.helpdesk .head {
+  position:relative;
+}
+
+.helpdesk .close {
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0;
+  background:transparent;
+}
+
+.helpdesk .close:hover {
+  opacity:0.6;
+}
+
+.helpdesk .close .cls-3 {
+  fill:@primaryShade;
+}
+
+
+.helpdesk .helpdesk-content {
+  overflow: auto;
+  position: absolute;
+  bottom:0;
+  top: 117px;
+  margin: 0px @contentview_Margin;;
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  left: 0px;
+  right: 0px;
+}
+
+.helpdesk .helpdesk-content section{
+	margin-bottom: 25px;
+	width: 450px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.helpdesk .helpdesk-content section:first-child{
+	padding-left: 0px;
+}
+
+.helpdesk .helpdesk-content section:last-child{
+	padding-right: 0px;
+}
+
+.helpdesk .helpdesk-content h2{
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+}
+
+
+.helpdesk .helpdesk-content ul { 
+	margin: 0px 0px 0px;
+	padding-left: 20px;
+	color: #000;
+	line-height: 1.5;
+}
+
+.helpdesk .helpdesk-content ol { 
+	padding: 5px 0px 0px 20px;
+	color: #000;
+}
+
+.helpdesk .helpdesk-content li { 
+	padding: 5px 0px;
+}
+
+.helpdesk .helpdesk-content li:first-child { 
+	padding-top: 0px;
+}
+
+.helpdesk .helpdesk-content li:last-child { 
+	padding: 5px 0px 0px;
+}
+
+.helpdesk .helpdesk-content li span { 
+	font-weight: bold;
+}
+
+.helpdesk .helpdesk-content p{
+  display: inline-block;
+  line-height: 1.5;
+  margin: 0px 40px 0px 0px;
+}
+
+.helpdesk .helpdesk-content p span{
+  font-weight: bold;
+  margin: 0px;
+}
+
+.helpdesk .name {
+  font-weight:bold;
+  font-size:16px;
+}
+
+.helpdesk .description {
+  font-weight:300;
+  font-size:15px;
+}
+
+.helpdesk button {
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+  background: @secondaryColor;
+}
+
+.helpdesk .helpdesk-content button {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-right: 10px;
+      height: 40px;
+    width: 130px;
+    color: #fff;
+}
+
+.helpdesk textarea {
+    background: white;
+    width: 100%;
+    height: 34px;
+    resize: none;
+    padding-left: 8px;
+    padding-top: 8px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.helpdesk .messages {
+  height:279px;
+  overflow:auto;
+  background:#fff;
+}
+
+.helpdesk .messages ul {
+  list-style:none;
+  
+  padding:0;
+}
+
+.helpdesk .messages ul li
+{
+  padding: 5px 8px!important;
+}
+
+.helpdesk .messages ul li div {
+  display:inline;
+}
+
+.helpdesk .messages ul li.receiver span {
+  color:#989898;
+}
+
+.helpdesk .messages ul li.sender span {
+  color:@secondaryColor;
+}
+
+.helpdesk .status {
+  padding-top: 6px;
+  font-size: 10px;
+  height:20px;
+}
+
+@media only screen and (max-width: 1023px) {
+
+ 
+  .helpdesk .helpdesk-content { 
+	flex-wrap: nowrap;
+  }
+  
+}
+
+@media only screen and (max-height: 801px), screen and (max-width: 1023px){
+
+ 
+  .helpdesk .helpdesk-wrapper.top{
+	height: 100%;
+	top: -100%;
+  }
+  
+}
+
+
+
+@media only screen and (min-width: 1025px) and (max-height: 779px) {
+
+	.helpdesk .helpdesk-content section{
+		width: 350px;
+	}
+	
+	.helpdesk .helpdesk-content p{
+	  margin: 0px 0px 10px 0px;
+	  display: block;
+	}
+	
+	.helpdesk .helpdesk-content p:last-child{
+	  margin: 0px;
+	}
+}

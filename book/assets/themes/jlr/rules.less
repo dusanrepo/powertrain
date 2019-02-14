@@ -1,0 +1,141 @@
+/* General */
+@mainFontFamily: JLREmeric-ExtraLight, sans-serif;
+@secondaryFontFamily: JLREmeric-ExtraLight, sans-serif;
+@thirdFontFamily: JLREmeric-SemiBold, sans-serif;
+@fourthFontFamily: JLREmeric-SemiBold, sans-serif;
+
+@primaryShade: #1e1e1e;
+@lightShade: #dadada;
+@mediumShade: #e8e8e8;
+@darkShade: #c4c4c4;
+@darkerShade: #ffffff;
+@backgroundShade: #555555;
+@borderShade: #eaeaea;
+
+@secondaryColor: #005a2b;
+
+@rolloverTime: 0.5s;
+
+@contentPadding: 5px;
+
+/* content view */
+@contentview_BG: @darkerShade;
+@contentview_FontSize: 21px;
+@contentview_Heading1FontSize: 34px;
+@contentview_Heading2FontSize: 25px;
+@contentview_Heading3FontSize: 30px;
+@contentview_Heading4FontSize: 28px;
+@contentview_HeadingColor: @primaryShade;
+@contentview_SubHeadingColor: @contentview_HeadingColor;
+@contentview_ListColour: @primaryShade;
+@contentview_BlockQuoteColor: @primaryShade;
+
+@contentview_FigureCaptionColor: @lightShade;
+
+@contentview_SearchHighlightBGColour: @lightShade;
+@contentview_SearchHighlightBGColour2: @darkShade;
+@contentview_SearchHighlightColor: @contentview_BG;
+@contentview_SearchHighlightPulseRate: 1.2s;
+@contentview_ContentColour: @primaryShade;
+@contentview_MarginTop: 20px;
+@contentview_Margin: 6%;
+@contentview_MarginMobile: 5px;
+@contentview_Spacing: 15px;
+
+@contentview_lboxOverlayColour: rgba(0, 0, 0, .8);
+
+/* video player */
+@videoplayer_ControlsBaseColour: rgba(123, 121, 106, 0.95);
+@videoplayer_ControlsHoverColour: rgba(123, 121, 106, 0.75);
+@videoplayer_SeekerBaseColour: rgba(163, 161, 146, 0.25);
+@videoplayer_SeekerProgressColour: rgba(93, 91, 76, 0.75);
+@videoplayer_InactiveOverlayColour: rgba(0, 0, 0, 0.5);
+@videoplayer_InactiveOverlayFadeTime: 0.35s;
+
+/* audio player */
+@audioplayer_ControlsBaseColour: rgb(123, 121, 106);
+@audioplayer_ControlsHoverColour: darken(rgb(123, 121, 106), 10%);
+@audioplayer_SeekerBaseColour: rgb(163, 161, 146);
+@audioplayer_SeekerProgressColour: darken(rgb(123, 121, 106), 5%);
+
+/* panorama */
+@panorama_BasePath: "../../assets/img/panorama";
+@panorama_BaseColor: @videoplayer_SeekerBaseColour;
+@panorama_BorderColor: @videoplayer_InactiveOverlayColour;
+@panorama_OverlayColor: @videoplayer_InactiveOverlayColour;
+@panorama_OverlayColorHover: @contentview_lboxOverlayColour;
+
+/* accordion */
+@accordion_Transition: cubic-bezier(0.390, 0.005, 0.175, 1.000);
+
+/* tables */
+@tables_borderColour: #ddd;
+
+/* menu */
+@menu_ChapterBG: @mediumShade;
+@menu_ChapterArrow: @darkShade;
+@menu_ChapterTextColour: @primaryShade;
+@menu_ChapterBorderColour: @borderShade;
+@menu_SectionBG: @mediumShade;
+@menu_SectionTextColour: @darkerShade;
+@menu_OverlayColour: rgba(30,30,30,0.25);
+@menu_OverlayImage: none;
+@menu_DropDownTime: 0.4s;
+@menu_RolloverTime: 0.6s;
+@menu_DropTransition: cubic-bezier(0.390, 0.005, 0.175, 1.000);
+@menu_RolloverTransition: @menu_DropTransition;
+@menu_DesktopWidth: 500px;
+
+/* nav */
+@nav_BG: @mediumShade;
+@nav_Height: 40px;
+@nav_RolloverTime: 0.5s;
+@nav_ButtonBGColour: transparent;
+@nav_ButtonBGColourHover: rgba(100%, 100%, 100%, 0.2);
+@nav_ButtonIconFillColour: none;
+@nav_ButtonIconFillColourHover: none;
+@nav_ButtonIconStrokeColour: @darkerShade;
+@nav_ButtonIconStrokeColourHover: @darkerShade;
+@nav_ButtonWidth: @nav_Height;
+@nav_ButtonHeight: @nav_Height;
+@nav_LogoMarginHorizontal: 8px;
+@nav_LogoMarginVertical: 2px;
+@nav_LeftMargin: 50px;
+@nav_RightMargin: 50px;
+
+@searchHeight: @nav_Height;
+
+/* nextback buttons */
+@buttonColor: @darkerShade;
+@buttonOutlineColor: @primaryShade;
+@buttonHoverOutlineColor: @secondaryColor;
+@buttonFillColor: none;
+@buttonOutlineWidth: 0px;
+@buttonHoverColor: @primaryShade;
+@buttonWidth: 30px;
+@buttonHeight: 60px;
+@buttonHoverWidth: @buttonWidth*2;
+@buttonRadius: 0px;
+
+/* notes */
+@notes_DesktopWidth: 400px;
+@notes_DropTransition: cubic-bezier(0.390, 0.005, 0.175, 1.000);
+@notes_DropDownTime: 0.4s;
+@notes_RolloverColor: darken(#e8e8e8, 6%);
+
+/* glossary */
+@glossary_DesktopWidth: 400px;
+@glossary_DesktopHeight: 600px;
+@glossary_DropTransition: cubic-bezier(0.390, 0.005, 0.175, 1.000);
+@glossary_DropDownTime: 0.4s;
+
+/* lightbox */
+@lightbox_ModalColour: rgb(0,0,0);
+
+/* results */
+@results_InorrectColour: @question_correctColor;
+@results_CorrectColour: @question_incorrectColor;
+
+/* questions */
+@question_correctColor: #78a574;
+@question_incorrectColor: #ba6771;

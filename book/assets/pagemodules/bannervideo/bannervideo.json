@@ -1,0 +1,17 @@
+{
+  "name": "VideoBackground Block",
+  "description": "The banner with video background for displaying HTML content.",
+  "author": "D. Patel",
+  "version": "0.0.1",
+  "timestamp": "2019-01-21T00:00:00",
+  "options": {
+	   "fullTitle": [true, false]
+  },
+  "converters": [
+  	"two-column-block",
+  	"three-column-block",
+  	"tab",
+  	"accordion",
+  	"custom-html-block"
+  ]
+}

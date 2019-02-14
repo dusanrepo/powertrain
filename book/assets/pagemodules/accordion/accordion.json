@@ -1,0 +1,14 @@
+{
+  "name": "Accordion (Reveal)",
+  "description": "A list of expandable tabs with self-contained page content.",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {
+  	"autoclose": [false, true],
+  	"autoscroll": [false, true]
+  },
+  "converters": [
+  	"tabs"
+  ]
+}

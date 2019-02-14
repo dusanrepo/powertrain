@@ -1,0 +1,12 @@
+{
+  "name": "S2L Modern Glossary viewer",
+  "description": "Interface with the built-in glossary feature",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "glossary",
+  "options": {
+    "position": ["top-left", "top-right", "top"],
+	"positionMobile": ["left", "right", "top", "bottom"]
+  }
+}

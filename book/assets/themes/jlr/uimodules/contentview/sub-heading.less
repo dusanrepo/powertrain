@@ -1,0 +1,41 @@
+@import "../../rules.less";
+
+.contentview .sub-heading {
+
+    h2 {
+        margin: 0 @contentview_Margin;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: @contentview_HeadingColor;
+        font-size: @contentview_Heading3FontSize;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: @secondaryFontFamily;
+
+        &.encapsulated {
+            margin: 0;
+        }
+
+        + div {
+            height: 1px;
+            width: 15px;
+            background: @primaryShade;
+            margin: 0px auto;
+        }
+    }
+
+    &.inverted h2 {
+        color: @darkerShade;
+
+        + div {
+            background: @darkerShade;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+  .contentview .sub-heading h2 {
+    margin: @contentview_MarginMobile;
+  }
+}

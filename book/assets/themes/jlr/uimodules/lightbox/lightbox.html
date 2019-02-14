@@ -1,0 +1,13 @@
+<div class="wrapper" data-bind="html: content, event: { mousemove: dragMove, mousedown: dragStart, mouseup: dragEnd, touchstart: touchStart, touchmove: touchMove, touchend: touchEnd}"></div>
+<span class="close" data-bind="click: closeLightbox, html: closeImage"></span>
+<div class="info-controls">
+	<div class="figcap" data-bind="html: caption"></div>
+	<div class="zoom" data-bind="visible: enableZoom">
+		<span class="zoomIcon" data-bind="html: zoomImage"></span>
+		<div class="slider-wrapper" data-bind=" event: { mousedown: zoomClick.bind($data), mousemove: zoomMove.bind($data), mouseup: zoomLift.bind($data), mouseleave: zoomLift.bind($data) }">
+			<div class="track"></div>
+			<div class="slider" data-bind="style: { left: zoomPercent }"></div>
+		</div>
+	</div>
+	<div class="notify"></div>
+</div>

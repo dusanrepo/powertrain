@@ -1,0 +1,16 @@
+<!--div class="final-result" data-bind="fadeVisible: resultAvailable, css: result, html: currentIcon"></div-->
+<div class="score-wrapper" data-bind="visible: resultAvailable">
+	<input type="text" class="score-metre" data-fgColor="#78a574" data-bgColor="#ba6771" data-inputColor="#1e1e1e" data-displayInput="true" value="0%" data-readOnly=true data-thickness="0.17" data-height="240" data-width="240"/>
+	<div class="key-wrapper">
+		<div class="correct">
+			<span class="cell"></span>
+			<span class="label" data-bind="text: correctMessage() + ' ' + correctAnswers() + ' / ' + mBook.bookData.assessedmodules"></span>
+		</div>
+		<!-- <div class="incorrect">
+			<span class="cell"></span>
+			<span class="label" data-bind="text: incorrectMessage() + ' ' + wrongAnswers()"></span>
+		</div> -->
+	</div>
+	<div class="complete-message" data-bind="text: completeMessage"></div>
+</div>
+<div class="unavailable-message" data-bind="visible: !resultAvailable(), text: unavailableMessage"></div>

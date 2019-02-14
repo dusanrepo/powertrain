@@ -1,0 +1,13 @@
+<div class="noteWrapper" data-bind="css: cssBinds">
+    <!-- ko if: type == "text" -->
+    <span class="title" data-bind="text: title"></span>
+    <!-- /ko -->
+    <!-- ko if: type == "icon" -->
+    <div class="iconWrapper">
+        <img class="icon" src="" data-bind="attr: { src: icon }"></img>
+    </div>
+    <!-- /ko -->
+    <div class="textWrapper" data-bind="css: height">
+        <textarea data-bind="value: value, valueUpdate: 'keyup', event: { keyup: addItem }"></textarea>
+    </div>
+</div>

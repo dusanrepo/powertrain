@@ -1,0 +1,7 @@
+<div class="link" data-bind="click: press">
+	<div data-bind="text: title"></div>
+	<span data-bind="html: iconImage"></span>
+</div>
+<div class="container" data-bind="foreach: contentViewModel.modules">
+	<div class="inverted" data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element } }"></div>
+</div>

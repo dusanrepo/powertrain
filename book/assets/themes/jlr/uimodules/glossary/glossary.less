@@ -1,0 +1,171 @@
+@import url(./../../rules.less);
+
+.glossary {
+  position:fixed;
+  z-index: 2;
+  transform: translate3d(0,0,0);
+  bottom:0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.glossary .glossary-overlay{
+	height: 100%;
+	width: 100%;
+	background-color: @menu_OverlayColour;
+	background-image: @menu_OverlayImage;
+	opacity: 0;
+	-webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+	-moz-transition:  all @menu_DropDownTime @menu_DropTransition;
+	transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.glossary.open .glossary-overlay{
+	opacity: 1;
+}
+
+.glossary h1 {
+  color: #000;
+  margin: 10px @contentview_Margin;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.glossary .glossary-wrapper{
+  position: fixed;
+  background: @lightShade;
+  -webkit-transition: all @glossary_DropDownTime @notes_DropTransition;
+  -moz-transition: all @glossary_DropDownTime @notes_DropTransition;
+  transition: all @glossary_DropDownTime @notes_DropTransition;
+}
+
+.glossary .glossary-wrapper.top-left,
+.glossary .glossary-wrapper.top-right {
+  top: @nav_Height;
+  width: @glossary_DesktopWidth;
+  height: 100%;
+}
+
+.glossary .glossary-wrapper.top-left {
+  left:-@glossary_DesktopWidth;
+}
+
+.glossary .glossary-wrapper.top-right {
+  right:-@glossary_DesktopWidth;
+}
+
+.glossary .glossary-wrapper.top {
+  top: -@glossary_DesktopHeight + @nav_Height - 40px;
+  height: @glossary_DesktopHeight;
+  width: 100%;
+}
+
+.glossary.open .glossary-wrapper.top {
+	top: @nav_Height;
+}
+
+.glossary .glossary-wrapper.top .close {
+	bottom: 10px;
+	left: 50%;
+	right: auto;
+	top: auto;
+	margin-left: -20px;
+}
+
+.glossary .glossary-wrapper.top .close:hover {
+	opacity: 1;
+}
+
+.glossary .glossary-wrapper.top .close .cls-5 {
+  fill: none;
+  stroke: #000;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition:  stroke @menu_RolloverTime @menu_RolloverTransition;
+   transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+
+.glossary .glossary-wrapper.top .close:hover .cls-5 {
+  stroke: @secondaryColor;
+}
+
+.glossary .glossary-wrapper.top .glossary-list-wrapper{
+	bottom: 60px;
+	margin: 0px @contentview_Margin;
+}
+
+.glossary.open  .glossary-wrapper.top-left{
+  left:0;
+}
+.glossary.open .glossary-wrapper.top-right {
+  right:0;
+}
+
+.glossary.open {
+  margin-right: 0;
+  margin-left: 0;
+  pointer-events: auto;
+}
+
+.glossary .head {
+  position:relative;
+}
+
+.glossary .close {
+  position:absolute;
+  right: 15px;
+  top: 15px;
+  padding: 0;
+  background:transparent;
+}
+
+.glossary .close:hover {
+  opacity:0.6;
+}
+
+.glossary .close .cls-3 {
+  fill:@primaryShade;
+}
+
+
+.glossary .glossary-list-wrapper {
+  overflow-y: hidden;
+  position: absolute;
+  bottom:0;
+  top:52px;
+}
+
+.glossary .gloss-list {
+  margin:0;
+  padding:0;
+  font-size: 14px;
+  list-style:none;
+  color: #000;
+}
+
+.glossary .gloss-list li {
+  margin: 0 0px 10px;
+}
+
+.glossary .name {
+  font-weight:bold;
+  font-size:16px;
+}
+
+.glossary .description {
+  font-weight:300;
+  font-size:15px;
+}
+
+.glossary button {
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+  transform: translate3d(0,0,0);
+}
+
+
+@media only screen and (max-width: 480px) {
+
+}

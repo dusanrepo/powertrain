@@ -1,0 +1,207 @@
+.contentview .notes-list {
+    margin-bottom: @contentPadding;
+    margin-top: @contentPadding;
+
+    mark {
+        display: initial;
+    }
+
+
+    &.left {
+        margin-left: @contentview_Margin;
+        padding-right: 0px;
+        box-sizing: border-box;
+        width: 45%;
+        display: inline-block;
+
+        &.encapsulated {
+            margin-left: 0;
+        }
+    }
+
+    &.right {
+        margin-right: 0;
+        padding-left: 10px;
+        box-sizing: border-box;
+        width: 45%;
+        display: inline-block;
+
+        &.encapsulated {
+            margin-right: 0;
+        }
+    }
+
+    &.full {
+        margin: 5px 4% 10px 6%;
+
+        &.encapsulated {
+            margin: 5px 0 10px;
+        }
+    }
+
+    * {
+        display: block;
+        margin: auto;
+    }
+
+    > div {
+        box-sizing: border-box;
+        padding: 0px 15px;
+        width: 100%;
+        height: 100%;
+
+        > h2 {
+            font-family: @fourthFontFamily;
+            font-size: @contentview_Heading2FontSize;
+            color: @darkerShade;
+            padding: 8px 0px 25px;
+            text-transform: uppercase;
+        }
+
+        div * {
+            font-size: @contentview_FontSize;
+        }
+
+        ul {
+            padding: 0px;
+
+            li {
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 7px 7px;
+                background: rgba(30,30,30,0.18);
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                &:last-child {
+                    margin-bottom: 10px;
+                }
+
+                span {
+                    display: block;
+                    padding-right: 40px;
+                    padding-left: 0px;
+                    box-sizing: border-box;
+                    color: @darkerShade;
+                }
+
+                textarea {
+                    padding: 0px 40px 0px 0px;
+                    box-sizing: border-box;
+                    background: @darkerShade;
+                    display: block;
+                    margin: 0px;
+                    resize: none;
+                    width: calc(100% - 50px);
+                    font-size: 15px;
+                    line-height: 0.5;
+                }
+
+                button {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    top: 50%;
+                    margin-top: -10px;
+                    background: none;
+                    padding: 0px;
+
+                    &.remove {
+                        right: 7px;
+                    }
+
+                    &.accept, &.edit {
+                        right: 32px;
+                    }
+
+                    svg .cls-3 {
+                        fill: @darkerShade;
+                        .transition(all @nav_RolloverTime);
+                    }
+
+                    &:hover svg .cls-3 {
+                        fill: darken(@darkerShade, 30%);
+                    }
+                }
+            }
+        }
+    }
+
+    .input {
+        box-sizing: border-box;
+        width: 100%;
+
+        textarea {
+            background: @darkerShade;
+            box-sizing: border-box;
+            width: 100%;
+            resize: none;
+            overflow: auto;
+            padding: 7px;
+            height: 80px;
+        }
+
+        button {
+            height: 30px;
+            width: 70px;
+            margin: 20px auto;
+            background: @mediumShade;
+            color: @primaryShade;
+            font-family: @secondaryFontFamily;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            // border: 1px solid #323030;
+            transition: all 0.3s;
+
+            svg {
+                height: 32px;
+                width: 32px;
+                transition: all 0.3s;
+
+                > line {
+                    stroke: @primaryShade;
+                }
+            }
+
+            &[disabled] {
+                cursor: default;
+                opacity: 0.4;
+                pointer-events: none;
+            }
+
+            &:hover {
+                background: @notes_RolloverColor;
+                // border: 0px solid @primaryShade;
+                transition: all 0.3s;
+
+                svg > line {
+                    stroke: @primaryShade;
+                    transition: all 0.3s;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .contentview {
+        .notes-list {
+
+            &.left {
+                margin-right: @contentview_Margin;
+                padding-right: 0px;
+                width: 90%;
+            }
+
+            &.right {
+                margin-left: @contentview_Margin;
+                padding-left: 0px;
+                margin-top: 10px;
+                width: 90%;
+            }
+        }
+    }
+}

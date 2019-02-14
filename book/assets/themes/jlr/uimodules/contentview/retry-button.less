@@ -1,0 +1,40 @@
+.contentview .retry-container {
+    //	background: #8c8c8c;
+    text-align: center;
+    padding: 20px 0px;
+    margin: 15px @contentview_Margin 15px;
+
+    &.encapsulated {
+        margin: 15px;
+    }
+}
+
+.contentview .retry-container button{
+	height: 50px;
+	width: 150px;
+	opacity: 0;
+	pointer-events: none;
+	color: @primaryShade;
+	background: @darkerShade;
+	border: 1px solid @primaryShade;
+	font: inherit;
+	font-size: @contentview_FontSize*1.1;
+	text-transform: uppercase;
+	padding: 10px 40px;
+
+	-webkit-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+	-moz-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+	transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+	transform: translate3d(0,0,0);
+	//.transition(background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.5s, padding 0.5s, margin 0.5s);
+}
+
+.contentview .retry-container button:hover{
+	background: @primaryShade;
+	color: @darkerShade;
+}
+
+.contentview .retry-container button.visible{
+	opacity: 1;
+	pointer-events: auto;
+}

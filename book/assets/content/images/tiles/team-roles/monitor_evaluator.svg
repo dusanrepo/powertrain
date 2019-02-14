@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g id="circle">
+	<path class="st0" d="M80,2c43,0,78,35,78,78s-35,78-78,78S2,123,2,80S37,2,80,2 M80,0C35.8,0,0,35.8,0,80s35.8,80,80,80
+		s80-35.8,80-80S124.2,0,80,0L80,0z"/>
+</g>
+<g id="monitor_evaluator">
+	<path class="st0" d="M80,57c12.7,0,23,10.3,23,23s-10.3,23-23,23S57,92.7,57,80S67.3,57,80,57 M80,55c-13.8,0-25,11.2-25,25
+		s11.2,25,25,25c13.8,0,25-11.2,25-25S93.8,55,80,55L80,55z"/>
+	<path class="st0" d="M80,47c26.9,0,51.9,12,68.7,33c-16.8,21-41.8,33-68.7,33c-26.9,0-51.9-12-68.7-33C28.1,59,53.1,47,80,47
+		 M80,45C51,45,25.2,58.7,8.8,80C25.2,101.3,51,115,80,115c29,0,54.8-13.7,71.2-35C134.8,58.7,109,45,80,45L80,45z"/>
+</g>
+</svg>

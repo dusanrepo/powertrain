@@ -1,0 +1,17 @@
+.contentview .columns {
+    margin: 0 @contentview_Margin;
+    display: flex;
+
+    &.encapsulated {
+        margin: 0;
+    }
+
+    > .container {
+        display: inline-block;
+        margin-right: @contentview_Spacing;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

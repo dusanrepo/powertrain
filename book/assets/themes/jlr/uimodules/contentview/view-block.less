@@ -1,0 +1,27 @@
+.contentview .view-block {
+    display: block;
+    position: relative;
+    margin-bottom: 25px;
+    padding: 0 @contentview_Margin;
+    background: @mediumShade;
+
+    &.encapsulated {
+        padding: 0;
+    }
+}
+
+.contentview .view-block .note p {
+  //color: @darkerShade;
+}
+
+.contentview .view-block .note:nth-child(1) {
+  margin-top: 25px;
+}
+
+.contentview .view-block .note:nth-last-child(1) {
+  margin-bottom: 20px;
+}
+
+.contentview .view-block + div {
+  clear:both;
+}

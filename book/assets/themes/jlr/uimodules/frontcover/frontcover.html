@@ -1,0 +1,626 @@
+<div class="wrapper" data-bind="style: { backgroundImage: backgroundImage } ">
+
+	<!-- ko if: video -->
+		<button
+		  class="play-button"
+			data-bind="
+				visible: showPlayButton,
+				click: playVideo,
+				html: playButton"
+		>
+		</button>
+		<div class="video-container">
+			<video loop="loop" muted="muted" autoplay="autoplay" playsinline webkit-playsinline data-bind="attr: { poster: videoPoster}, videoHandlers: 'true'">
+					<source data-bind="attr: { src: video + '.mp4' }" type="video/mp4">
+			</video>
+			<div class="mesh" data-bind="style: { backgroundImage: videoOverlay }"></div>
+		</div>
+	<!-- /ko -->
+
+	<div class="logo" data-bind="css: logoCss">
+
+	<!-- ko if: logo() -->
+		<img data-bind="attr: { src: logo }, style: { width: logoWidth, 'max-width': logoMaxWidth }" />
+	<!-- /ko -->
+	</div>
+	<div id="centerdiv">
+		<span class="title" data-bind="text: title, css: { show: titleVisible }"></span>
+		<span class="subtitle" data-bind="text: subtitle, css: { show: subtitleVisible }"></span>
+		<!-- <span class="instruction" data-bind="text: instruction, css: { show: instructionVisible }"></span> -->
+
+		<card id="results">
+		  <div class="box">
+		    <div class="results-block">
+		      <div class="results-col">
+						<!-- Menu 1- Chap 1 & 2 -->
+						<article>
+							<div class="results-item white-text animate animated">
+			          <div class="results-item_img" style="background-image: url(http://localhost:8080/powertrain3/powertrain3/images/mod1.jpg);"></div>
+			          <div class="results-item_mask"></div>
+			          <div class="results-item_wrap">
+			            <span class="results-item_decor"></span>
+			            <!-- <h2 class="results-item_title"><span>Module 1</span></h2> -->
+									<h1 class="results-item_desc">
+										<span class="h-wrap">Fundamental Principles of LEAN</span>
+									</h1>
+									<a href="javascript:this.location = 'introduction-to-the-powertrain-way'">
+			            	<div class="results-item_link btn">Chapter 1</div>
+									</a>
+									<a href="javascript:this.location = 'operational-excellence'">
+			            	<div class="results-item_link btn">Chapter 2</div>
+									</a>
+			          </div>
+							</div>
+						</article>
+						<!-- Menu 3 - Chap 5 -->
+						<article>
+		        <div class="results-item white-text animate animated">
+		          <div class="results-item_img" style="background-image: url(http://localhost:8080/powertrain3/powertrain3/images/mod3.jpg);"></div>
+		          <div class="results-item_mask"></div>
+		          <div class="results-item_wrap">
+		            <span class="results-item_decor"></span>
+		            <!-- <h2 class="results-item_title"><span>Module 3</span></h2> -->
+								<h1 class="results-item_desc">
+									<span class="h-wrap">Problem Solving utilising LEAN Methodology</span>
+								</h1>
+								<a href="javascript:this.location = 'the-benefits-of-5s'">
+		            	<div class="results-item_link btn">Chapter 5</div>
+								</a>
+		          </div>
+		        </div>
+						</article>
+		      </div>
+		      <div class="results-col">
+						<!-- Menu 3 - Chap 3 & 4 -->
+						<article>
+		        <div class="results-item white-text animate animated">
+		          <div class="results-item_img" style="background-image: url(http://localhost:8080/powertrain3/powertrain3/images/mod2b.png);"></div>
+		          <div class="results-item_mask"></div>
+		          <div class="results-item_wrap">
+		            <span class="results-item_decor"></span>
+		            <!-- <h2 class="results-item_title"><span>Module 2</span></h2> -->
+								<h1 class="results-item_desc">
+									<span class="h-wrap">Governance of LEAN</span>
+								</h1>
+								<a href="javascript:this.location = 'high-performing-teams'">
+		            	<div class="results-item_link btn">Chapter 3</div>
+								</a>
+								<a href="javascript:this.location = 'principles-of-change'">
+		            	<div class="results-item_link btn">Chapter 4</div>
+								</a>
+		          </div>
+		        </div>
+						</article>
+						<!-- Menu 4 - Chap 6 -->
+						<article>
+		        <div class="results-item white-text animate animated">
+		          <div class="results-item_img" style="background-image: url(http://localhost:8080/powertrain3/powertrain3/images/mod4b.jpg);"></div>
+		          <div class="results-item_mask"></div>
+		          <div class="results-item_wrap">
+		            <span class="results-item_decor"></span>
+		            <!-- <h2 class="results-item_title"><span>Module 4</span></h2> -->
+								<h1 class="results-item_desc">
+									<span class="h-wrap">Continuous Improvement utilising LEAN Methodology</span>
+								</h1>
+								<a href="javascript:this.location = 'plan-do-check-act-pdca-y'">
+		            	<div class="results-item_link btn">Chapter 6</div>
+								</a>
+		          </div>
+		        </div>
+						</article>
+		      </div>
+		    </div>
+		  </div>
+		</card>
+
+		<!-- /ko -->
+	</div>
+</div>
+<style>
+
+	button,input {
+	    outline: 0
+	}
+
+	card {
+	    display: none
+	}
+
+	body {
+	    line-height: 1
+	}
+
+	button {
+	    cursor: pointer
+	}
+
+	a {
+	    text-decoration: none
+	}
+
+	/* .right {
+	    float: right
+	} */
+
+	.left {
+	    float: left
+	}
+
+
+	* {
+	    -webkit-font-smoothing: antialiased
+	}
+
+	.clearfix:after,.clearfix:before {
+	    content: " ";
+	    display: table
+	}
+
+	.btn {
+	    display: inline-block;
+	    overflow: hidden;
+	    font: 700 24px/44px JLREmeric-SemiBold,sans-serif;
+	    border: 3px solid #fff;
+	    color: #fff;
+	    padding: 0 18px;
+	    z-index: 5;
+	    text-align: center;
+	    transition: all .4s ease;
+	    position: relative
+	}
+
+	.btn-green,.btn:hover {
+	    color: ##bd3e86
+	}
+
+	.btn:before {
+	    position: absolute;
+	    width: 150%;
+	    height: 100%;
+	    background-color: #fff;
+	    z-index: -1;
+	    -webkit-transform: rotate3d(0,0,1,-45deg) translate3d(0,-3em,0);
+	    transform: rotate3d(0,0,1,-45deg) translate3d(0,-3em,0);
+	    -webkit-transform-origin: 0 100%;
+	    transform-origin: 0 100%;
+	    -webkit-transition: -webkit-transform .3s,opacity .3s,background-color .3s;
+	    transition: transform .3s,opacity .3s,background-color .3s
+	}
+
+	.btn:hover:before {
+	    opacity: 1;
+	    -webkit-transform: rotate3d(0,0,1,0deg);
+	    transform: rotate3d(0,0,1,0deg);
+	    -webkit-transition-timing-function: cubic-bezier(.2,1,.3,1);
+	    transition-timing-function: cubic-bezier(.2,1,.3,1)
+	}
+
+	.btn-green {
+	    border-color: #bd3e86
+	}
+
+	.btn-green:before {
+	    background-color: #bd3e86
+	}
+
+	.btn-green:hover {
+	    color: #fff!important
+	}
+
+	 .title {
+	    color: #0f2647;
+	    text-transform: uppercase
+	}
+
+	#results .results-item.animated .results-item_img, .results-item.animated .results-item_img {
+	    top: -50%
+	}
+
+
+	body,html {
+	    height: 100%;
+	    width: 100%
+	}
+
+	body {
+	    color: #0f2647;
+	    width: 100vw;
+	    overflow-x: hidden
+	}
+
+/*
+	h1,h2,h3,h4,h5,h6 {
+	    font-weight: 700
+	}
+
+	h2 {
+	    font-size: 48px;
+	    line-height: 44px
+	}
+
+	h3 {
+	    font-size: 68px;
+	    line-height: 60px
+	}
+
+*/
+
+	.box,card {
+	    position: relative
+	}
+
+	.wrap:not(.to-fade) {
+	    position: relative;
+	    width: 100%
+	}
+
+	.box {
+	    width: 1168px;
+	    margin: 0 auto
+	}
+
+	.box .half {
+	    padding-left: 25px
+	}
+
+	.box .half:first-child {
+	    padding: 0 25px 0 0
+	}
+
+	card {
+	    width: 100%;
+	    overflow: hidden
+	}
+
+	div#video-bg {
+	    z-index: 10;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0
+	}
+
+	div#video-bg video {
+	    min-width: 100%;
+	    min-height: 100%
+	}
+
+	#results h2,#results h3,#results h4 {
+	    color: #0f2647;
+	    margin-bottom: 24px;
+	    font-size: 48px;
+	    line-height: 48px
+	}
+
+	#results p {
+	    color: #fff;
+	    margin-bottom: 18px
+	}
+
+	#results .box.right .digit {
+	    color: #0f2647;
+	    font-size: 150px;
+	    line-height: 128px;
+	    font-weight: 700
+	}
+
+	#results .link {
+	    color: #10c18a;
+	    font: 700 24px/24px JLREmeric-SemiBold,sans-serif
+	}
+
+	#results .results-item.white-text .results-item_desc,#results .results-item.white-text .results-item_text,#results .results-item.white-text .results-item_title,#results .results-item:hover .results-item_desc span,#results .results-item:hover .results-item_text span,#results .results-item:hover .results-item_title span {
+	    color: #fff
+	}
+
+	#results .results-block {
+	    margin-top: 20px;
+	    margin-bottom: 20px;
+	    display: flex;
+	    -webkit-box-pack: justify;
+	    -webkit-justify-content: space-between;
+	    -moz-box-pack: justify;
+	    -ms-flex-pack: justify;
+	    justify-content: space-between
+	}
+
+	#results .results-col {
+	    width: -webkit-calc(50% - 7px);
+	    width: -moz-calc(50% - 7px);
+	    width: calc(50% - 7px)
+	}
+
+	#results .results-item {
+	    height: 335px;
+	    margin-bottom: 10px;
+	    position: relative;
+	    overflow: hidden;
+	    display: block
+	}
+
+	#results .results-item:last-child {
+	    margin-bottom: 0;
+	    -webkit-transition-delay: .25s;
+	    -moz-transition-delay: .25s;
+	    -o-transition-delay: .25s;
+	    transition-delay: .25s
+	}
+
+	#results .results-item.lg {
+	    height: 776px
+	}
+
+	#results .results-item.animated .results-item_mask {
+	    background-color: rgba(255,0,0,0)
+	}
+
+	#results .results-item.animated .results-item_desc span,#results .results-item.animated .results-item_text span,#results .results-item.animated .results-item_title span {
+	    top: 0
+	}
+
+	#results .results-item:hover .results-item_decor {
+	    background-color: rgba(0,90,43,.8)
+	}
+
+	#results .results-item:hover .results-item_link {
+	    opacity: 1;
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"
+	}
+
+	#results .results-item_decor {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    background-color: rgba(255,0,0,0);
+	    -webkit-transition: .35s;
+	    -o-transition: .35s;
+	    -moz-transition: .35s;
+	    transition: .35s
+	}
+
+	#results .results-item_mask {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    background-color: #fff;
+	    -webkit-transition: .5s;
+	    -o-transition: .5s;
+	    -moz-transition: .5s;
+	    transition: .5s;
+	    -webkit-transition-timing-function: ease-out;
+	    -moz-transition-timing-function: ease-out;
+	    -o-transition-timing-function: ease-out;
+	    transition-timing-function: ease-out
+	}
+
+	#results .results-item_img {
+	    position: absolute;
+	    width: 100%;
+	    height: 150%;
+	    top: 100%;
+	    left: 0;
+	    background-repeat: no-repeat;
+	    background-position: 50% 100%;
+	    -webkit-transition: .75s;
+	    -o-transition: .75s;
+	    -moz-transition: .75s;
+	    transition: .75s;
+	    -webkit-transition-delay: .5s;
+	    -moz-transition-delay: .5s;
+	    -o-transition-delay: .5s;
+	    transition-delay: .5s;
+	    -webkit-transition-timing-function: ease-out;
+	    -moz-transition-timing-function: ease-out;
+	    -o-transition-timing-function: ease-out;
+	    transition-timing-function: ease-out
+	}
+
+	#results .results-item_wrap {
+	    width: 100%;
+	    height: 100%;
+	    padding: 23px;
+	    text-align: left
+	}
+
+	#results .results-item_title {
+	    font-size: 26px;
+	    line-height: 24px;
+	    margin-bottom: 15px;
+	    color: #1e1e1e;
+	    position: relative;
+	    z-index: 10;
+	    overflow: hidden
+	}
+
+	#results .results-item_title span {
+	    position: relative;
+	    top: 20px;
+	    -webkit-transition: top .35s 1s,color .35s 0s;
+	    -o-transition: top .35s 1s,color .35s 0s;
+	    -moz-transition: top .35s 1s,color .35s 0s;
+	    transition: top .35s 1s,color .35s 0s
+	}
+
+	#results .results-item_text {
+	    font-size: 14px;
+	    line-height: 18px;
+	    font-weight: 700;
+	    font-family: 'Open Sans';
+	    margin-bottom: 7px;
+	    color: #1e1e1e;
+	    position: relative;
+	    z-index: 10;
+	    max-width: 75%;
+	    overflow: hidden
+	}
+
+	#results .results-item_text span {
+	    position: relative;
+	    top: 50px;
+	    -webkit-transition: top .35s 1.15s,color .35s 0s;
+	    -o-transition: top .35s 1.15s,color .35s 0s;
+	    -moz-transition: top .35s 1.15s,color .35s 0s;
+	    transition: top .35s 1.15s,color .35s 0s
+	}
+
+	#results .results-item_desc {
+	    font-size: 30px;
+			font-family: JLREmeric-SemiBold;
+			text-transform: uppercase;
+	    line-height: 48px;
+	    color: #0f2647;
+	    position: relative;
+	    z-index: 10;
+	    margin-right: 65px;
+	    overflow: hidden
+	}
+
+	#results .results-item_desc span {
+	    position: relative;
+	    top: 125px;
+	    -webkit-transition: top .35s 1.3s,color .35s 0s;
+	    -o-transition: top .35s 1.3s,color .35s 0s;
+	    -moz-transition: top .35s 1.3s,color .35s 0s;
+	    transition: top .35s 1.3s,color .35s 0s
+	}
+
+		#results h1.results-item_desc {
+			display: block;
+			border-left: 2px solid #fff;
+	}
+
+	#results h1.results-item_desc > span.h-wrap {
+			display: inline-block;
+			border: 0;
+			margin-left: 10px;
+			padding: 0;
+			font-size: 31px;
+	}
+
+	#results .results-item_link,.portfolio-item_mask {
+	    -webkit-transition: .35s;
+	    -o-transition: .35s;
+	    -moz-transition: .35s
+	}
+
+	#results .results-item_link {
+	    margin-top: 33px;
+	    position: relative;
+	    z-index: 10;
+	    opacity: 0;
+	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	    transition: .35s
+	}
+
+	article {
+	/*  just a fancy border  */
+	  position: static;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  margin-bottom: 11px;
+	}
+
+	.frontcover .show {
+	    text-align: center;
+	}
+
+	@media screen and (max-width: 1280px) {
+
+	    #results .results-col {
+	        width:-webkit-calc(50% - 5px);
+	        width: -moz-calc(50% - 5px);
+	        width: calc(50% - 5px)
+	    }
+
+	    #results .results-col:last-child .results-item {
+	        margin-bottom: 10
+	    }
+
+	    #results .results-block,#white-block .blocks {
+	        -webkit-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	        flex-wrap: wrap
+	    }
+
+	    #white-block .blocks-item:nth-child(3) {
+	        margin-left: 180px;
+	        margin-top: -110px
+	    }
+
+	    #white-block h3 {
+	        font-size: 46px;
+	        line-height: 42px
+	    }
+
+	    #results .results-item.lg .results-item_desc,#results .results-item.lg .results-item_text {
+	        display: block
+	    }
+
+	    #results .results-item_img {
+	        -webkit-background-size: contain;
+	        -moz-background-size: contain;
+	        -o-background-size: contain;
+	        background-size: contain
+	    }
+	}
+
+	@media screen and (max-width: 1024px) {
+
+	    #results .box {
+	        width: 953px;
+	    }
+
+	      #results .results-col {
+	        width:-webkit-calc(50% - 5px);
+	        width: -moz-calc(50% - 5px);
+	        width: calc(50% - 5px)
+	    }
+
+	    #results .results-col:last-child .results-item {
+	        margin-bottom: 10
+	    }
+
+			#results .results-block {
+    		 margin-top: 0px;
+			}
+
+			#results .results-item {
+		    height: 244px;
+			}
+
+			.frontcover .title {
+		    font-size: 42px;
+			}
+
+			.frontcover .subtitle {
+    		font-size: 22px;
+			}
+
+			card {
+			    margin-top: 109px;
+			}
+
+			#results .results-item_desc {
+			    font-size: 30px;
+			    line-height: 30px;
+			    margin-right: 0px;
+			}
+
+			#results .results-item_wrap {
+			    padding: 8px;
+			}
+			#results h1.results-item_desc > span.h-wrap {
+			    font-size: 28px;
+			}
+   }
+
+
+
+</style>

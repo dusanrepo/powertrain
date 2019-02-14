@@ -1,0 +1,17 @@
+<div class="tabWrapper">
+    <div class="tabWindow">
+        <ul data-bind="foreach: tabs, style: { left: scrollPos }">
+	        <li data-bind="css: { current: selected, touch: $parent.touchSupport }, style: $parent.listStyle, click: $parent.selectedSection">
+		        <div data-bind="text: title()"></div>
+		        <div class="arrow"></div>
+	        </li>
+        </ul>
+    </div>
+	<button class="leftButton" data-bind="css: { touch: touchSupport }, visible: showLeft, html: leftIcon, event: { mousedown: scrollLeft, mouseup: scrollQuit, mouseleave: scrollQuit, touchstart: scrollLeft, touchend: scrollQuit }"></button>
+	<button class="rightButton" data-bind="css: { touch: touchSupport }, visible: showRight, html: rightIcon, event: { mousedown: scrollRight, mouseup: scrollQuit, mouseleave: scrollQuit, touchstart: scrollRight, touchend: scrollQuit }"></button>
+</div>
+<div class="wrapper" data-bind="foreach: tabs, tabSwitcher: selectedSection, style: { height: wrapperHeight() != 0 ? wrapperHeight() + 'px' : '' }">
+	<div class="container" data-bind="foreach: contentVM.modules">
+		<div class="inverted" data-bind="css: name, component: { name: componentName, params: { config: config, settings: settings, themeSettings: $parents[$parents.length - 2].settings[name], mBook: mBookInstance, elem: $element } }"></div>
+	</div>
+</div>

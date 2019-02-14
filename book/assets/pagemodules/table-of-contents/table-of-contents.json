@@ -1,0 +1,9 @@
+{
+  "name": "Table of contents menu",
+  "description": "Generates a navigatable list of the book's section structure",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "options": {},
+  "converters": []
+}

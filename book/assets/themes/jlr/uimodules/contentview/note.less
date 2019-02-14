@@ -1,0 +1,137 @@
+.contentview {
+    .note {
+        display: block;
+        margin: 15px @contentview_Margin;
+
+        &.encapsulated {
+            margin: 0 !important;
+        }
+
+        &:last-child {
+            margin-bottom: 15px;
+        }
+
+        &:first-child {
+            margin-top: 15px;
+        }
+
+        mark {
+            display: initial;
+        }
+
+        &.left {
+            float: left;
+            margin-right: 0;
+            padding-right: 15px;
+            box-sizing: border-box;
+            width: 35%;
+            clear: left;
+        }
+
+        &.right {
+            float: right;
+            margin-left: 0;
+            padding-left: 15px;
+            box-sizing: border-box;
+            width: 35%;
+            clear: right;
+        }
+
+        &.inverted .noteWrapper .title {
+            color: @darkerShade;
+        }
+
+        .noteWrapper {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            .title {
+                color: @primaryShade;
+                display: inline-block;
+                box-sizing: border-box;
+                width: 20%;
+                vertical-align: middle;
+                padding: 0 10px;
+                margin: auto 0;
+
+                &.row {
+                    display: inline-flex;
+                }
+            }
+
+            .icon {
+                height: inherit;
+                padding: 0 10px;
+            }
+
+            .textWrapper {
+                width: 100%;
+                display: inline-block;
+
+                &.small {
+                    height: 50px;
+                }
+
+                &.medium {
+                    height: 100px;
+                }
+
+                &.large {
+                    height: 200px;
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 100%;
+                    box-sizing: border-box;
+                    background: @darkerShade;
+                    resize: none;
+                    overflow: auto;
+                    padding: 7px;
+                    border: 1px solid #A9A9A9;
+                }
+            }
+
+            &:not(.labelAbove) {
+                &.small {
+                    height: 50px;
+                }
+
+                &.medium {
+                    height: 100px;
+                }
+
+                &.large {
+                    height: 200px;
+                }
+            }
+
+            &.labelAbove {
+                flex-direction: column;
+
+                .textWrapper {
+                    display: block;
+                }
+
+                .title {
+                    padding-bottom: 5px;
+                    width: auto;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+            }
+
+            &.noLabel {
+                .textWrapper {
+                    display: block;
+                }
+
+                .title {
+                    display: none;
+                }
+            }
+        }
+    }
+}

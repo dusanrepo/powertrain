@@ -1,0 +1,262 @@
+@import '../../mixins.less';
+
+.contentview .question-multi {
+    margin: 30px @contentview_Margin 15px;
+    background: @mediumShade;
+
+    &.encapsulated {
+        margin: 30px 15px 15px;
+    }
+}
+
+.contentview .question-multi ul {
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.contentview .question-multi li {
+  position: relative;
+  list-style: none;
+  padding: 15px 0;
+}
+
+.contentview .question-multi li > div {
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
+.contentview .question-multi .unanswered input[type="radio"] {
+  cursor: pointer;
+}
+
+.contentview .question-multi input[type="radio"] {
+  opacity: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 100;
+  width: 100%!important;
+}
+
+.contentview .question-multi label {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;
+  vertical-align: top;
+  color: @primaryShade;
+  -webkit-transition: color @rolloverTime/3 linear;
+  -moz-transition: color @rolloverTime/3 linear;
+  transition: color @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .question-multi input[type="radio"]:checked + label {
+  color: @primaryShade;
+}
+
+.contentview .question-multi input[type="radio"],
+.contentview .question-multi label::before {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+}
+
+.contentview .question-multi .wrapper.unanswered:not(.touch) li div:hover label::before {
+  border-color: lighten(@primaryShade, 40%);
+}
+
+.contentview .question-multi .wrapper.unanswered:not(.touch) li div:hover label {
+  color: lighten(@primaryShade, 40%);
+}
+
+.contentview .question-multi label::before {
+  content: '';
+  border: 1px solid @primaryShade;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  margin-top: -15px;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .question-multi input[type="radio"]:checked + label::before {
+  border-color: @primaryShade;
+  background: @darkerShade;
+}
+
+.contentview .question-multi .check-fill {
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 15px;
+  top: 50%;
+  border-radius: 50%;
+  /* pointer-events: none;*/
+  // background: @secondaryColor;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .question-multi input[type="radio"] + label + span.selected {
+  width: 19px;
+  height: 19px;
+  margin: -10px;
+  background: @primaryShade;
+  opacity: 1;
+}
+
+@-moz-document url-prefix() {
+  .contentview .question-multi input[type="radio"]:checked + label + span {
+    margin: -10px -9px !important;
+  }
+}
+
+/*
+.contentview .question-multi li.correct input[type="radio"]:checked + label + span {
+  background: #2fd02f;
+}
+
+.contentview .question-multi li.incorrect input[type="radio"]:checked + label + span {
+  background: #ff6565;
+}
+
+.contentview .question-multi li.correct input[type="radio"]:checked + label::before {
+   border-color: #2fd02f;
+}
+
+.contentview .question-multi li.incorrect input[type="radio"]:checked + label::before {
+   border-color: #ff6565;
+}
+
+.contentview .question-multi li.correct input[type="radio"]:checked + label {
+   color: #2fd02f;
+}
+
+.contentview .question-multi li.incorrect input[type="radio"]:checked + label {
+   color: #ff6565;
+}
+*/
+
+.contentview .question-multi .wrapper {
+  margin: 0;
+  /*  background:@lightShade;*/
+  color: @primaryShade;
+  padding: 20px 15px;
+  border-left: 35px solid #8c8c8c;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  // overflow-y: hidden;
+  .transition(border-left 0.5s);
+}
+
+.contentview .question-multi .wrapper.correct {
+  border-left: 35px solid @question_correctColor;
+}
+
+.contentview .question-multi .wrapper.incorrect {
+  border-left: 35px solid @question_incorrectColor;
+}
+
+.contentview .question-multi .feedback {
+  position: relative;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: all @rolloverTime/2 linear;
+  -moz-transition: all @rolloverTime/2 linear;
+  transition: all @rolloverTime/2 linear;
+}
+
+.contentview .question-multi .feedback.correct {
+  color: @primaryShade;
+}
+
+.contentview .question-multi .feedback.incorrect {
+  color: @primaryShade;
+}
+
+.contentview .question-multi button {
+  color: @primaryShade;
+  background: @darkerShade;
+  border: 1px solid @primaryShade;
+  font: inherit;
+  font-size: @contentview_FontSize*1.1;
+  margin-top: 20px;
+  padding: 10px 40px;
+  opacity: 1;
+  -webkit-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  -moz-transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  transition: background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.4s, padding 0.4s, margin 0.4s;
+  transform: translate3d(0,0,0);
+  //.transition(background @rolloverTime/2 linear, color @rolloverTime/2 linear, height 0.5s, padding 0.5s, margin 0.5s);
+  text-transform: uppercase;
+}
+
+.contentview .question-multi .wrapper:not(.touch) button:hover {
+  background: @primaryShade;
+  color: @darkerShade;
+}
+
+.invisible {
+  opacity: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+
+.contentview .question-multi .result {
+  opacity: 1;
+  width: initial!important;
+  position: absolute;
+  left: -29px;
+  top: 10px;
+}
+
+.contentview .question-multi svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contentview .question-multi .fail .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .question-multi .pass .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .question-multi span.instruction {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.5;
+}
+@media only screen and (max-width: 480px) {
+  .contentview .question-multi {
+    margin: 10px 0;
+  }
+
+  .contentview .question-multi .wrapper {
+    border-radius: 0;
+    padding: 20px @contentview_MarginMobile;
+  }
+
+  .contentview .question-multi button {
+    width: 100%;
+  }
+}

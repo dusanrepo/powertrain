@@ -1,0 +1,80 @@
+@import url(./../../rules.less);
+
+
+@rolloverTime: 0.5s;
+
+.nextbackbuttons{
+	overflow:visible;
+	position:absolute;
+}
+
+.nextbackbuttons button {
+	position:fixed;
+	width:@buttonWidth;
+	height:@buttonHeight;
+	background: @darkerShade;
+	top:50%;
+	margin-top: -(@buttonHeight / 2);
+	z-index:1;
+	padding:0;
+	border-radius:@buttonRadius;
+	border: @buttonOutlineWidth solid @buttonOutlineColor;
+	-webkit-transition: all @rolloverTime;
+	-moz-transition: all @rolloverTime;
+    transition: all @rolloverTime;
+}
+
+.nextbackbuttons button[disabled] {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.nextbackbuttons button span {
+	position:absolute;
+	color: @buttonColor;
+	font-size:13px;
+	bottom:(@buttonHeight / 15);
+	left:0;
+	right:0;
+}
+
+.nextbackbuttons button:hover {
+	//border: @buttonOutlineWidth solid @buttonHoverColor;
+	width: @buttonHoverWidth;
+	// background: darken(@darkerShade, 10%)
+	background: @mediumShade;
+}
+
+.nextbackbuttons button svg {
+	vertical-align: middle;
+	// height: 40px;
+	// width: 20px;
+}
+
+.nextbackbuttons button .arrow-fill {
+	fill:@buttonFillColor;
+	stroke: @buttonOutlineColor;
+	-webkit-transition: all @rolloverTime;
+	-moz-transition: all @rolloverTime;
+    transition: all @rolloverTime;
+}
+
+.nextbackbuttons button:hover .arrow-fill {
+	stroke: lighten(@buttonOutlineColor, 20%);
+}
+
+#backButton {
+	left:-@buttonRadius;
+	//padding-left: 10px;
+}
+
+#nextButton {
+	right:-@buttonRadius;
+//	right: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+	.nextbackbuttons {
+		display:none;
+	}
+}

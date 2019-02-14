@@ -1,0 +1,46 @@
+.contentview .pdf-link {
+    margin: 20px @contentview_Margin;
+    display: table;
+    border-radius: 2px;
+    padding: 10px 5px;
+
+    &.encapsulated {
+        margin: 20px;
+    }
+}
+
+.contentview .pdf-link a {
+-webkit-transition: opacity @rolloverTime/3 linear;
+  -moz-transition: opacity @rolloverTime/3 linear;
+  transition: opacity @rolloverTime/3 linear;
+  transform: translate3d(0,0,0);
+}
+
+.contentview .pdf-link a,
+.contentview .pdf-link > span {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.contentview .pdf-link > span {
+  padding-left:10px;
+  font-weight:normal;
+  font-size: @contentview_Heading2FontSize;
+  font-family: @fourthFontFamily;
+  text-transform: uppercase;
+  color: @primaryShade;
+}
+
+.contentview .inverted.pdf-link > span {
+  color: @darkerShade;
+}
+
+.contentview .pdf-link a:hover {
+  opacity:0.6;
+}
+
+@media only screen and (max-width: 480px) {
+  .contentview .pdf-link {
+    margin: 20px @contentview_MarginMobile;
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "name" : "Note Checkbox",
+    "description" : "A handy checkbox for remembering that something has been ticked",
+    "author" : "Anthony Edmonds",
+    "version" : "1.0.0",
+    "timestamp" : "2018-08-28T08:55:00",
+    "options" : {
+        "group" : "stringname",
+        "id" : "stringname",
+        "checked" : false
+    },
+    "converters" : []
+}

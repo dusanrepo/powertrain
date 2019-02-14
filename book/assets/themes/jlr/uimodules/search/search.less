@@ -1,0 +1,286 @@
+@import url(./../../rules.less);
+@import url(./../../mixins.less);
+@rolloverTime: 0.5s;
+@searchFadeInTime: 0.5s;
+@searchButtonFadeTime: 0.5s;
+@searchTransition: cubic-bezier(0.390, 0.005, 0.175, 1.000);
+
+.search {
+  position: fixed;
+  top:0;
+  overflow: visible;
+  width: 100%;
+  z-index: 4;
+}
+
+.search .search-bar {
+  position: absolute;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  left: 210px;
+  right: 185px;
+  top: 0;
+  background-color: @mediumShade;
+  -webkit-transition: height @searchFadeInTime @searchTransition;
+  -moz-transition: height @searchFadeInTime @searchTransition;
+  transition: height @searchFadeInTime @searchTransition;
+}
+
+.search-overlay {
+  left: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: @menu_OverlayColour;
+  background-image: @menu_OverlayImage;
+  top: @nav_Height;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all @menu_DropDownTime @menu_DropTransition;
+  -moz-transition: all @menu_DropDownTime @menu_DropTransition;
+  transition: all @menu_DropDownTime @menu_DropTransition;
+}
+
+.search-overlay.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.search .search-bar.open {
+  height: @searchHeight;
+  /*border-bottom: 1px solid @lightShade;*/
+}
+
+.search .search-bar > div {
+  margin: 10px 0;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 55px;
+}
+
+.search .search-bar input {
+  color: @primaryShade;
+  font-size: 18px;
+  font-weight: 300;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+.search .search-bar {
+    .input-placeholder({
+      color: @darkShade;
+      opacity: 1;
+      })
+}
+
+.search .search-bar input::-ms-clear {
+  display: none;
+}
+
+.search #btn-search-submit {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  width: 60px;
+  /*  bottom: 11px;*/
+  height: @searchHeight;
+  opacity: 1;
+  .transition(all @nav_RolloverTime;);
+}
+
+.search #btn-search-submit .cls-3 {
+  fill: @primaryShade;
+  -webkit-transition: all @rolloverTime;
+  -moz-transition: all @rolloverTime;
+  transition: all @rolloverTime;
+}
+
+.search #btn-search-submit:hover {
+  background-color: darken(@mediumShade, 15%);
+}
+
+.search #btn-search-submit.hidden {
+  opacity: 0;
+}
+
+.search .loading {
+  position: absolute;
+  display: none;
+  right: 5px;
+  /*bottom: 11px;*/
+  height: 37px;
+  opacity: 0;
+}
+
+.search .fadeTransition {
+  -webkit-transition: opacity @searchButtonFadeTime linear;
+  -moz-transition: opacity @searchButtonFadeTime linear;
+  transition: opacity @searchButtonFadeTime linear;
+}
+
+.search .loading.show {
+  opacity: 1;
+}
+
+.search::-webkit-input-placeholder {
+  color: @darkerShade;
+  opacity: 0.5;
+}
+
+.search:-ms-input-placeholder {
+  color: @darkerShade;
+  opacity: 0.5;
+}
+
+.search::-moz-placeholder {
+  color: @darkerShade;
+  opacity: 0.5;
+}
+
+.search:-moz-placeholder {
+  color: @darkerShade;
+  opacity: 0.5;
+}
+
+.search-results {
+  position: relative;
+  background: @mediumShade;
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  -webkit-transition: max-height @searchFadeInTime @searchTransition;
+  -moz-transition: max-height @searchFadeInTime @searchTransition;
+  transition: max-height @searchFadeInTime @searchTransition;
+}
+
+.search-results-wrapper {
+  position: absolute;
+  top: @searchHeight;
+  width: 100%;
+  background: @mediumShade;
+  overflow: hidden;
+  padding-bottom: 0;
+  -webkit-transition: padding-bottom @searchFadeInTime @searchTransition;
+  -moz-transition: padding-bottom @searchFadeInTime @searchTransition;
+  transition: padding-bottom @searchFadeInTime @searchTransition;
+}
+
+.search-results-wrapper .close {
+  bottom: 10px;
+  left: 50%;
+  right: auto;
+  top: auto;
+  margin-left: -20px;
+  position: absolute;
+  background: transparent;
+}
+
+.search-results-wrapper .close:hover {
+  opacity: 1;
+}
+
+.search-results-wrapper .close .cls-5 {
+  fill: none;
+  stroke: @primaryShade;
+  -webkit-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  -moz-transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+  transition: stroke @menu_RolloverTime @menu_RolloverTransition;
+}
+
+.search-results-wrapper .close:hover .cls-5 {
+  stroke: lighten(@primaryShade, 40%);
+}
+
+.search-results ul {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.search-results ul li {
+  position: relative;
+  color: @primaryShade;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 8px 50px;
+  cursor: pointer;
+  -webkit-transition: all @rolloverTime;
+  -moz-transition: all @rolloverTime;
+  transition: all @rolloverTime;
+}
+
+.search-results ul li svg {
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  opacity: 0;
+  -webkit-transition: opacity @rolloverTime;
+  -moz-transition: opacity @rolloverTime;
+  transition: opacity @rolloverTime;
+}
+
+.search-results ul li:hover svg {
+  opacity: 1;
+}
+
+.search-results ul li svg .ripple-circle {
+  stroke: #ccc;
+}
+
+.search-results ul li:hover {
+  background: darken(@mediumShade, 15%);
+  //  color: @secondaryColor;
+}
+
+.search-results ul li:hover span:nth-child(1) {
+  color: @backgroundShade;
+}
+
+.search-results ul li span:nth-child(1) {
+  display: block;
+  font-size: 13px;
+  color: @backgroundShade;
+}
+
+.search-results ul li span.hits {
+  color: @primaryShade;
+  opacity: 0.7;
+}
+/*
+.cls-4 {
+  fill: @primaryShade;
+}*/
+.search-results .empty-search {
+  color: @primaryShade;
+  padding: 10px 0;
+  font-size: 20px;
+  text-align: center;
+}
+@media only screen and (max-width: 480px) {
+  .search-bar > div {
+    left: 10px;
+    right: 52px;
+    bottom: 3px;
+  }
+
+  .search-bar input {
+    font-size: 25px;
+  }
+
+  #btn-search-submit {
+    right: 0;
+  }
+
+  .search-results ul li {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .search-results ul li:hover svg {
+    display: none;
+  }
+}

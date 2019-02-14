@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0">
+
+		<link href="login.css" rel="stylesheet" />
+		<link rel="icon" type="image/png" href="favicon.png" />
+
+        <title>JLR | mBook | Sign In</title>
+	</head>
+
+	<body>
+		<div class="bg-overlay"></div>
+		<section class="login-wrapper">
+			<img class="login-logo" src="images/jlrlogo.png" alt="Jaguar Land Rover mBook" />
+			<h1 class="welcome-text">Welcome</h1>
+			<form id="loginForm" autocomplete="off">
+				<div>
+					<input id="username" placeholder="User ID" type="text" />
+				</div>
+				<div>
+					<input id="password" placeholder="Password" type="password" />
+				</div>
+				<div id="submit" class="submit-wrapper">
+					<button class="button hover">Sign In</button>
+				</div>
+			</form>
+		</section>
+
+        <script>
+            var submit   = document.getElementById("submit");
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+
+            submit.addEventListener("click", login);
+
+            function login(event)
+            {
+                event.preventDefault();
+
+                var endpoint = "https://babcocklearningsolutions.com/jlr/powertrain/mbookservice/login";
+                var ajax;
+                var post;
+
+                if (username.value.length < 1) {
+                    alert("Please enter a username")
+                    return false;
+                }
+
+                if (password.value.length < 1) {
+                    alert("Please enter a password")
+                    return false;
+                }
+
+                ajax = new XMLHttpRequest();
+                post = "username=" + username.value + "&password=" + password.value;
+
+                ajax.onreadystatechange = function()
+                {
+                    if (this.readyState == 4 && this.status == 200) {
+                        checkLogin(this);
+                    }
+                }
+
+                ajax.open("POST", endpoint, true);
+                ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                ajax.send(post);
+            }
+
+            function checkLogin(reply)
+            {
+                if (reply.responseText === "true") {
+                    window.location.href = "https://babcocklearningsolutions.com/jlr/powertrain2/book/index.php";
+                    return true;
+
+                } else {
+                    alert("Invalid login. Please check your entered details and try again.");
+                    return false;
+                }
+            }
+        </script>
+	</body>
+</html>

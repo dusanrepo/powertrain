@@ -1,0 +1,166 @@
+.contentview .audio-player {
+    margin: 0 @contentview_Margin;
+    padding: @contentPadding 0;
+
+    &.encapsulated {
+        margin: 0;
+    }
+
+    .audioWrapper {
+        margin: 0 auto;
+    }
+}
+
+.contentview .audio-player .transport {
+  position:relative;
+  height: 40px;
+//margin: 0 auto;
+//width: 320px;
+}
+
+.contentview .audio-player .transport > button {
+  position:absolute;
+  width: 60px;
+  height: 100%;
+  background: @audioplayer_ControlsBaseColour;
+  margin-right:0px;
+  top:0;
+}
+
+.contentview .audio-player .transport > button:hover {
+  background: @audioplayer_ControlsHoverColour;
+}
+
+.contentview .audio-player .transport > button.play,
+.contentview .audio-player .transport > button.pause {
+
+
+  left:0;
+}
+
+.contentview .audio-player .transport > button.stop {
+  left:60px;
+}
+
+.contentview .audio-player .transport > button svg {
+  height:100%;
+}
+
+.contentview .audio-player .cls-3 {
+  fill: @darkerShade;
+}
+
+.contentview .audio-player .midsection {
+  position:absolute;
+//width:200px;
+  height:100%;
+  background: @audioplayer_ControlsBaseColour;
+  right: 0;
+  left: 120px;
+  top: 0;
+}
+
+.contentview .audio-player .midsection button {
+  position:absolute;
+  background: transparent;
+  height: 100%;
+  width: 50px;
+}
+
+.contentview .audio-player .midsection button:hover {
+  background: @audioplayer_ControlsHoverColour;
+}
+
+.contentview .audio-player .midsection > span {
+  position:absolute;
+  font-size: 18px;
+  font-family: @secondaryFontFamily;
+}
+
+.contentview .audio-player .time-end {
+  right: 65px;
+  top: 8px;
+  text-align:right;
+  color: @darkerShade;
+}
+
+.contentview .audio-player .time-current {
+  left: 15px;
+  top: 8px;
+  text-align:left;
+  color: @darkerShade;
+}
+
+.contentview .audio-player .seeker {
+  position: absolute;
+  left: 0px;
+  right: 50px;
+  bottom: 0px;
+  height: 40px;
+//outline: 1px solid @audioplayer_SeekerBaseColour;
+  background-color: @audioplayer_SeekerBaseColour;
+  cursor:pointer;
+}
+
+.contentview .audio-player .progress {
+  height: 100%;
+  width:0%;
+  background: @audioplayer_SeekerProgressColour;
+}
+
+.contentview .audio-player .vol-button {
+  right:0;
+  bottom:0;
+  position:absolute;
+  background: transparent;
+}
+
+.contentview .audio-player .vol-container {
+  position: absolute;
+  margin-bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 5px solid rgba(0, 0, 0, 0);
+  height: 0;
+  opacity: 0;
+  overflow-y:hidden;
+  width:50px;
+  bottom:100%;
+  right:0;
+  cursor: pointer;
+  -webkit-transition: all @rolloverTime/3 linear;
+  -moz-transition: all @rolloverTime/3 linear;
+  transition: all @rolloverTime/3 linear;
+}
+
+.contentview .audio-player .vol-container.open {
+  height: 100px;
+  opacity:1;
+}
+
+.contentview .audio-player .vol-container .track {
+  position:absolute;
+  background:@darkerShade;
+  width:4px;
+  margin-left:-2px;
+  height:90%;
+  top:5%;
+  left:50%;
+}
+
+.contentview .audio-player .vol-container .slider {
+  position:absolute;
+  border-radius: 50%;
+  border: 2px solid @darkerShade;
+  width:10px;
+  height:10px;
+  left:50%;
+  margin-left:-@contentview_Margin + 1%;
+  background:@primaryShade;
+}
+
+@media only screen and (max-width: 480px) {
+  .contentview .audio-player {
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}

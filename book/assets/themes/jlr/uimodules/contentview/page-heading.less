@@ -1,0 +1,30 @@
+@import "../../rules.less";
+
+.contentview .page-heading h1 {
+    margin: 0 @contentview_Margin;
+    padding: 50px 0px 20px;
+    color: @contentview_HeadingColor;
+    font-size: @contentview_Heading1FontSize;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: @secondaryFontFamily;
+
+    &.encapsulated {
+        margin: 0;
+    }
+}
+
+.contentview .page-heading h1 span{
+  font-size: @contentview_Heading1FontSize - 15;
+}
+
+.contentview .page-heading.inverted h1 {
+  color: @primaryShade;
+}
+
+@media only screen and (max-width: 480px) {
+  .contentview .page-heading h1 {
+    margin: @contentview_MarginMobile;
+  }
+}

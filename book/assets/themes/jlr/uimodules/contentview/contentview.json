@@ -1,0 +1,11 @@
+{
+  "name": "S2L Modern Navigation content view",
+  "description": "Content view for displaying mBook pages with S2L theme applied",
+  "author": "J. Herbert",
+  "version": "0.0.1",
+  "timestamp": "2016-05-16T00:00:00",
+  "id": "contentView",
+  "styles": ["s2lmodern_contentview"],
+  "html": "s2lmodern_contentview",
+  "options": {}
+}

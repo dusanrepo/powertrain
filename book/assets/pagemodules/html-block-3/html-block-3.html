@@ -1,0 +1,79 @@
+<style>
+@font-face {
+    font-family: 'JLREmeric-SemiBold';
+    src: url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.eot');
+    src: url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.eot#iefix') format('embedded-opentype'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.woff2') format('woff2'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.woff') format('woff'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.ttf') format('truetype'), url('https://www.babcocklearningsolutions.com/jlr/powertrain2/fonts/JLREmeric-SemiBold.svg#JLREmeric-SemiBold') format('svg');
+    font-weight: 700;
+    font-style: normal
+}
+
+body {
+  margin: 0;
+  padding: 0;
+/*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+  background: #333;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* The only rule that matters */
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+/* These just style the content */
+.contentview .html-block-3 article {
+/*  just a fancy border  */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  margin: 10px;
+}
+
+.contentview .html-block-3 h1 {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: "JLREmeric-SemiBold",sans-serif;
+  text-align: center;
+}
+
+.contentview .html-block-3 h1 span {
+  font-family: "JLREmeric-SemiBold",sans-serif;
+  letter-spacing: 0;
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 24px;
+}
+
+.contentview .html-block-3 h1 span a {
+  color: #fff;
+}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+<!--  Content  -->
+<div style="height:50%">
+<article>
+  <h1>INTRODUCTION TO THE POWERTRAIN WAY<br /><span>Day 1</span></h1>
+</article>
+  
+<!--  Video is muted & autoplays, placed after major DOM elements for performance & has an image fallback  -->
+<video autoplay loop id="video-background" muted plays-inline>
+  <source src="http://localhost:8080/powertrain3/powertrain/book/assets/themes/jlr/assets/vid/front.mp4" type="video/mp4">
+</video>
+</div>

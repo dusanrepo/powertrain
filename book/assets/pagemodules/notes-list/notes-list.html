@@ -1,0 +1,14 @@
+<div data-bind="css: position, style: { 'background-color': colour }">
+  <h2 data-bind="text: title"></h2>
+  <ul data-bind="foreach: list, visible: list().length">
+    <li data-bind="attr: {id : randomID() }">
+      <button class="remove" data-bind="click: $parent.removeItem, html: $parent.removeIcon"></button>
+      <span data-bind="text: text, visible: !$parent.editMode()">
+      </span>
+    </li>
+  </ul>
+  <div class="input">
+    <textarea data-bind="value: value, valueUpdate: 'keyup'"></textarea>
+    <button data-bind="click: addItem, disable: !value(), html: addIcon">ADD</button>
+  </div>
+</div>

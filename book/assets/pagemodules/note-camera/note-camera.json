@@ -1,0 +1,32 @@
+{
+    "name": "Note Camera",
+    "description": "A web camera application for taking a single photo and storing it.",
+    "author": "Anthony Edmonds, Andrew Kent",
+    "version": "0.0.1",
+    "timestamp": "2018-08-06T00:00:00",
+    "options": {
+        "style": {
+            "main_colour": "#005a2b",
+            "font_family": "Segoe UI",
+            "font_colour": "#ffffff"
+        },
+        "output": {
+            "edge_maximum": 1280
+        },
+        "crop": {
+            "minimum_width": 30,
+            "minimum_height": 30
+        },
+        "button": {
+            "radius": 24,
+            "offset": 8
+        }
+    },
+    "converters": [
+        "two-column-block",
+        "three-column-block",
+        "tab",
+        "accordion",
+        "custom-html-block"
+    ]
+}

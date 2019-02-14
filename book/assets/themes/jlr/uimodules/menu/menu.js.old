@@ -1,0 +1,278 @@
+define(["text!./menu.html", "knockout", "jquery", "WebUtility", "jqueryTouchSwipe", "perfectScrollbar", "less!./menu"], function(htmlTemplate, ko, $, WebUtility, swipe, Ps) {
+    if (ko.bindingHandlers.slideVisible == undefined) {
+        ko.bindingHandlers.slideVisible = {
+            update: function(element, valueAccessor, allBindings) {
+                var value = valueAccessor();
+                var valueUnwrapped = ko.unwrap(value);
+                var duration = allBindings.get('slideDuration') || 400;
+
+                if (valueUnwrapped == true) {
+                    $(element).css("max-height", element.scrollHeight);
+                    var ulp = $(element).parent().parent();
+                    ulp.css("max-height", ulp[0].scrollHeight + element.scrollHeight);
+                } else {
+                    $(element).css("max-height", 0);
+                }
+            }
+        };
+    }
+
+    function viewModel(params) {
+        var self = this;
+        self.settings = params.settings;
+        var toolbox = params.settings.toolbox;
+        var options = params.config.options;
+        var mBook = params.mBook;
+        var elem = $(params.elem);
+
+        menuState = 0;
+
+        self.menuTitle = self.settings.menuTitle;
+
+        function updateImageHTML(button, url) {
+            WebUtility.FileToImageTag(params.config.assets + url, function(html) {
+                button(html);
+            });
+        }
+
+        function setCurrent(menuItem) {
+            $("ul", elem).find(".current").removeClass("current");
+            menuItem.addClass("current");
+
+            menuItem.parents("li").each(function() {
+                $(this).children("div").addClass("current");
+            });
+        }
+
+        mBook.Event("pageLoaded", function() {
+            var selected = $("ul", elem).find("div[data-pageindex='" + mBook.GetCurrentPage() + "']");
+            setCurrent(selected);
+        });
+
+        self.structure = [];
+
+        var structure = mBook.GetStructure();
+
+        self.selectedSection = ko.observable();
+
+        self.hoverIcon = ko.observable();
+        self.hoverClass = ko.observable();
+        if (self.settings.hoverIcon() != "") {
+            self.settings.hoverIcon.subscribe(function(newVal) {
+                updateImageHTML(self.hoverIcon, newVal);
+            });
+            updateImageHTML(self.hoverIcon, self.settings.hoverIcon());
+        } else {
+            self.hoverClass("hover");
+        }
+
+        self.completeIcon = ko.observable();
+        self.completeClass = ko.observable();
+        if (self.settings.completeIcon() != "") {
+            self.settings.completeIcon.subscribe(function(newVal) {
+                updateImageHTML(self.completeIcon, newVal);
+            });
+            updateImageHTML(self.completeIcon, self.settings.completeIcon());
+        } else {
+            self.completeClass("complete");
+        }
+
+        self.incompleteIcon = ko.observable();
+        self.incompleteClass = ko.observable();
+        if (self.settings.incompleteIcon() != "") {
+            self.settings.incompleteIcon.subscribe(function(newVal) {
+                updateImageHTML(self.incompleteIcon, newVal);
+            });
+            updateImageHTML(self.incompleteIcon, self.settings.incompleteIcon());
+        } else {
+            self.incompleteClass("incomplete");
+        }
+
+        self.closeButton = ko.observable();
+        if (self.settings.closeButton() != "") {
+            self.settings.closeButton.subscribe(function(newVal) {
+                updateImageHTML(self.closeButton, newVal);
+            });
+            updateImageHTML(self.closeButton, self.settings.closeButton());
+        }
+
+        for (var i = 0; i < structure.length; i++)
+            self.structure.push(section(structure[i], self, self));
+
+        //On desktop/tablet
+        if ($(window).width() > 480) {
+            $(".menu-wrapper", elem).addClass(self.settings.position());
+        } else {
+            $(".menu-wrapper", elem).addClass(self.settings.positionMobile());
+        }
+
+        $("#menu").bind("toggle", function(e) {
+            if (menuState == 0) {
+                $("#menu, .menu-wrapper, .menu-overlay").addClass("open");
+
+                menuState = 1;
+
+                if ($(window).width() > 480 && self.settings.overlayBlur()) {
+                    $("#menu").siblings().addClass("blurred");
+                }
+
+            } else if (menuState == 1) {
+                $("#menu, .menu-wrapper, .menu-overlay ").removeClass("open");
+                $(".blurred").removeClass("blurred");
+
+                menuState = 0
+            }
+
+            soundManager.play("ui-swipe");
+        });
+
+        $("#menu").bind("close", function(e) {
+            $("#menu, .menu-wrapper, .menu-overlay").removeClass("open");
+            $(".blurred").removeClass("blurred");
+            menuState = 0;
+        })
+
+        self.closeMenu = function() {
+            $("#menu").trigger("close");
+            $('.nav-buttons > button').removeClass("current");
+            $('#navigationBar').removeClass("active");
+        }
+
+        Ps.initialize($(".menu-list-wrapper", elem)[0], {
+            wheelSpeed: 1,
+            wheelPropagation: true,
+            minScrollbarLength: 20
+        });
+        $(window).resize(function() {
+            Ps.update($(".menu-list-wrapper", elem)[0]);
+        });
+
+        $(".menu-overlay").click(function() {
+            self.closeMenu();
+        });
+    }
+
+    function section(config, parent, root) {
+        var self = {
+            title: config.title,
+            pageIndex: config.pageIndex,
+            hoverIcon: root.hoverIcon,
+            hoverClass: root.hoverClass,
+            selectedSection: ko.observable(),
+            viewStatus: ko.observable(mBook.userProfile.PageGetViewedStatus(config.pageIndex)),
+            lockedStatus: mBook.userProfile.PageGetLockedStatus(config.pageIndex)
+        };
+
+        if (config.section != undefined) {
+            self.viewStatus("unviewed");
+        }
+
+        self.currentIcon = ko.computed(function() {
+
+            switch (self.viewStatus()) {
+                case "unviewed":
+                    return root.incompleteIcon();
+                    break;
+                case "viewed":
+                    return root.completeIcon();
+                    break;
+            }
+        });
+
+        self.currentClass = ko.computed(function() {
+
+            switch (self.viewStatus()) {
+                case "unviewed":
+                    return root.incompleteClass();
+                    break;
+                case "viewed":
+                    return root.completeClass();
+                    break;
+            }
+        });
+
+        function setContainerViewStatus() {
+            if (config.section != undefined) {
+                var acc = 0;
+                for (var i = 0; i < config.section.length; i++) {
+                    var status = mBook.userProfile.PageGetViewedStatus(config.section[i].pageIndex);
+                    if (status == "viewed") acc++;
+                }
+                self.viewStatus((acc == config.section.length) ? "viewed" : "unviewed");
+            }
+        }
+        setContainerViewStatus();
+
+        mBook.Event("onRefresh", function() {
+            if (self.pageIndex != undefined)
+                self.viewStatus(mBook.userProfile.PageGetViewedStatus(self.pageIndex));
+            else
+                setContainerViewStatus();
+        });
+
+        self.toggleSelection = function() {
+            //container
+            if (config.section != undefined && self.pageIndex == undefined) {
+                if (parent.selectedSection() == self)
+                    parent.selectedSection(undefined);
+                else
+                    parent.selectedSection(self);
+            }
+
+            //stand alone
+            if (config.section == undefined && self.pageIndex != undefined) {
+                parent.selectedSection(self);
+                mBook.GotoPage(self.pageIndex);
+                root.closeMenu();
+            }
+
+            //multi
+            if (config.section != undefined && self.pageIndex != undefined) {
+                if (parent.selectedSection() == self)
+                    parent.selectedSection(undefined);
+                else
+                    parent.selectedSection(self);
+                mBook.GotoPage(self.pageIndex);
+                root.closeMenu();
+            }
+
+
+        };
+
+        self.status = ko.pureComputed(function() {
+            return parent.selectedSection() == self ? "open" : "";
+        }, self);
+
+        if (config.section !== undefined) {
+            self.section = [];
+
+            for (var i = 0; i < config.section.length; i++)
+                self.section.push(section(config.section[i], self, root));
+        }
+
+        if (self.lockedStatus == undefined) {
+            self.lockedStatus = ko.computed(function()
+                {
+                    if (typeof self.section === "undefined") {
+                        return false;
+                    }
+
+                    for (var i = 0; i < self.section.length; i++) {
+                        if (self.section[i].lockedStatus == false) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            )
+        }
+
+        return self;
+    }
+
+    return {
+        viewModel: viewModel,
+        template: htmlTemplate
+    };
+});
