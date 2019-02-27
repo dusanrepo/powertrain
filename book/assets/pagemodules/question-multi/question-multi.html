@@ -18,6 +18,7 @@
 	</ul>
 	<div class="result" data-bind="questionMultiFadeVisible: complete, css: result, html: currentIcon"></div>
 	<button data-bind="disable: chosenAnswer() == null, css: {invisible: complete}, click: submit">Submit</button>
+	<button data-bind="disable: chosenAnswer() == null, css: {invisible: complete() != true || result() != 'fail' &amp;&amp; complete()}, click: retry">Retry</button>
 	<!--<div class="instruction" data-bind="css: {invisible: complete}">Select an answer and press 'Submit'</div>-->
 	<div class="feedback" data-bind="css: {invisible: !complete}, html: feedback, css: feedbackClass"></div>
 </div>

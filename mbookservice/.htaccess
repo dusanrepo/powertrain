@@ -1,7 +1,7 @@
 RewriteEngine on
 
 RewriteCond %{HTTPS} !on
-RewriteRule .* https://babcocklearningsolutions.com/powertrain/book [L]
+RewriteRule .* http://localhost/powertrain3/book [L]
 
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [QSA,NC,L]
