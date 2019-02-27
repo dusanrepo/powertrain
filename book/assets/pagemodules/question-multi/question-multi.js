@@ -151,6 +151,10 @@ define(
 
       };
 
+      self.retry = function(data) {
+        self.complete(false);
+      }
+
       self.touchSupport = ko.observable(WebUtility.IsMobile());
 
     }
