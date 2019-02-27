@@ -1,5 +1,5 @@
 define([], function() {
-    var root = "http://localhost:8080/powertrain3/powertrain/mbookservice/";
+    var root = "http://localhost:8000/powertrain3/powertrain/mbookservice/";
     return {
         addNote: function(data, handleResponse) {
             $.ajax({

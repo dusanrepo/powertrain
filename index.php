@@ -65,7 +65,7 @@
 
       function login(event) {
         event.preventDefault();
-        window.location.href = "http://localhost:8080/powertrain3/book/index.php";
+        window.location.href = "http://localhost:8000/powertrain3/book/index.php";
 
       //   var endpoint = "https://babcocklearningsolutions.com/jlr/powertrain3/mbookservice/login";
       //   var ajax;
